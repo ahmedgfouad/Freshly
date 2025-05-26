@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/product_details/data/models/add_to_cart_model.dart';
 import 'package:store/features/product_details/presentation/view/widgets/count_of_product_widget.dart';
 
 class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({super.key});
-
+  const CartItemWidget({super.key, required this.cartProduct});
+  final AddToCartModel cartProduct;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -14,12 +14,12 @@ class CartItemWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(AppImages.appleImg),
+          Image.network(cartProduct.imageUrl, width: 60),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "Red Apple",
+                cartProduct.name,
                 style: AppStyles.textStyle18.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -35,7 +35,7 @@ class CartItemWidget extends StatelessWidget {
           Row(
             children: [
               Text(
-                r"$4,99",
+                "\$${cartProduct.price}",
                 style: AppStyles.textStyle18.copyWith(
                   fontWeight: FontWeight.bold,
                 ),

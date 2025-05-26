@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/features/account/presentation/account_view.dart';
-import 'package:store/features/cart/presentation/cart_view.dart';
+import 'package:store/features/cart/presentation/view/cart_view.dart';
 import 'package:store/features/explore/presentation/manager/explore_cubit/explore_cubit.dart';
 import 'package:store/features/explore/presentation/view/explore_view.dart';
 import 'package:store/features/favorite/presentation/favorite_view.dart';

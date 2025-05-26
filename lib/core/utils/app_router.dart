@@ -7,7 +7,7 @@ import 'package:store/features/account/presentation/profile/change_password_view
 import 'package:store/features/account/presentation/profile/edit_profile_view.dart';
 import 'package:store/features/account/presentation/order/order_view.dart';
 import 'package:store/features/account/presentation/profile/profile_view.dart';
-import 'package:store/features/cart/presentation/cart_view.dart';
+import 'package:store/features/cart/presentation/view/cart_view.dart';
 import 'package:store/features/categories/presentation/views/categories_view.dart';
 import 'package:store/features/explore/presentation/view/explore_view.dart';
 import 'package:store/features/favorite/presentation/favorite_view.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
-import 'package:store/features/cart/presentation/widget/cart_item_widget.dart';
+import 'package:store/features/cart/presentation/view/widget/cart_item_widget.dart';
 
 class ListOfCartItemsWidget extends StatelessWidget {
-  const ListOfCartItemsWidget({super.key, required this.items});
-  final List items; 
+  const ListOfCartItemsWidget({super.key, required this.listOfCartProducts});
+  final List listOfCartProducts;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ListOfCartItemsWidget extends StatelessWidget {
       child: ListView.separated(
         itemBuilder:
             (context, index) => Dismissible(
-              key: ValueKey(items[index]),
+              key: ValueKey(listOfCartProducts[index]),
               background: Container(
                 decoration: BoxDecoration(
                   color: AppColors().browen,
@@ -23,10 +23,10 @@ class ListOfCartItemsWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Icon(Icons.delete_outline, color: AppColors().white),
               ),
-              child: CartItemWidget(),
+              child: CartItemWidget(cartProduct: listOfCartProducts[index]),
             ),
         separatorBuilder: (context, index) => SizedBox(height: 5),
-        itemCount: items.length,
+        itemCount: listOfCartProducts.length,
       ),
     );
   }
