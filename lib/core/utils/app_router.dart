@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store/features/account/presentation/address/addresses_veiwe.dart';
-import 'package:store/features/account/presentation/address/edit_addresses_view.dart';
-import 'package:store/features/account/presentation/address/new_addresses_view.dart';
+import 'package:store/features/account/presentation/address/views/addresses_veiwe.dart';
+import 'package:store/features/account/presentation/address/views/edit_addresses_view.dart';
+import 'package:store/features/account/presentation/address/views/new_addresses_view.dart';
 import 'package:store/features/account/presentation/profile/change_password_view.dart';
 import 'package:store/features/account/presentation/profile/edit_profile_view.dart';
 import 'package:store/features/account/presentation/order/order_view.dart';

@@ -14,11 +14,8 @@ class AddToFavoriteServicesImpl implements AddToFavoriteServices {
   @override
   Future<void> addProductToFavorite(SaveProductModel product) async {
     await firestoreServices.setData(
-      path: ApiPath.addToFavorite(uid, product.id),
+      path: ApiPath.favorites(uid, product.id),
       data: product.toMap(),
     );
   }
-
-
-  
 }

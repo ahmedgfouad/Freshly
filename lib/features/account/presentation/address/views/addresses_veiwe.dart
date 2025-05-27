@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/widgets/custom_app_bar.dart';
-import 'package:store/features/account/presentation/address/widgets/addresses_view_body.dart';
+import 'package:store/features/account/presentation/address/views/widgets/addresses_view_body.dart';
 
 class AddressesView extends StatelessWidget {
   const AddressesView({super.key});

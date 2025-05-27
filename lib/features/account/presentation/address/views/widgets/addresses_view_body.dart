@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/widgets/custom_buton.dart';
-import 'package:store/features/account/presentation/address/widgets/address_item_widget.dart';
+import 'package:store/features/account/presentation/address/views/widgets/address_item_widget.dart';
 
 class AddressesViewBody extends StatelessWidget {
   const AddressesViewBody({super.key});

@@ -22,7 +22,6 @@ class CartServicesImpl implements CartServices {
   }
 
   @override
-  Future<void> deleteMyProductCart(SaveProductModel product) async =>await
-    firestoservice.deleteData(path: ApiPath.addToCart(uid, product.id));
-  
+  Future<void> deleteMyProductCart(SaveProductModel product) async =>
+      await firestoservice.deleteData(path: ApiPath.carts(uid, product.id));
 }

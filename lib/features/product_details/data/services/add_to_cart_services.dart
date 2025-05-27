@@ -14,7 +14,7 @@ class AddToCartServicesImpl implements AddToCartServices {
   Future<void> addCartToFirestore(SaveProductModel product) async {
     final uid = AuthServicesImpl().currentUser!.uid;
     await firestoreSercises.setData(
-      path: ApiPath.addToCart(uid, product.id),
+      path: ApiPath.carts(uid, product.id),
       data: product.toMap(),
     );
   }

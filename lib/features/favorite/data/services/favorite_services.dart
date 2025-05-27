@@ -23,6 +23,6 @@ class FavoriteServicesImpl implements FavoriteServices {
   @override
   Future<void> deleteProductFromFavorite(SaveProductModel product) async =>
       await firestoreServices.deleteData(
-        path: ApiPath.addToFavorite(uid, product.id),
+        path: ApiPath.favorites(uid, product.id),
       );
 }
