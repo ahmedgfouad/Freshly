@@ -1,15 +1,21 @@
-
-class AddToCartModel {
+class SaveProductModel {
   final String id;
   final String productId;
   final String name;
   final String category;
   final String imageUrl;
-  final String price; 
+  final String price;
   final String quantity;
 
-  AddToCartModel({required this.id, required this.productId, required this.name, required this.category, required this.imageUrl, required this.price, required this.quantity}); 
-
+  SaveProductModel({
+    required this.id,
+    required this.productId,
+    required this.name,
+    required this.category,
+    required this.imageUrl,
+    required this.price,
+    required this.quantity,
+  });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -23,8 +29,11 @@ class AddToCartModel {
     };
   }
 
-  factory AddToCartModel.fromMap(Map<String, dynamic> map,String documentId) {
-    return AddToCartModel(
+  factory SaveProductModel.fromMap(
+    Map<String, dynamic> map,
+    String documentId,
+  ) {
+    return SaveProductModel(
       id: documentId,
       productId: map['productId'] as String,
       name: map['name'] as String,
@@ -34,6 +43,4 @@ class AddToCartModel {
       quantity: map['quantity'] as String,
     );
   }
-
-
 }

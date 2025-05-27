@@ -5,7 +5,7 @@ import 'package:store/features/account/presentation/account_view.dart';
 import 'package:store/features/cart/presentation/view/cart_view.dart';
 import 'package:store/features/explore/presentation/manager/explore_cubit/explore_cubit.dart';
 import 'package:store/features/explore/presentation/view/explore_view.dart';
-import 'package:store/features/favorite/presentation/favorite_view.dart';
+import 'package:store/features/favorite/presentation/view/favorite_view.dart';
 import 'package:store/features/shop/presentation/manager/cubit/shop_cubit.dart';
 import 'package:store/features/shop/presentation/views/shop_view.dart';
 

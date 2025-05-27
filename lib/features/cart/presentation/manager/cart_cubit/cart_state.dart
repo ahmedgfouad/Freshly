@@ -1,4 +1,4 @@
-import 'package:store/features/product_details/data/models/add_to_cart_model.dart';
+import 'package:store/features/home/data/models/save_product_model.dart';
 
 sealed class CartState {}
 
@@ -7,7 +7,7 @@ final class CartInitial extends CartState {}
 final class CartLoadingState extends CartState {}
 
 final class CartSuccsessState extends CartState {
-  final  List<AddToCartModel> myProductsCart;
+  final List<SaveProductModel> myProductsCart;
 
   CartSuccsessState(this.myProductsCart);
 }
@@ -16,4 +16,14 @@ final class CartFailedState extends CartState {
   final String error;
 
   CartFailedState(this.error);
+}
+
+final class DeleteCartLoadingState extends CartState {}
+
+final class DeleteCartSuccessState extends CartState {}
+
+final class DeleteCartFailedState extends CartState {
+  final String error;
+
+  DeleteCartFailedState(this.error); 
 }

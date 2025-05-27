@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
-import 'package:store/features/product_details/data/models/add_to_cart_model.dart';
+import 'package:store/features/home/data/models/save_product_model.dart';
 import 'package:store/features/product_details/presentation/view/widgets/count_of_product_widget.dart';
 
 class CartItemWidget extends StatelessWidget {
   const CartItemWidget({super.key, required this.cartProduct});
-  final AddToCartModel cartProduct;
+  final SaveProductModel cartProduct;
   @override
   Widget build(BuildContext context) {
     return Card(

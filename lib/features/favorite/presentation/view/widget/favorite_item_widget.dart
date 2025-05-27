@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/home/data/models/save_product_model.dart';
 
 class FavoriteItemWidget extends StatelessWidget {
-  const FavoriteItemWidget({super.key});
+  const FavoriteItemWidget({super.key, required this.product});
+
+  final SaveProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +16,12 @@ class FavoriteItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Image.asset(AppImages.appleImg),
+          Image.network(product.imageUrl, width: 70),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "Red Apple",
+                product.name,
                 style: AppStyles.textStyle18.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -45,7 +47,7 @@ class FavoriteItemWidget extends StatelessWidget {
           Row(
             children: [
               Text(
-                r"$4,99",
+                "\$${product.price}",
                 style: AppStyles.textStyle18.copyWith(
                   fontWeight: FontWeight.bold,
                 ),

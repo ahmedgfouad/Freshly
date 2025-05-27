@@ -12,19 +12,25 @@ class NewAddressViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: CustomTextFormFieldWidget(hintText: "Address Title"),
+            child: CustomTextFormFieldWidget(hintText: "Governorate / City"),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 20)),
           SliverToBoxAdapter(
-            child: CustomTextFormFieldWidget(hintText: "Name Surname"),
+            child: CustomTextFormFieldWidget(hintText: "Street Name"),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 20)),
           SliverToBoxAdapter(
-            child: CustomTextFormFieldWidget(hintText: "City"),
+            child: CustomTextFormFieldWidget(
+              hintText: "Building Number / Floor / Apartment",
+            ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 20)),
           SliverToBoxAdapter(
-            child: CustomTextFormFieldWidget(hintText: "Address"),
+            child: CustomTextFormFieldWidget(hintText: "Nearest Landmark"),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 20)),
+          SliverToBoxAdapter(
+            child: CustomTextFormFieldWidget(hintText: "Phone Number"),
           ),
           SliverFillRemaining(
             hasScrollBody: false,

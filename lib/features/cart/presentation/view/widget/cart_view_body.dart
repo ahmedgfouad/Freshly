@@ -18,6 +18,7 @@ class CartViewBody extends StatelessWidget {
       bloc: cartCubit,
       buildWhen:
           (previous, current) =>
+              current is DeleteCartSuccessState ||
               current is CartSuccsessState ||
               current is CartSuccsessState ||
               current is CartFailedState,
@@ -50,7 +51,7 @@ class CartViewBody extends StatelessWidget {
                 subTitle: "Start filling your shopping cart",
               );
         } else {
-          return Text("data");
+          return Text("data in  cart");
         }
       },
     );

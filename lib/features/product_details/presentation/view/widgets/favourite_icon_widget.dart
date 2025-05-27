@@ -1,31 +1,50 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
+import 'package:store/core/widgets/custom_loading_indecator.dart';
+import 'package:store/features/home/data/models/save_product_model.dart';
+import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_state.dart';
+import 'package:store/features/product_details/presentation/manager/add_to_favorite_cubit/add_to_favorite_cubit.dart';
+import 'package:store/features/product_details/presentation/manager/add_to_favorite_cubit/add_to_favorite_state.dart';
 
-class FavouriteIconWidet extends StatefulWidget {
-  const FavouriteIconWidet({super.key});
-
-  @override
-  State<FavouriteIconWidet> createState() => _FavouriteIconWidetState();
-}
-
-class _FavouriteIconWidetState extends State<FavouriteIconWidet> {
-  bool isFavorite = false;
+class FavouriteIconWidet extends StatelessWidget {
+  const FavouriteIconWidet({super.key, required this.product});
+  final SaveProductModel product;
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        isFavorite = !isFavorite;
-        setState(() {});
+    final addToFavoriteCubit = BlocProvider.of<AddToFavoriteCubit>(context);
+    return BlocBuilder<AddToFavoriteCubit, AddToFavoriteState>(
+      bloc: addToFavoriteCubit,
+      buildWhen:
+          (previous, current) =>
+              current is AddToCartInitial ||
+              current is AddToFavoriteLoadingState ||
+              current is AddToFavoriteSuccessState ||
+              current is AddToFavoriteFailedState,
+      builder: (context, state) {
+        if (state is AddToFavoriteLoadingState) {
+          return CustomLoadingIndecator();
+        } else if (state is AddToFavoriteFailedState) {
+          return Text(state.error);
+        } else if (state is AddToFavoriteSuccessState ||
+            state is AddToFavoriteInitial) {
+          return IconButton(
+            onPressed: () async {
+              await addToFavoriteCubit.addToFavorite(product);
+            },
+            icon:
+                addToFavoriteCubit.isFavorite
+                    ? Icon(Icons.favorite, size: 35, color: AppColors().orange)
+                    : Icon(
+                      Icons.favorite_border,
+                      size: 35,
+                      color: AppColors().orange,
+                    ),
+          );
+        } else {
+          return Text("error");
+        }
       },
-      icon:
-          isFavorite
-              ? Icon(Icons.favorite, size: 35, color: AppColors().orange)
-              : Icon(
-                Icons.favorite_border,
-                size: 35,
-                color: AppColors().orange,
-              ),
     );
   }
 }

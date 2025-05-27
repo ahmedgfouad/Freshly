@@ -5,9 +5,10 @@ import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/home/data/models/product_model.dart';
-import 'package:store/features/product_details/data/models/add_to_cart_model.dart';
+import 'package:store/features/home/data/models/save_product_model.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_state.dart';
+import 'package:store/features/product_details/presentation/manager/add_to_favorite_cubit/add_to_favorite_cubit.dart';
 import 'package:store/features/product_details/presentation/view/widgets/count_of_product_widget.dart';
 import 'package:store/features/product_details/presentation/view/widgets/favourite_icon_widget.dart';
 
@@ -18,7 +19,7 @@ class ProductDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final addToCardCubit = BlocProvider.of<AddToCartCubit>(context);
-    final productModel = AddToCartModel(
+    final productModel = SaveProductModel(
       id: documentIdFromLocalData(),
       productId: product.id,
       name: product.name,
@@ -50,7 +51,10 @@ class ProductDetailsViewBody extends StatelessWidget {
               CountOfProdutWidget(
                 width: MediaQuery.of(context).size.width / 1.3,
               ),
-              FavouriteIconWidet(),
+              BlocProvider(
+                create: (context) => AddToFavoriteCubit(),
+                child: FavouriteIconWidet(product: productModel),
+              ),
             ],
           ),
           Spacer(),

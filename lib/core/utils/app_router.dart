@@ -10,7 +10,7 @@ import 'package:store/features/account/presentation/profile/profile_view.dart';
 import 'package:store/features/cart/presentation/view/cart_view.dart';
 import 'package:store/features/categories/presentation/views/categories_view.dart';
 import 'package:store/features/explore/presentation/view/explore_view.dart';
-import 'package:store/features/favorite/presentation/favorite_view.dart';
+import 'package:store/features/favorite/presentation/view/favorite_view.dart';
 import 'package:store/features/home/data/models/product_model.dart';
 import 'package:store/features/home/presentation/view/home_view.dart';
 import 'package:store/features/product_details/presentation/view/product_details_view.dart';
