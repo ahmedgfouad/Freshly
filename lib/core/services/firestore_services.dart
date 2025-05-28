@@ -11,8 +11,8 @@ class FirestoreServices {
     required Map<String, dynamic> data,
   }) async {
     final refrence = _fireStore.doc(path);
-    debugPrint("Request Data $data");
     refrence.set(data);
+    
   }
 
   Future<void> deleteData({required String path}) async {

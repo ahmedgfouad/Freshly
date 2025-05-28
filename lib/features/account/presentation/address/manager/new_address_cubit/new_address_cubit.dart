@@ -11,7 +11,7 @@ class NewAddressCubit extends Cubit<NewAddressState> {
   Future<void> addNewAddress(AddressModel address) async {
     emit(NewAddressLoadingState());
     try {
-      await newAddressServices.addNewAddress(address);
+      await newAddressServices.setNewAddress(address);
       emit(NewAddressSuccessState());
     } catch (e) {
       emit(NewAddressFailedState(e.toString()));
