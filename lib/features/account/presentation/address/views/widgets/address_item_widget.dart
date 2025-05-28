@@ -1,56 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/account/data/models/address_model.dart';
 
-class AddressItemWidget extends StatefulWidget {
-  const AddressItemWidget({
-    super.key,
-    required this.title,
-    required this.subTitle,
-    required this.icon,
-  });
-
-  final String title, subTitle;
-  final IconData? icon;
-
-  @override
-  State<AddressItemWidget> createState() => _AddressItemWidgetState();
-}
-
-class _AddressItemWidgetState extends State<AddressItemWidget> {
-  bool isTap = false;
+class AddressItemWidget extends StatelessWidget {
+  const AddressItemWidget({super.key, required this.address});
+  final AddressModel address;
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: isTap ? 8 : 0,
-      color: Colors.white,
+    return Card(
+      color: AppColors().ofWhite,
       child: InkWell(
         onTap: () {
-          isTap = !isTap;
-          setState(() {});
-          navigateTo(AppRouter.kEditAddressesView, context);
+          GoRouter.of(
+            context,
+          ).push(AppRouter.kEditAddressesView, extra: address);
         },
-        child: Row(
-          children: [
-            Icon(widget.icon, color: AppColors().browen, size: 30),
-            SizedBox(width: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.title,
-                  style: AppStyles.textStyle18.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(Icons.location_on, color: AppColors().browen, size: 30),
+              SizedBox(width: 20),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      address.city,
+                      style: AppStyles.textStyle18.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      address.streetName,
+                      style: AppStyles.textStyle14,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                    Text(
+                      "${address.phoneNumber}   ${address.nearestLandmark} ",
+                      style: AppStyles.textStyle14,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  ],
                 ),
-                Text(widget.subTitle, style: AppStyles.textStyle14),
-              ],
-            ),
-            Spacer(),
-            Icon(Icons.edit_location_alt, color: AppColors().browen),
-          ],
+              ),
+
+              Icon(Icons.edit_location_alt, color: AppColors().browen),
+            ],
+          ),
         ),
       ),
     );

@@ -3,14 +3,21 @@ import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
 
 class CustomTextFormFieldWidget extends StatelessWidget {
-   const CustomTextFormFieldWidget({super.key, required this.hintText,this.controller});
+  const CustomTextFormFieldWidget({
+    super.key,
+    required this.hintText,
+    this.controller,
+    this.keyboardType,
+  });
 
   final String hintText;
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
       controller: controller,
       cursorColor: AppColors().orange,
       validator: (value) {

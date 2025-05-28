@@ -64,6 +64,7 @@ class _SignUpBodyWidgetState extends State<SignUpBodyWidget> {
               ),
               SizedBox(height: 17),
               CustomTextFormFieldWidget(
+                keyboardType: TextInputType.emailAddress,
                 hintText: 'Email',
                 controller: emailController,
               ),

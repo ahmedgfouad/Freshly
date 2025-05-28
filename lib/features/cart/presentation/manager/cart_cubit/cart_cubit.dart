@@ -6,13 +6,13 @@ import 'package:store/features/home/data/models/save_product_model.dart';
 
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(CartInitial()) {
-    _startListeningToCart();
+    getAllProductInMyCart();
   }
 
   final cartService = CartServicesImpl();
   StreamSubscription? _cartSubscription;
 
-  void _startListeningToCart() {
+  void getAllProductInMyCart() {
     emit(CartLoadingState());
 
     _cartSubscription = cartService.getMyProductsCart().listen(

@@ -13,13 +13,12 @@ class CartServicesImpl implements CartServices {
   final uid = AuthServicesImpl().currentUser!.uid;
 
   @override
-  Stream<List<SaveProductModel>> getMyProductsCart() {
-    return firestoservice.collectionsStram(
-      path: ApiPath.myProductsCart(uid),
-      builder:
-          (data, documentId) => SaveProductModel.fromMap(data!, documentId),
-    );
-  }
+  Stream<List<SaveProductModel>> getMyProductsCart() =>
+      firestoservice.collectionsStram(
+        path: ApiPath.myProductsCart(uid),
+        builder:
+            (data, documentId) => SaveProductModel.fromMap(data!, documentId),
+      );
 
   @override
   Future<void> deleteMyProductCart(SaveProductModel product) async =>

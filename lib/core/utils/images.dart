@@ -20,4 +20,5 @@ class AppImages {
   static const order3Img = 'assets/order3.svg';
   static const orderEmptyImg = 'assets/order_empty.svg';
   static const e3lan1Img = 'assets/e3lan1.svg';
+  static const addressImg = 'assets/address.svg';
 }

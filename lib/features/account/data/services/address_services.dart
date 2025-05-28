@@ -5,6 +5,9 @@ import 'package:store/features/registeration/data/services/auth_services.dart';
 
 abstract class AddressServices {
   Future<void> addNewAddress(AddressModel address);
+  Stream<List<AddressModel>> getAddresses();
+
+  Future<void> deleteAddress(AddressModel address);
 }
 
 class AddressServicesImpl implements AddressServices {
@@ -16,5 +19,18 @@ class AddressServicesImpl implements AddressServices {
       await firestoreservices.setData(
         path: ApiPath.addresses(uid, address.id),
         data: address.toMap(),
+      );
+
+  @override
+  Stream<List<AddressModel>> getAddresses() =>
+      firestoreservices.collectionsStram(
+        path: ApiPath.myAddresses(uid),
+        builder: (data, documentId) => AddressModel.fromMap(data!, documentId),
+      );
+
+  @override
+  Future<void> deleteAddress(AddressModel address) async =>
+      await firestoreservices.deleteData(
+        path: ApiPath.addresses(uid, address.id),
       );
 }

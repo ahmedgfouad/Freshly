@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:store/features/account/data/models/address_model.dart';
 import 'package:store/features/account/presentation/address/views/addresses_veiwe.dart';
 import 'package:store/features/account/presentation/address/views/edit_addresses_view.dart';
 import 'package:store/features/account/presentation/address/views/new_addresses_view.dart';
@@ -103,19 +104,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kEditAddressesView,
-        builder: (context, state) => EditAddressesView(),
-      ),
-
-      // GoRoute(
-      //   path: kBookDetailsView,
-      //   builder:
-      //       (context, state) => BlocProvider(
-      //         create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImp>()),
-      //         child: BookDetailsView(
-      //           bookModel: state.extra as BookModel,
-      //         ),
-      //       ),
-      // ),
+        builder: (context, state) {
+          final address = state.extra as AddressModel;
+          return EditAddressesView(address: address);
+        },
+      ), 
     ],
   );
 }

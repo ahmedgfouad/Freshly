@@ -1,9 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_textformfield_widget.dart';
+import 'package:store/features/account/data/models/address_model.dart';
 
 class EditAddressesViewBody extends StatelessWidget {
-  const EditAddressesViewBody({super.key});
+  const EditAddressesViewBody({super.key, required this.address});
+
+    final AddressModel address;
+
 
   @override
   Widget build(BuildContext context) {
