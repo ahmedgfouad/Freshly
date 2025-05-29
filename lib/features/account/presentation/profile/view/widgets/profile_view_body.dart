@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:store/features/account/presentation/profile/widgets/app_settings_options_secton_widget.dart';
-import 'package:store/features/account/presentation/profile/widgets/profile_options_section_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/app_settings_options_secton_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/profile_options_section_widget.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});

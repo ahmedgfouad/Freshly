@@ -7,10 +7,12 @@ class ChangePasswordTextformFieldWidget extends StatefulWidget {
     super.key,
     required this.hintName,
     this.isObscureText = true,
+    this.controller,
   });
 
   final String hintName;
   bool isObscureText;
+  TextEditingController? controller;
 
   @override
   State<ChangePasswordTextformFieldWidget> createState() =>
@@ -22,11 +24,18 @@ class _PasswordTextFormFieldWidgetState
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your ${widget.hintName}';
+        }
+        return null;
+      },
+      controller: widget.controller,
       cursorColor: AppColors().orange,
       obscureText: widget.isObscureText,
       decoration: InputDecoration(
         suffixIconColor: AppColors().orange,
-        prefixIcon: Icon(Icons.lock,color: AppColors().orange,),
+        prefixIcon: Icon(Icons.lock, color: AppColors().orange),
         suffixIcon: IconButton(
           onPressed: () {
             widget.isObscureText = !widget.isObscureText;

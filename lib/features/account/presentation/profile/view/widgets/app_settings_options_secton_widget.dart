@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/utils/styles.dart';
-import 'package:store/features/account/presentation/profile/widgets/language_option_widget.dart';
-import 'package:store/features/account/presentation/profile/widgets/logout_option_widget.dart';
-import 'package:store/features/account/presentation/profile/widgets/notification_option_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/language_option_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/logout_option_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/notification_option_widget.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
 

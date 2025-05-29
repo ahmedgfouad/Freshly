@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
-import 'package:store/features/account/presentation/profile/widgets/switch_icon_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/switch_icon_widget.dart';
 
 class NotificationOptionWidget extends StatelessWidget {
   const NotificationOptionWidget({

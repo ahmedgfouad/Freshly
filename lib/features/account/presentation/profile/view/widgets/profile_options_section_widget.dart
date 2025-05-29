@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
-import 'package:store/features/account/presentation/profile/widgets/profile_option_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/profile_option_widget.dart';
 
 class ProfileOptionsSectionWidget extends StatelessWidget {
   const ProfileOptionsSectionWidget({super.key});
