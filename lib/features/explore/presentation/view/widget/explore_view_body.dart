@@ -5,29 +5,29 @@ import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/custom_search_text_form_field.dart';
-import 'package:store/features/explore/presentation/manager/explore_cubit/explore_cubit.dart';
-import 'package:store/features/explore/presentation/manager/explore_cubit/explore_state.dart';
+import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
+import 'package:store/features/home/presentation/manager/home_cubit/home_state.dart';
 
 class ExploreViewBody extends StatelessWidget {
   const ExploreViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final explorecubit = BlocProvider.of<ExploreCubit>(context);
-    return BlocBuilder<ExploreCubit, ExploreState>(
+    final explorecubit = BlocProvider.of<HomeCubit>(context);
+    return BlocBuilder<HomeCubit, HomeState>(
       bloc: explorecubit,
       buildWhen:
           (previous, current) =>
-              current is ExploreLoading ||
-              current is ExploreSuccess ||
-              current is ExploreFailed,
+              current is CatrgoriesLoading ||
+              current is CatrgoriesSuccess ||
+              current is CatrgoriesFailed,
       builder: (context, state) {
-        if (state is ExploreLoading) {
+        if (state is CatrgoriesLoading) {
           return CustomLoadingIndecator();
-        } else if (state is ExploreFailed) {
+        } else if (state is CatrgoriesFailed) {
           return Text(state.error);
-        } else if (state is ExploreSuccess) {
-          final explores = state.explore;
+        } else if (state is CatrgoriesSuccess) {
+          final explores = state.catrgories;
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: SingleChildScrollView(
@@ -43,7 +43,7 @@ class ExploreViewBody extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     children: List.generate(explores.length, (index) {
                       return GestureDetector(
-                        onTap: () { 
+                        onTap: () {
                           GoRouter.of(context).push(
                             AppRouter.kCategoriesView,
                             extra: explores[index].name,

@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/features/account/presentation/account_view.dart';
 import 'package:store/features/cart/presentation/view/cart_view.dart';
-import 'package:store/features/explore/presentation/manager/explore_cubit/explore_cubit.dart';
 import 'package:store/features/explore/presentation/view/explore_view.dart';
 import 'package:store/features/favorite/presentation/view/favorite_view.dart';
-import 'package:store/features/shop/presentation/manager/cubit/shop_cubit.dart';
+import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:store/features/shop/presentation/views/shop_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -23,17 +22,17 @@ class _HomeViewState extends State<HomeView> {
     List<Widget> screen = [
       BlocProvider(
         create: (context) {
-          final cubit = ShopCubit();
+          final cubit = HomeCubit();
           cubit.getShopProducts();
-          
+          cubit.getCategories();
           return cubit;
         },
         child: ShopView(),
       ),
       BlocProvider(
         create: (context) {
-          final cubit = ExploreCubit();
-          cubit.getExplore();
+          final cubit = HomeCubit();
+          cubit.getCategories();
           return cubit;
         },
         child: ExploreView(),

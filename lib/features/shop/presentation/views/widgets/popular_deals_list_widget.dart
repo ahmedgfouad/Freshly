@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/product_info_cart_widget.dart';
-import 'package:store/features/shop/presentation/manager/cubit/shop_cubit.dart';
-import 'package:store/features/shop/presentation/manager/cubit/shop_state.dart';
+import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
+import 'package:store/features/home/presentation/manager/home_cubit/home_state.dart';
 
 class PopularDealsListWidget extends StatelessWidget {
   const PopularDealsListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final shopCubit = BlocProvider.of<ShopCubit>(context);
-    return BlocBuilder<ShopCubit, ShopState>(
+    final shopCubit = BlocProvider.of<HomeCubit>(context);
+    return BlocBuilder<HomeCubit, HomeState>(
       bloc: shopCubit,
       buildWhen:
           (previous, current) =>
