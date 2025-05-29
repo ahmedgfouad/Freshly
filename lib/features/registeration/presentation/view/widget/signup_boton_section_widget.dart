@@ -1,0 +1,78 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/core/utils/app_router.dart';
+import 'package:store/core/utils/colors.dart';
+import 'package:store/core/utils/navigator.dart';
+import 'package:store/core/widgets/custom_buton.dart';
+import 'package:store/core/widgets/custom_loading_indecator.dart';
+import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
+import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
+
+class SignupBotonSectionWidget extends StatelessWidget {
+  const SignupBotonSectionWidget({
+    super.key, 
+    required this.formKey,
+    required this.emailController,
+    required this.passwordController,
+    required this.nameController,
+  });
+
+  
+  final GlobalKey<FormState> formKey;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final TextEditingController nameController;
+
+  @override
+  Widget build(BuildContext context) {
+        final authCubit = BlocProvider.of<AuthCubit>(context); 
+    return BlocConsumer<AuthCubit, AuthState>(
+      bloc: authCubit,
+      listenWhen:
+          (previous, current) =>
+              current is SignupSuccessState ||
+              current is SignupFailedState,
+      listener: (context, state) {
+        if (state is SignupSuccessState) {
+          navigateAndReplacement(AppRouter.kHomeView, context);
+        } else if (state is SignupFailedState) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text("error in auth")));
+        }
+      },
+      buildWhen:
+          (previous, current) =>
+              current is AuthInitial ||
+              current is SignupLoadingState ||
+              current is SignupSuccessState ||
+              current is SignupFailedState,
+      builder: (context, state) {
+        if (state is SignupFailedState) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text("error in auth")));
+        }
+        if (state is AuthInitial) {
+          return CustomButon(
+            bacgrouncColor: AppColors().orange,
+            textColor: AppColors().white,
+            text: "Sign Up",
+            onPressed: () async {
+              if (formKey.currentState!.validate()) {
+                await authCubit.signup(
+                  emailController.text,
+                  passwordController.text,
+                  nameController.text,
+                );
+              }
+            },
+          );
+        } else {
+          return CustomLoadingIndecator();
+        }
+      },
+    );
+  }
+}

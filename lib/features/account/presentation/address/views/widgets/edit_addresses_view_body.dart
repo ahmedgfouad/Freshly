@@ -1,11 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/widgets/custom_buton.dart';
-import 'package:store/core/widgets/custom_loading_indecator.dart';
-import 'package:store/core/widgets/custom_textformfield_widget.dart';
 import 'package:store/features/account/data/models/address_model.dart';
-import 'package:store/features/account/presentation/address/manager/edit_address_cubit/edit_address_cubit.dart';
-import 'package:store/features/account/presentation/address/manager/edit_address_cubit/edit_address_state.dart';
+import 'package:store/features/account/presentation/address/views/widgets/edit_addresses_field_section_widget.dart';
+import 'package:store/features/account/presentation/address/views/widgets/update_address_buton_sedtin_widget.dart';
 
 class EditAddressesViewBody extends StatefulWidget {
   const EditAddressesViewBody({super.key, required this.address});
@@ -22,6 +18,7 @@ class _EditAddressesViewBodyState extends State<EditAddressesViewBody> {
   final buildingNumberController = TextEditingController();
   final nearestLandmarkController = TextEditingController();
   final phoneNumberController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -45,89 +42,38 @@ class _EditAddressesViewBodyState extends State<EditAddressesViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    final editaddressCubit = BlocProvider.of<EditAddressCubit>(context);
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                CustomTextFormFieldWidget(
-                  hintText: "Governorate / City",
-                  controller: cityController,
-                ),
-                SizedBox(height: 20),
-                CustomTextFormFieldWidget(
-                  hintText: "Street Name",
-                  controller: streetNameController,
-                ),
-                SizedBox(height: 20),
-                CustomTextFormFieldWidget(
-                  hintText: "Building Number / Floor / Apartment",
-                  controller: buildingNumberController,
-                ),
-                SizedBox(height: 20),
-                CustomTextFormFieldWidget(
-                  hintText: "Nearest Landmark",
-                  controller: nearestLandmarkController,
-                ),
-                SizedBox(height: 20),
-                CustomTextFormFieldWidget(
-                  keyboardType: TextInputType.phone,
-                  hintText: "Phone Number",
-                  controller: phoneNumberController,
-                ),
-              ],
+    return Form(
+      key: formKey,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: EditAddressesFieldSectionWidger(
+                cityController: cityController,
+                streetNameController: streetNameController,
+                buildingNumberController: buildingNumberController,
+                nearestLandmarkController: nearestLandmarkController,
+                phoneNumberController: phoneNumberController,
+              ),
             ),
-          ),
-          BlocConsumer<EditAddressCubit, EditAddressState>(
-            bloc: editaddressCubit,
-            listenWhen:
-                (previous, current) => current is EditAddressSuccessState,
-            listener: (context, state) { 
-              Navigator.of(context).pop();
-            },
-            buildWhen:
-                (previous, current) =>
-                    current is EditAddressInitial ||
-                    current is EditAddressLoadingState ||
-                    current is EditAddressSuccessState ||
-                    current is EditAddressFailedState,
-            builder: (context, state) {
-              if (state is EditAddressLoadingState) {
-                return CustomLoadingIndecator();
-              } else if (state is EditAddressFailedState) {
-                return Text(state.error);
-              } else if (state is EditAddressInitial ||
-                  state is EditAddressSuccessState) {
-                return SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: CustomButon(
-                      text: "Update Address",
-                      onPressed: () async {
-                        await editaddressCubit.editAddress(
-                          AddressModel(
-                            id: widget.address.id,
-                            city: cityController.text,
-                            streetName: streetNameController.text,
-                            buildinNumber: buildingNumberController.text,
-                            nearestLandmark: nearestLandmarkController.text,
-                            phoneNumber: phoneNumberController.text,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                );
-              } else {
-                return CustomLoadingIndecator();
-              }
-            },
-          ),
-        ],
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: UpdateAddressButonSectionWiget(
+                  formKey: formKey,
+                  id: widget.address.id,
+                  cityController: cityController,
+                  streetNameController: streetNameController,
+                  buildingNumberController: buildingNumberController,
+                  nearestLandmarkController: nearestLandmarkController,
+                  phoneNumberController: phoneNumberController,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
