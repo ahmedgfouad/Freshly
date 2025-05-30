@@ -3,7 +3,10 @@ import 'package:store/features/home/data/models/product_model.dart';
 
 sealed class HomeState {}
 
-final class ShopInitial extends HomeState {}
+final class HomeInitial extends HomeState {}
+final class BottomNavState extends HomeState {}
+
+
 
 final class ShopLoading extends HomeState {}
 

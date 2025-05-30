@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
@@ -36,9 +37,9 @@ class ExploreViewBody extends StatelessWidget {
                   CustomSearchTextFormFieldWidget(),
                   SizedBox(height: 10),
                   GridView.count(
-                    crossAxisCount: 3, // 3 صور في الصف
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 20,
+                    crossAxisCount: 2, // 3 صور في الصف
+                    mainAxisSpacing: 20.h,
+                    crossAxisSpacing: 5.w,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     children: List.generate(explores.length, (index) {

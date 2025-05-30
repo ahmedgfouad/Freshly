@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/images.dart';
 import 'package:store/core/widgets/custom_emty_page_widget.dart';
 import 'package:store/core/widgets/custom_tab_bar_view_widget.dart';
@@ -11,14 +12,14 @@ class OrderViewBodey extends StatelessWidget {
 
   final List<Widget> tabs = [
     Container(
-      width: 100,
+      width: 100.w,
       alignment: Alignment.centerLeft,
-      child: Tab(text: "Ongoing"),
+      child: const Tab(text: "Ongoing"),
     ),
     Container(
-      width: 100,
+      width: 100.w,
       alignment: Alignment.centerRight,
-      child: Tab(text: "History"),
+      child: const Tab(text: "History"),
     ),
   ];
   final isOrderNotEmpty = true;
@@ -27,11 +28,11 @@ class OrderViewBodey extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: DefaultTabController(
-        length: 5,
+        length: 2,
         child: Column(
           children: [
             CustomTabBarWidget(tabs: tabs),
-            SizedBox(height: 20),
+           const  SizedBox(height: 20),
             CustomTabBarViewWiget(
               tabBarViewlist: [
                 isOrderNotEmpty
@@ -41,7 +42,6 @@ class OrderViewBodey extends StatelessWidget {
                       title:
                           "There is n ongoing order right now. You can order from home",
                       subTitle: "",
-                      isOrderView: true,
                     ),
                 ListOfItemOrdersHistoryWidget(),
               ],

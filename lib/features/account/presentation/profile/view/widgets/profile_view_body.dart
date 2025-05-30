@@ -9,13 +9,15 @@ class ProfileViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 10, top: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ProfileOptionsSectionWidget(),
-          SizedBox(height: 20),
-          AppSettingsOptionsSectonWidget(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            ProfileOptionsSectionWidget(),
+             SizedBox(height: 20),
+            AppSettingsOptionsSectonWidget(),
+          ],
+        ),
       ),
     );
   }

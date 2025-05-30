@@ -17,10 +17,8 @@ class GridOfProductInfoCartWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         return Container(
           padding: EdgeInsets.only(top: index.isEven ? 0 : 20),
-          height: index.isEven ? 190 : 220, // عشان ندي شكل staggered
-          child: ProductInfoCartWidget(
-            product: products[index],
-          ),
+          height: index.isEven ? 230 : 290, // عشان ندي شكل staggered
+          child: ProductInfoCartWidget(product: products[index]),
         );
       },
     );

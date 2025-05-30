@@ -16,7 +16,7 @@ class CarouselSliderWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: CarouselSlider(
         options: CarouselOptions(
-          height: 140,
+          height: MediaQuery.of(context).size.height / 5,
           autoPlay: true,
           autoPlayInterval: Duration(seconds: 4),
           enlargeCenterPage: false,

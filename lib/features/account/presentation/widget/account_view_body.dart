@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/features/account/presentation/widget/account_option_widget.dart';
@@ -19,7 +20,7 @@ class AccountViewBody extends StatelessWidget {
               navigateTo(AppRouter.kProfileView, context);
             },
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 30.h),
           AccountOptionWidget(
             icon: Icons.shopping_basket_outlined,
             title: "Orders",
@@ -27,7 +28,7 @@ class AccountViewBody extends StatelessWidget {
               navigateTo(AppRouter.kOrderssView, context);
             },
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 30.h),
           AccountOptionWidget(
             icon: Icons.location_on,
             title: "Address",
@@ -35,14 +36,13 @@ class AccountViewBody extends StatelessWidget {
               navigateTo(AppRouter.kAddressesView, context);
             },
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 30.h),
           AccountOptionWidget(
             icon: Icons.payment,
             title: "Payment",
             onPressed: () {},
           ),
-          SizedBox(height: 30),
-          
+          SizedBox(height: 30.h),
         ],
       ),
     );

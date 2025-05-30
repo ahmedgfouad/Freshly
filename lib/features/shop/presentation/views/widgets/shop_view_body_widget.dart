@@ -10,19 +10,29 @@ class ShopViewBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          CarouselSliderWidget(),
-          SizedBox(height: 15),
-          CategoriesTextWidget(),
-          CategoriesListWidget(),
-          SizedBox(height: 15),
-          PopularDealsTextWidget(),
-          SizedBox(height: 15),
-          PopularDealsListWidget(),
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              CarouselSliderWidget(),
+              SizedBox(height: 15),
+              CategoriesTextWidget(),
+              CategoriesListWidget(),
+              SizedBox(height: 15),
+              PopularDealsTextWidget(),
+              SizedBox(height: 15),
+            ],
+          ),
+        ),
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: PopularDealsListWidget(),
+          ),
+        ),
+      ],
     );
   }
 }

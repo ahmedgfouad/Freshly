@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
@@ -18,11 +19,10 @@ class ProductInfoCartWidget extends StatelessWidget {
         ).push(AppRouter.kProductDetailsView, extra: product);
       },
       child: Container(
-        width: 150,
-        height: 164,
+        width: MediaQuery.of(context).size.width / 2.3,
         padding: EdgeInsets.symmetric(horizontal: 11),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -37,12 +37,17 @@ class ProductInfoCartWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Image.network(product.imageUrl, width: 70, height: 70),
+              child: Image.network(
+                product.imageUrl,
+                width: MediaQuery.of(context).size.width / 3,
+                height: MediaQuery.of(context).size.height / 6,
+                fit: BoxFit.contain,
+              ),
             ),
             Spacer(),
             Text(
               product.name,
-              style: AppStyles.textStyle14.copyWith(
+              style: AppStyles.textStyle18.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -58,13 +63,10 @@ class ProductInfoCartWidget extends StatelessWidget {
               children: [
                 Text(
                   "\$ ${product.price}",
-                  style: AppStyles.textStyle18.copyWith(
-                    color: AppColors().orange,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppStyles.textStyle22,
                 ),
                 CircleAvatar(
-                  radius: 15,
+                  radius: 15.r,
                   backgroundColor: AppColors().green,
                   child: Icon(Icons.add, color: AppColors().white),
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/constants.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
@@ -50,22 +51,22 @@ class _NewAddressViewBodyState extends State<NewAddressViewBody> {
                     hintText: "Governorate / City",
                     controller: cityController,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
                     hintText: "Street Name",
                     controller: streetNameController,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
                     hintText: "Building Number / Floor / Apartment",
                     controller: buildingNumberController,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
                     hintText: "Nearest Landmark",
                     controller: nearestLandmarkController,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
                     keyboardType: TextInputType.phone,
                     hintText: "Phone Number",

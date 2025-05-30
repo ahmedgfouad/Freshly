@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:store/features/account/presentation/profile/view/widgets/change_password_button_serction_widget.dart'; 
+import 'package:store/features/account/presentation/profile/view/widgets/change_password_button_serction_widget.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/change_password_field_section_widget.dart';
-
 
 class ChangePasswordBody extends StatefulWidget {
   const ChangePasswordBody({super.key});
@@ -32,7 +31,7 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
         padding: const EdgeInsets.only(
           left: 15,
           right: 15,
-          top: 20,
+          top: 40,
           bottom: 30,
         ),
         child: CustomScrollView(

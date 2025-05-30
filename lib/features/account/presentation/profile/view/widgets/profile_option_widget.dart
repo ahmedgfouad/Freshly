@@ -19,7 +19,7 @@ class ProfileOptionWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(icon, color: AppColors().browen, size: 30),
-        SizedBox(width: 15),
+        const SizedBox(width: 15),
         TextButton(
           onPressed: onPressed,
           child: Text(

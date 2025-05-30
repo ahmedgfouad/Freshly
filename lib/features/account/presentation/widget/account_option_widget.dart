@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
 
@@ -20,12 +21,12 @@ class AccountOptionWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(icon, color: AppColors().orange, size: 30),
-        SizedBox(width: 15),
+        SizedBox(width: 10.w),
         TextButton(
-          onPressed:onPressed,
+          onPressed: onPressed,
           child: Text(
             title,
-            style: AppStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+            style: AppStyles.textStyle22.copyWith(color: AppColors().browen),
           ),
         ),
       ],

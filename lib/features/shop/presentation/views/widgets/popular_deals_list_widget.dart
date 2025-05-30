@@ -26,7 +26,7 @@ class PopularDealsListWidget extends StatelessWidget {
         } else if (state is ShopSuccess) {
           final products = state.products;
           return SizedBox(
-            height: 164,
+            height: MediaQuery.of(context).size.height / 3.3,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder:

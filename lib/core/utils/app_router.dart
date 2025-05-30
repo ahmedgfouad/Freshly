@@ -14,6 +14,7 @@ import 'package:store/features/explore/presentation/view/explore_view.dart';
 import 'package:store/features/favorite/presentation/view/favorite_view.dart';
 import 'package:store/features/home/data/models/product_model.dart';
 import 'package:store/features/home/presentation/view/home_view.dart';
+import 'package:store/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:store/features/product_details/presentation/view/product_details_view.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
@@ -64,7 +65,7 @@ abstract class AppRouter {
       GoRoute(path: kWelcomView, builder: (context, state) => WelcomView()),
       GoRoute(path: kLogInView, builder: (context, state) => LogInView()),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
-      GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
+      GoRoute(path: kHomeView, builder: (context, state) => HomeViewBody()),
       GoRoute(path: kShopView, builder: (context, state) => ShopView()),
       GoRoute(path: kExploreView, builder: (context, state) => ExploreView()),
       GoRoute(path: kCartView, builder: (context, state) => CartView()),
@@ -108,7 +109,7 @@ abstract class AppRouter {
           final address = state.extra as AddressModel;
           return EditAddressesView(address: address);
         },
-      ), 
+      ),
     ],
   );
 }

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/firebase_options.dart';
@@ -22,11 +23,16 @@ class MyApp extends StatelessWidget {
         cubit.authStatus();
         return cubit;
       },
-      child: MaterialApp.router(
-        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-        debugShowCheckedModeBanner: false,
-        title: 'Stroe App', 
-        routerConfig:  AppRouter.router,
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        child: MaterialApp.router(
+          theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+          debugShowCheckedModeBanner: false,
+          title: 'Stroe App',
+          routerConfig: AppRouter.router,
+        ),
       ),
     );
   }

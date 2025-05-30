@@ -3,8 +3,15 @@ import 'package:store/features/home/data/services/home_services.dart';
 import 'package:store/features/home/presentation/manager/home_cubit/home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(ShopInitial());
+  HomeCubit() : super(HomeInitial());
   final shopServices = HomeServicesImpl();
+
+  int currentIndex = 0;
+  void changeIndex(int index) {
+    currentIndex = index;
+    emit(BottomNavState());
+  }
+
   Future<void> getShopProducts() async {
     emit(ShopLoading());
     try {

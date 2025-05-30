@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/widgets/custom_textformfield_widget.dart';
 
 class EditAddressesFieldSectionWidger extends StatelessWidget {
@@ -26,22 +26,22 @@ class EditAddressesFieldSectionWidger extends StatelessWidget {
           hintText: "Governorate / City",
           controller: cityController,
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 30.h),
         CustomTextFormFieldWidget(
           hintText: "Street Name",
           controller: streetNameController,
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 30.h),
         CustomTextFormFieldWidget(
           hintText: "Building Number / Floor / Apartment",
           controller: buildingNumberController,
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 30.h),
         CustomTextFormFieldWidget(
           hintText: "Nearest Landmark",
           controller: nearestLandmarkController,
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 30.h),
         CustomTextFormFieldWidget(
           keyboardType: TextInputType.phone,
           hintText: "Phone Number",

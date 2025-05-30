@@ -23,7 +23,7 @@ class AddressesSectionWidget extends StatelessWidget {
               current is AddressesLoadingState ||
               current is AddressesSuccessState ||
               current is AddressesFailedState,
-      builder: (context, state) {
+      builder: (context, state) { 
         if (state is AddressesLoadingState) {
           return CustomLoadingIndecator();
         } else if (state is AddressesFailedState) {
@@ -43,7 +43,7 @@ class AddressesSectionWidget extends StatelessWidget {
                 ),
               );
         } else {
-          return Text("error");
+          return CustomLoadingIndecator();
         }
       },
     );

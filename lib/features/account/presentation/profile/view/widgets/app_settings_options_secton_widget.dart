@@ -19,19 +19,19 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("App Settings", style: AppStyles.textStyle22),
-        SizedBox(height: 20),
+      const  SizedBox(height: 20),
         NotificationOptionWidget(
           icon: Icons.notifications,
           title: 'Notifications',
           onPressed: () {},
         ),
-        SizedBox(height: 20),
+      const  SizedBox(height: 20),
         LanguageOptionWidget(
           icon: Icons.g_translate_sharp,
           title: "Language",
           onPressed: () {},
         ),
-        SizedBox(height: 20),
+      const  SizedBox(height: 20),
         BlocConsumer<AuthCubit, AuthState>(
           bloc: authCubit,
           listenWhen:
@@ -59,7 +59,7 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
                 },
               );
             } else {
-              return Text("error");
+              return const Text("error");
             }
           },
         ),

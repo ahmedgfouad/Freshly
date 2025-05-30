@@ -17,7 +17,7 @@ class ProfileOptionsSectionWidget extends StatelessWidget {
             navigateTo(AppRouter.kEditProfileView, context);
           },
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         ProfileOptionWidget(
           icon: Icons.key_outlined,
           title: "Change Password",
@@ -25,7 +25,7 @@ class ProfileOptionsSectionWidget extends StatelessWidget {
             navigateTo(AppRouter.kChangePasswordView, context);
           },
         ),
-        SizedBox(height: 10),
+       const SizedBox(height: 10),
         ProfileOptionWidget(
           icon: Icons.payment,
           title: "My Cards",
