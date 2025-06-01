@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -37,8 +38,8 @@ class ProductInfoCartWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Image.network(
-                product.imageUrl,
+              child: CachedNetworkImage(
+                imageUrl: product.imageUrl,
                 width: MediaQuery.of(context).size.width / 3,
                 height: MediaQuery.of(context).size.height / 6,
                 fit: BoxFit.contain,
@@ -61,10 +62,7 @@ class ProductInfoCartWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "\$ ${product.price}",
-                  style: AppStyles.textStyle22,
-                ),
+                Text("\$ ${product.price}", style: AppStyles.textStyle22),
                 CircleAvatar(
                   radius: 15.r,
                   backgroundColor: AppColors().green,

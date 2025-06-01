@@ -8,6 +8,13 @@ class AddToCartCubit extends Cubit<AddToCartState> {
 
   final addToCartServices = AddToCartServicesImpl();
 
+  double quantity = 1;
+  void changeQuantity(double value) {
+    emit(AddToCartInitial());
+    quantity = value;
+    emit(ChangeQuantitySuccessState());
+  }
+
   Future<void> addCartToFirestore(SaveProductModel product) async {
     emit(AddToCartLoadingState());
     try {

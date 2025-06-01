@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
@@ -30,7 +29,7 @@ class ListOfCartItemsWidget extends StatelessWidget {
             state is CartSuccsessState) {
           return SizedBox(
             height: MediaQuery.of(context).size.height / 1.5,
-            child: ListView.separated(
+            child: ListView.builder(
               itemBuilder:
                   (context, index) => Dismissible(
                     onDismissed: (v) {
@@ -53,7 +52,6 @@ class ListOfCartItemsWidget extends StatelessWidget {
                       cartProduct: listOfCartProducts[index],
                     ),
                   ),
-              separatorBuilder: (context, index) => SizedBox(height: 20.h),
               itemCount: listOfCartProducts.length,
             ),
           );

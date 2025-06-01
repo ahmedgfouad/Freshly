@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
@@ -16,7 +17,7 @@ class FavoriteItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Image.network(product.imageUrl, width: 70),
+          CachedNetworkImage(imageUrl: product.imageUrl, width: 70),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

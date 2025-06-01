@@ -24,8 +24,8 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
 
   @override
   void dispose() {
-    super.dispose();
     animationController.dispose();
+    super.dispose();
   }
 
   @override

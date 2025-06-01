@@ -1,59 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_cubit.dart';
+import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_state.dart';
 
-class CountOfProdutWidget extends StatefulWidget {
-   final double width; // Assuming you want to pass width as a parameter
+class CountOfProdutWidget extends StatelessWidget {
+  final double width; // Assuming you want to pass width as a parameter
 
   const CountOfProdutWidget({super.key, required this.width});
-  
 
-  @override
-  State<CountOfProdutWidget> createState() => _CountOfProdutWidgetState();
-}
-
-class _CountOfProdutWidgetState extends State<CountOfProdutWidget> {
-  int count = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width:widget.width,
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      height: 50,
-      decoration: BoxDecoration(
-        color: AppColors().ofWhite,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: AppColors().orange,
-            child: IconButton(
-              onPressed: () {
-                count++;
-                setState(() {});
-              },
-              icon: Icon(Icons.add, color: AppColors().white),
+    final addToCardCubit = BlocProvider.of<AddToCartCubit>(context);
+    return BlocBuilder<AddToCartCubit, AddToCartState>(
+      bloc: addToCardCubit,
+      buildWhen:
+          (previous, current) =>
+              current is AddToCartInitial ||
+              current is ChangeQuantitySuccessState,
+      builder: (context, state) {
+        if (state is AddToCartInitial || state is ChangeQuantitySuccessState) {
+          return Container(
+            width: width,
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            height: 50,
+            decoration: BoxDecoration(
+              color: AppColors().ofWhite,
+              borderRadius: BorderRadius.circular(20),
             ),
-          ),
-          Text("$count", style: AppStyles.textStyle18),
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: AppColors().orange,
-            child: IconButton(
-              onPressed: () {
-                if (count > 0) {
-                  count--;
-                  setState(() {});
-                }
-              },
-              icon: Icon(Icons.remove, color: AppColors().white),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CircleAvatar(
+                  radius: 20,
+                  backgroundColor: AppColors().orange,
+                  child: IconButton(
+                    onPressed: () {
+                      addToCardCubit.changeQuantity(
+                        addToCardCubit.quantity + 1,
+                      );
+                    },
+                    icon: Icon(Icons.add, color: AppColors().white),
+                  ),
+                ),
+                Text(
+                  "${addToCardCubit.quantity}",
+                  style: AppStyles.textStyle18,
+                ),
+                CircleAvatar(
+                  radius: 20,
+                  backgroundColor: AppColors().orange,
+                  child: IconButton(
+                    onPressed: () {
+                      if (addToCardCubit.quantity > 1) {
+                        addToCardCubit.changeQuantity(
+                          addToCardCubit.quantity - 1,
+                        );
+                      }
+                    },
+                    icon: Icon(Icons.remove, color: AppColors().white),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
+          );
+        } else {
+          return SizedBox();
+        }
+      },
     );
   }
-} 
+}

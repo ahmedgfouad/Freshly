@@ -62,9 +62,5 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       emit(LogoutFailedState(e.toString()));
     }
-  }
-
-  // Future<void> setUserData(UserModel userData) async {
-  //   await authServices.setUserData(userData);
-  // }
+  } 
 }

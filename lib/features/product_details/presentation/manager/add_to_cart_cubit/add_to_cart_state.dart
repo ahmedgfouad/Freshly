@@ -13,3 +13,5 @@ final class AddToCartFailedState extends AddToCartState {
   AddToCartFailedState(this.error); 
 
 }
+
+final class ChangeQuantitySuccessState extends AddToCartState {}

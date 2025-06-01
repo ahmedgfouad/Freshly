@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/utils/app_router.dart';
-import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/language_option_widget.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/logout_option_widget.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/notification_option_widget.dart';
@@ -19,31 +18,21 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("App Settings", style: AppStyles.textStyle22),
-      const  SizedBox(height: 20),
+        const SizedBox(height: 20),
         NotificationOptionWidget(
           icon: Icons.notifications,
           title: 'Notifications',
           onPressed: () {},
         ),
-      const  SizedBox(height: 20),
+        const SizedBox(height: 20),
         LanguageOptionWidget(
           icon: Icons.g_translate_sharp,
           title: "Language",
           onPressed: () {},
         ),
-      const  SizedBox(height: 20),
-        BlocConsumer<AuthCubit, AuthState>(
+        const SizedBox(height: 20),
+        BlocBuilder<AuthCubit, AuthState>(
           bloc: authCubit,
-          listenWhen:
-              (previous, current) =>
-                  current is LoginSuccessState ||
-                  current is SignupSuccessState ||
-                  current is AuthInitial,
-          listener: (context, state) {
-            if (state is AuthInitial) {
-              navigateAndReplacement(AppRouter.kWelcomView, context);
-            }
-          },
           buildWhen:
               (previous, current) =>
                   current is LoginSuccessState ||
@@ -58,6 +47,8 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
                   await authCubit.logout();
                 },
               );
+            } else if (state is AuthInitial) {
+              return CustomLoadingIndecator();
             } else {
               return const Text("error");
             }
@@ -66,4 +57,9 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
       ],
     );
   }
-}
+} 
+
+/*
+ahmedgamal@gmail.com
+ahmedgamal
+*/
