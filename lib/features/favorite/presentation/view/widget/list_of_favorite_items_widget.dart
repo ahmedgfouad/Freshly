@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
+import 'package:store/features/cart/presentation/view/widget/cart_item_widget.dart';
 import 'package:store/features/favorite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:store/features/favorite/presentation/manager/favorite_cubit/favorite_state.dart';
-import 'package:store/features/favorite/presentation/view/widget/favorite_item_widget.dart';
 import 'package:store/features/home/data/models/save_product_model.dart';
 
 class ListOfFavoriteItemsWidget extends StatelessWidget {
@@ -51,7 +51,7 @@ class ListOfFavoriteItemsWidget extends StatelessWidget {
                         color: AppColors().white,
                       ),
                     ),
-                    child: FavoriteItemWidget(product: items[index]),
+                    child: CartItemWidget(product: items[index]),
                   ),
               separatorBuilder: (context, index) => SizedBox(height: 20.h),
               itemCount: items.length,

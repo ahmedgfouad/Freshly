@@ -48,9 +48,7 @@ class ListOfCartItemsWidget extends StatelessWidget {
                         color: AppColors().white,
                       ),
                     ),
-                    child: CartItemWidget(
-                      cartProduct: listOfCartProducts[index],
-                    ),
+                    child: CartItemWidget(product: listOfCartProducts[index]),
                   ),
               itemCount: listOfCartProducts.length,
             ),

@@ -28,7 +28,7 @@ class CartViewBody extends StatelessWidget {
         } else if (state is CartFailedState) {
           return Center(child: Text("failed"));
         } else if (state is CartSuccsessState) {
-          final productsCart = state.myProductsCart;
+          final productsCart = state.myProductsCart; 
           return productsCart.isNotEmpty
               ? CustomScrollView(
                 slivers: [
