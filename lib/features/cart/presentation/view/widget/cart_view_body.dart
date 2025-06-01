@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/images.dart';
+import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_emty_page_widget.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
@@ -28,20 +30,41 @@ class CartViewBody extends StatelessWidget {
         } else if (state is CartFailedState) {
           return Center(child: Text("failed"));
         } else if (state is CartSuccsessState) {
-          final productsCart = state.myProductsCart; 
+          final productsCart = state.myProductsCart;
+          num totalP = 0;
+          for (var element in productsCart) {
+            totalP = totalP + element.totalPrice;
+          }
           return productsCart.isNotEmpty
-              ? CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
+              ? Column(
+                children: [
+                  Expanded(
                     child: ListOfCartItemsWidget(
                       listOfCartProducts: productsCart,
                     ),
                   ),
-                  SliverFillRemaining(
-                    hasScrollBody: false,
-                    child: Align(
-                      child: CustomButon(text: "Check Out", onPressed: () {}),
-                    ),
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Total Price ",
+                            style: AppStyles.textStyle20.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "$totalP ُEGP",
+                            style: AppStyles.textStyle20.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: AppColors().orange,
+                            ),
+                          ),
+                        ],
+                      ),
+                      CustomButon(text: "Check Out", onPressed: () {}),
+                    ],
                   ),
                 ],
               )

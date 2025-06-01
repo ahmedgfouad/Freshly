@@ -37,9 +37,10 @@ class HomeCubit extends Cubit<HomeState> {
       final cachedData = box.get('products');
       if (cachedData != null) {
         final cachedProducts =
-            (cachedData as List)
-                .map((item) => ProductModel.fromMap(item, item['id']))
-                .toList();
+            (cachedData as List).map((item) {
+              final map = Map<String, dynamic>.from(item);
+              return ProductModel.fromMap(map, map['id']);
+            }).toList();
 
         emit(ShopSuccess(cachedProducts));
       } else {
@@ -47,7 +48,6 @@ class HomeCubit extends Cubit<HomeState> {
       }
     }
   }
-
 
   Future<void> getCategories() async {
     emit(CatrgoriesLoading());
@@ -69,7 +69,6 @@ class HomeCubit extends Cubit<HomeState> {
 
       emit(CatrgoriesSuccess(categories));
     } catch (e) {
-
       final cachedData = box.get('categories');
       if (cachedData != null) {
         final cachedCategories =

@@ -68,7 +68,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                       style: AppStyles.textStyle18,
                     ),
                     Text(
-                      " Total Price : ${int.parse(product.price) * addToCardCubit.quantity} /EGP",
+                      " Total Price : ${product.price * addToCardCubit.quantity} /EGP",
                       style: AppStyles.textStyle14,
                     ),
                   ],
@@ -92,9 +92,8 @@ class ProductDetailsViewBody extends StatelessWidget {
                           category: product.category,
                           imageUrl: product.imageUrl,
                           price: product.price,
-                          quantity: addToCardCubit.quantity.toString(),
-                          totalPrice:
-                              "${int.parse(product.price) * addToCardCubit.quantity}",
+                          quantity: addToCardCubit.quantity,
+                          totalPrice: product.price * addToCardCubit.quantity,
                         ),
                       ),
                     ),
@@ -112,8 +111,9 @@ class ProductDetailsViewBody extends StatelessWidget {
                         category: product.category,
                         imageUrl: product.imageUrl,
                         price: product.price,
-                        quantity: addToCardCubit.quantity.toString(),
-                         totalPrice: "${int.parse(product.price) * addToCardCubit.quantity}",
+                        quantity: addToCardCubit.quantity,
+                        totalPrice:
+                            product.price * addToCardCubit.quantity,
                       ),
                     );
                     // navigateTo(AppRouter.kCartView, context);

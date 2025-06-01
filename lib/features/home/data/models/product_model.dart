@@ -4,7 +4,7 @@
   final String category;
   final String imageUrl;
   final String aboute;
-  final String price;
+  final num price;
 
   ProductModel({
     required this.id,
@@ -33,7 +33,7 @@
       category: map['category'] as String,
       imageUrl: map['imageUrl'] as String,
       aboute: map['aboute'] as String,
-      price: map['price'] as String,
+      price: map['price'] as num,
     );
   }
 

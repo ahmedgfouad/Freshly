@@ -4,9 +4,9 @@ class SaveProductModel {
   final String name;
   final String category;
   final String imageUrl;
-  final String price;
-  final String quantity;
-  final String totalPrice;
+  final num price;
+  final num quantity;
+  final num totalPrice;
 
   SaveProductModel({
     required this.id,
@@ -42,9 +42,9 @@ class SaveProductModel {
       name: map['name'] as String,
       category: map['category'] as String,
       imageUrl: map['imageUrl'] as String,
-      price: map['price'] as String,
-      quantity: map['quantity'] as String,
-      totalPrice: map['totalPrice'] as String,
+      price: map['price'] as num,
+      quantity: map['quantity'] as num,
+      totalPrice: map['totalPrice'] as num,
     );
   }
 }
