@@ -19,6 +19,7 @@ class PopularDealsListWidget extends StatelessWidget {
               current is ShopSuccess ||
               current is ShopFailed,
       builder: (context, state) {
+        // print(state);
         if (state is ShopLoading) {
           return CustomLoadingIndecator();
         } else if (state is ShopFailed) {
@@ -37,7 +38,7 @@ class PopularDealsListWidget extends StatelessWidget {
             ),
           );
         } else {
-          return CustomLoadingIndecator();
+          return Text("error");
         }
       },
     );

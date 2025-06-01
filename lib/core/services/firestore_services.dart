@@ -12,7 +12,6 @@ class FirestoreServices {
   }) async {
     final refrence = _fireStore.doc(path);
     refrence.set(data);
-    
   }
 
   Future<void> deleteData({required String path}) async {
@@ -35,7 +34,7 @@ class FirestoreServices {
     required T Function(Map<String, dynamic> data, String documentId) builder,
     Query Function(Query query)? queryBuilder,
     int Function(T lhs, T rhs)? sort,
-  }) async {
+  }) async { 
     Query query = _fireStore.collection(path);
     if (queryBuilder != null) {
       query = queryBuilder(query);
@@ -52,8 +51,9 @@ class FirestoreServices {
             .toList();
 
     if (sort != null) {
-      result.sort();
+      result.sort(sort);
     }
+
     return result;
   }
 

@@ -11,11 +11,12 @@ abstract class HomeServices {
 class HomeServicesImpl implements HomeServices {
   final firestorService = FirestoreServices.instance;
   @override
-  Future<List<ProductModel>> getProducts() async =>
-      await firestorService.getCollection(
+  Future<List<ProductModel>> getProducts() async {
+    return await firestorService.getCollection(
         path: ApiPath.products(),
         builder: (data, documentId) => ProductModel.fromMap(data, documentId),
       );
+  }
 
   @override
   Future<List<CateroryModel>> getCategories() async =>
