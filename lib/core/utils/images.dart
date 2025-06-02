@@ -8,5 +8,5 @@ class AppImages {
   static const order3Img = 'assets/order3.svg';
   static const orderEmptyImg = 'assets/order_empty.svg';
   static const addressImg = 'assets/address.svg';
-  static const favImg = 'assets/Group.png';
+  static const favImg = 'assets/school.png';
 }

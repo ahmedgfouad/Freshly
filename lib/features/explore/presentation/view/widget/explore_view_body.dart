@@ -6,16 +6,16 @@ import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/custom_search_text_form_field.dart';
-import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
-import 'package:store/features/home/presentation/manager/home_cubit/home_state.dart';
+import 'package:store/features/shop/presentation/manager/categories_cubit/categories_cubit.dart';
+import 'package:store/features/shop/presentation/manager/categories_cubit/categories_state.dart';
 
 class ExploreViewBody extends StatelessWidget {
   const ExploreViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final explorecubit = BlocProvider.of<HomeCubit>(context);
-    return BlocBuilder<HomeCubit, HomeState>(
+    final explorecubit = BlocProvider.of<CategoriesCubit>(context);
+    return BlocBuilder<CategoriesCubit,CategoriesState>(
       bloc: explorecubit,
       buildWhen:
           (previous, current) =>

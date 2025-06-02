@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/features/shop/presentation/manager/categories_cubit/categories_cubit.dart';
+import 'package:store/features/shop/presentation/manager/popular_cubit/popular_cubit.dart';
 import 'package:store/features/shop/presentation/views/widgets/carousel_slider_widget.dart';
 import 'package:store/features/shop/presentation/views/widgets/categories_list_widget.dart';
 import 'package:store/features/shop/presentation/views/widgets/categories_text_widget.dart';
@@ -18,7 +21,14 @@ class ShopViewBodyWidget extends StatelessWidget {
               CarouselSliderWidget(),
               SizedBox(height: 15),
               CategoriesTextWidget(),
-              CategoriesListWidget(),
+              BlocProvider(
+                create: (context) {
+                  final cubit = CategoriesCubit();
+                  cubit.getCategories();
+                  return cubit;
+                },
+                child: CategoriesListWidget(),
+              ),
               SizedBox(height: 15),
               PopularDealsTextWidget(),
               SizedBox(height: 15),
@@ -29,7 +39,14 @@ class ShopViewBodyWidget extends StatelessWidget {
           hasScrollBody: false,
           child: Align(
             alignment: Alignment.bottomCenter,
-            child: PopularDealsListWidget(),
+            child: BlocProvider(
+              create: (context) {
+                final cubit = PopularCubit();
+                cubit.getShopProducts();
+                return cubit;
+              },
+              child: PopularDealsListWidget(),
+            ),
           ),
         ),
       ],

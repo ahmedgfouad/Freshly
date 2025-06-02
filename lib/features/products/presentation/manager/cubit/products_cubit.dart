@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/features/categories/data/services/category_services.dart';
-import 'package:store/features/categories/presentation/manager/cubit/category_state.dart';
+import 'package:store/features/products/data/services/category_services.dart';
+import 'package:store/features/products/presentation/manager/cubit/products_state.dart';
 
-class CategoryCubit extends Cubit<CategoryState> {
-  CategoryCubit() : super(CategoryInitial());
+class ProductsCubit extends Cubit<ProductsState> {
+  ProductsCubit() : super(CategoryInitial());
   final categoryService = CategoryServicesImpl();
   Future<void> getCategoryProducts({required String categoryName}) async {
     emit(CategoryLoading());

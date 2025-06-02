@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/widgets/custom_app_bar.dart';
-import 'package:store/features/categories/presentation/manager/cubit/category_cubit.dart';
-import 'package:store/features/categories/presentation/views/widgets/categories_view_body.dart';
+import 'package:store/features/products/presentation/manager/cubit/products_cubit.dart';
+import 'package:store/features/products/presentation/views/widgets/products_view_body.dart';
 
-class CategoriesView extends StatelessWidget {
-  const CategoriesView({super.key, required this.categoryName});
+class ProductsView extends StatelessWidget {
+  const ProductsView({super.key, required this.categoryName});
 
   final String categoryName;
 
@@ -15,11 +15,11 @@ class CategoriesView extends StatelessWidget {
       appBar: customAppBar(title: "Products", context: context),
       body: BlocProvider(
         create: (context) {
-          final cubit = CategoryCubit();
+          final cubit = ProductsCubit();
           cubit.getCategoryProducts(categoryName: categoryName);
           return cubit;
         },
-        child: CategoriesViewBody(),
+        child: ProductsViewBody(),
       ),
     );
   }

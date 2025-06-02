@@ -9,7 +9,7 @@ import 'package:store/features/account/presentation/profile/view/edit_profile_vi
 import 'package:store/features/account/presentation/order/order_view.dart';
 import 'package:store/features/account/presentation/profile/view/profile_view.dart';
 import 'package:store/features/cart/presentation/view/cart_view.dart';
-import 'package:store/features/categories/presentation/views/categories_view.dart';
+import 'package:store/features/products/presentation/views/products_view.dart';
 import 'package:store/features/explore/presentation/view/explore_view.dart';
 import 'package:store/features/favorite/presentation/view/favorite_view.dart';
 import 'package:store/features/home/data/models/product_model.dart';
@@ -73,7 +73,7 @@ abstract class AppRouter {
         path: kCategoriesView,
         builder: (context, state) {
           final cateroryName = state.extra as String;
-          return CategoriesView(categoryName: cateroryName);
+          return ProductsView(categoryName: cateroryName);
         },
       ),
       GoRoute(path: kProfileView, builder: (context, state) => ProfileView()),

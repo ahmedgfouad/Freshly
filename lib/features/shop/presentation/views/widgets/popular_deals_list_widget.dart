@@ -2,28 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/product_info_cart_widget.dart';
-import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
-import 'package:store/features/home/presentation/manager/home_cubit/home_state.dart';
+import 'package:store/features/shop/presentation/manager/popular_cubit/popular_cubit.dart';
+import 'package:store/features/shop/presentation/manager/popular_cubit/popular_state.dart';
 
 class PopularDealsListWidget extends StatelessWidget {
   const PopularDealsListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final shopCubit = BlocProvider.of<HomeCubit>(context);
-    return BlocBuilder<HomeCubit, HomeState>(
+    final shopCubit = BlocProvider.of<PopularCubit>(context);
+    return BlocBuilder<PopularCubit,PopularState>(
       bloc: shopCubit,
       buildWhen:
           (previous, current) =>
-              current is ShopLoading ||
-              current is ShopSuccess ||
-              current is ShopFailed,
+              current is PopularLoadingState ||
+              current is PopularSuccessState ||
+              current is PopularFailedState,
       builder: (context, state) {
-        if (state is ShopLoading) {
+        if (state is PopularLoadingState) {
           return CustomLoadingIndecator();
-        } else if (state is ShopFailed) {
+        } else if (state is PopularFailedState) {
           return Center(child: Text(state.error));
-        } else if (state is ShopSuccess) {
+        } else if (state is PopularSuccessState) {
           final products = state.products;
           return SizedBox(
             height: MediaQuery.of(context).size.height / 3.3,

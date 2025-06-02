@@ -12,9 +12,7 @@ class HomeView extends StatelessWidget {
       body: SafeArea(
         child: BlocProvider(
           create: (context) {
-            final cubit = HomeCubit();
-            cubit.getCategories();
-            cubit.getShopProducts();
+            final cubit = HomeCubit();  
             return cubit;
           },
           child: HomeViewBody(),
