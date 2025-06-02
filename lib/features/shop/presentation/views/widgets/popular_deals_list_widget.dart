@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/product_info_cart_widget.dart';
 import 'package:store/features/shop/presentation/manager/popular_cubit/popular_cubit.dart';
 import 'package:store/features/shop/presentation/manager/popular_cubit/popular_state.dart';
+import 'package:store/features/shop/presentation/views/widgets/custom_popular_loading_widget.dart';
 
 class PopularDealsListWidget extends StatelessWidget {
   const PopularDealsListWidget({super.key});
@@ -20,7 +20,7 @@ class PopularDealsListWidget extends StatelessWidget {
               current is PopularFailedState,
       builder: (context, state) {
         if (state is PopularLoadingState) {
-          return CustomLoadingIndecator();
+          return CustomPopularLoadingWidget();
         } else if (state is PopularFailedState) {
           return Center(child: Text(state.error));
         } else if (state is PopularSuccessState) {
@@ -37,9 +37,11 @@ class PopularDealsListWidget extends StatelessWidget {
             ),
           );
         } else {
-          return Text("error");
+          return CustomPopularLoadingWidget();
         }
       },
     );
   }
 }
+
+
