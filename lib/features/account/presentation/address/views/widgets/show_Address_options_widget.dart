@@ -1,10 +1,9 @@
- // ignore_for_file: file_names 
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/utils/styles.dart';
-import 'package:store/features/account/presentation/address/views/widgets/new_addresses_use_google_map_body.dart';
 
 void showAddressOptionsWidget(BuildContext context) {
   showModalBottomSheet(
@@ -41,11 +40,7 @@ void showAddressOptionsWidget(BuildContext context) {
               ),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => NewAddressesUseGoogleMapBody(),
-                  ),
-                );
+                navigateTo(AppRouter.kNewAddressesUseGoogleMapView, context);
               },
             ),
           ],

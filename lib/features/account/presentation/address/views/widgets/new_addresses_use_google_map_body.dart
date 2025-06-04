@@ -1,132 +1,53 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_drawing_tools/google_maps_drawing_tools.dart';
+import 'package:store/core/widgets/custom_buton.dart';
+import 'package:store/features/account/presentation/address/manager/location_cubit/location_cubit.dart';
+import 'package:store/features/account/presentation/address/manager/location_cubit/location_state.dart';
 
-class NewAddressesUseGoogleMapBody extends StatefulWidget {
+class NewAddressesUseGoogleMapBody extends StatelessWidget {
   const NewAddressesUseGoogleMapBody({super.key});
 
   @override
-  State<NewAddressesUseGoogleMapBody> createState() =>
-      _NewAddressesUseGoogleMapBodyState();
-}
-
-class _NewAddressesUseGoogleMapBodyState
-    extends State<NewAddressesUseGoogleMapBody> {
-  @override
-  void initState() {
-    getPer();
-    getLatAndLong();
-    super.initState();
-  }
-
-  late Position cl;
-  var lat;
-  var long;
-  CameraPosition? _kGooglePlex;
-  Future getPer() async {
-    bool services;
-    LocationPermission per;
-
-    services = await Geolocator.isLocationServiceEnabled();
-
-    if (services == false) {
-      ScaffoldMessenger.of(
-        // ignore: use_build_context_synchronously
-        context,
-      ).showSnackBar(SnackBar(content: Text("Servics not enabled")));
-    }
-
-    per = await Geolocator.checkPermission();
-    if (per == LocationPermission.denied) {
-      per = await Geolocator.requestPermission();
-    }
-    if (per == LocationPermission.always) {
-      getLatAndLong();
-    }
-    return per;
-  }
-
-  Future<void> getLatAndLong() async {
-    cl = await Geolocator.getCurrentPosition().then((value) => value);
-    lat = cl.latitude;
-    long = cl.longitude;
-    _kGooglePlex = CameraPosition(target: LatLng(lat, long), zoom: 14.4746);
-    setState(() {});
-  }
-
-  Future<void> getNameOfMyLocation(double latitude, double longitude) async {
-    List<Placemark> placemarks = await placemarkFromCoordinates(
-      latitude,
-      longitude,
-    );
-    print("the current location is : ${placemarks[0].locality}");
-  }
-
-  void getDistanceBetweenTwoPoints(
-    double startLatitude,
-    double startLongitude,
-    double endLatitude,
-    double endLongitude,
-  ) {
-    double distanceInMeters = Geolocator.distanceBetween(
-      startLatitude,
-      startLongitude,
-      endLatitude,
-      endLongitude,
-    );
-    print("the distance is : $distanceInMeters");
-  }
-
-  GoogleMapController? gmc;
-  Set<Marker> markers = {
-    Marker(
-      markerId: MarkerId('1'),
-      infoWindow: InfoWindow(title: '1'),
-      draggable: true,
-      onDragEnd: (LatLng value) {
-        
-      },
-      position: LatLng(24.456401, 39.626061),
-    ),
-   
-  };
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          _kGooglePlex == null
-              ? CircularProgressIndicator()
-              : Expanded(
-                child: GoogleMap(
-                  onTap: (latlng) {
-                    markers.remove(Marker(markerId: MarkerId('1')));
-                    markers.add(
-                      Marker(markerId: MarkerId('1'), position: latlng),
-                    );
-                    setState(() {});
-                  },
-                  markers: markers,
-                  mapType: MapType.hybrid,
-                  initialCameraPosition: _kGooglePlex!,
-                  onMapCreated: (GoogleMapController controller) {
-                    gmc = controller;
-                  },
+
+    final locationCubit = BlocProvider.of<LocationCubit>(context);
+    return BlocBuilder<LocationCubit, LocationState>(
+      bloc: locationCubit,
+      builder: (context, state) {
+        
+        if (state is LocationLoading || state is LocationInitial) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (state is LocationLoaded || state is LocationUpdated) {
+          return Scaffold(
+            body: Column(
+              children: [
+                Expanded(
+                  child: GoogleMap(
+                    mapType: MapType.hybrid,
+                    initialCameraPosition: locationCubit.cameraPosition!,
+                    markers: locationCubit.markers,
+                    onTap: (latlng) => locationCubit.updateMarker(latlng),
+                  ),
                 ),
-              ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () async {},
-              child: Text('Get Location'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CustomButon(
+                    text: "Save location",
+                    onPressed: () {
+                      locationCubit.saveLocationToHive();
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
+          );
+        } else if (state is LocationError) {
+          return Center(child: Text(state.message));
+        }
+        return const SizedBox();
+      },
     );
   }
 }
-
-
-// AIzaSyCmXvQS_Tx-9538wXDV392K4He79TAoAFU
