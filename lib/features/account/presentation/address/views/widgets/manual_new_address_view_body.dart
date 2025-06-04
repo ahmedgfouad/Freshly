@@ -6,17 +6,18 @@ import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/custom_textformfield_widget.dart';
 import 'package:store/features/account/data/models/address_model.dart';
-import 'package:store/features/account/presentation/address/manager/new_address_cubit/new_address_cubit.dart';
-import 'package:store/features/account/presentation/address/manager/new_address_cubit/new_address_state.dart';
+import 'package:store/features/account/presentation/address/manager/manual_new_address_cubit/manual_new_address_cubit.dart';
+import 'package:store/features/account/presentation/address/manager/manual_new_address_cubit/manual_new_address_state.dart';
 
-class NewAddressViewBody extends StatefulWidget {
-  const NewAddressViewBody({super.key});
+class ManualNewAddressViewBody extends StatefulWidget {
+  const ManualNewAddressViewBody({super.key});
 
   @override
-  State<NewAddressViewBody> createState() => _NewAddressViewBodyState();
+  State<ManualNewAddressViewBody> createState() =>
+      _ManualNewAddressViewBodyState();
 }
 
-class _NewAddressViewBodyState extends State<NewAddressViewBody> {
+class _ManualNewAddressViewBodyState extends State<ManualNewAddressViewBody> {
   final cityController = TextEditingController();
   final streetNameController = TextEditingController();
   final buildingNumberController = TextEditingController();
@@ -37,7 +38,7 @@ class _NewAddressViewBodyState extends State<NewAddressViewBody> {
   Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-    final newaddressCubit = BlocProvider.of<NewAddressCubit>(context);
+    final newaddressCubit = BlocProvider.of<ManualNewAddressCubit>(context);
     return Form(
       key: formKey,
       child: Padding(
@@ -76,10 +77,11 @@ class _NewAddressViewBodyState extends State<NewAddressViewBody> {
               ),
             ),
 
-            BlocConsumer<NewAddressCubit, NewAddressState>(
+            BlocConsumer<ManualNewAddressCubit, ManualNewAddressState>(
               bloc: newaddressCubit,
               listenWhen:
-                  (previous, current) => current is NewAddressSuccessState,
+                  (previous, current) =>
+                      current is ManualNewAddressSuccessState,
               listener: (context, state) {
                 ScaffoldMessenger.of(
                   context,
@@ -88,23 +90,23 @@ class _NewAddressViewBodyState extends State<NewAddressViewBody> {
               },
               buildWhen:
                   (previous, current) =>
-                      current is NewAddressInitial ||
-                      current is NewAddressLoadingState ||
-                      current is NewAddressSuccessState ||
-                      current is NewAddressFailedState,
+                      current is ManualNewAddressInitial ||
+                      current is ManualNewAddressLoadingState ||
+                      current is ManualNewAddressSuccessState ||
+                      current is ManualNewAddressFailedState,
               builder: (context, state) {
-                if (state is NewAddressLoadingState) {
+                if (state is ManualNewAddressLoadingState) {
                   return SliverToBoxAdapter(child: CustomLoadingIndecator());
-                } else if (state is NewAddressFailedState) {
+                } else if (state is ManualNewAddressFailedState) {
                   return SliverToBoxAdapter(child: Text(state.error));
-                } else if (state is NewAddressSuccessState ||
-                    state is NewAddressInitial) {
+                } else if (state is ManualNewAddressSuccessState ||
+                    state is ManualNewAddressInitial) {
                   return SliverFillRemaining(
                     hasScrollBody: false,
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: CustomButon(
-                        text: "Add",
+                        text: "Add new address",
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
                             await newaddressCubit.addNewAddress(

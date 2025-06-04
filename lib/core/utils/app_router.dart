@@ -3,7 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:store/features/account/data/models/address_model.dart';
 import 'package:store/features/account/presentation/address/views/addresses_veiwe.dart';
 import 'package:store/features/account/presentation/address/views/edit_addresses_view.dart';
-import 'package:store/features/account/presentation/address/views/new_addresses_view.dart';
+import 'package:store/features/account/presentation/address/views/manual_new_addresses_view.dart';
+import 'package:store/features/account/presentation/address/views/new_addresses_use_googl_map_view.dart';
 import 'package:store/features/account/presentation/profile/view/change_password_view.dart';
 import 'package:store/features/account/presentation/profile/view/edit_profile_view.dart';
 import 'package:store/features/account/presentation/order/order_view.dart';
@@ -40,7 +41,8 @@ abstract class AppRouter {
   static String kProductDetailsView = '/productDetailsView';
   static String kOrderssView = '/ordersView';
   static String kAddressesView = '/addressesView';
-  static String kNewAddressesView = '/newAddressesView';
+  static String kManualNewAddressesView = '/manualnewAddressesView';
+  static String kNewAddressesUseGoogleMapView = '/newAddressesUseGoogleMapView';
   static String kEditAddressesView = '/editAddressesView';
   static final router = GoRouter(
     routes: [
@@ -98,8 +100,12 @@ abstract class AppRouter {
         builder: (context, state) => AddressesView(),
       ),
       GoRoute(
-        path: kNewAddressesView,
-        builder: (context, state) => NewAddressesView(),
+        path: kManualNewAddressesView,
+        builder: (context, state) => ManualNewAddressesView(),
+      ),
+      GoRoute(
+        path: kNewAddressesUseGoogleMapView,
+        builder: (context, state) => NewAddressesUseGooglMapView(),
       ),
       GoRoute(
         path: kEditAddressesView,

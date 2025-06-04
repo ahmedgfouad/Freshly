@@ -1,20 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/features/account/data/models/address_model.dart';
 import 'package:store/features/account/data/services/address_services.dart';
-import 'package:store/features/account/presentation/address/manager/new_address_cubit/new_address_state.dart';
+import 'package:store/features/account/presentation/address/manager/manual_new_address_cubit/manual_new_address_state.dart';
 
-class NewAddressCubit extends Cubit<NewAddressState> {
-  NewAddressCubit() : super(NewAddressInitial());
+class ManualNewAddressCubit extends Cubit<ManualNewAddressState> {
+  ManualNewAddressCubit() : super(ManualNewAddressInitial());
 
   final newAddressServices = AddressServicesImpl();
 
   Future<void> addNewAddress(AddressModel address) async {
-    emit(NewAddressLoadingState());
+    emit(ManualNewAddressLoadingState());
     try {
       await newAddressServices.setNewAddress(address);
-      emit(NewAddressSuccessState());
+      emit(ManualNewAddressSuccessState());
     } catch (e) {
-      emit(NewAddressFailedState(e.toString()));
+      emit(ManualNewAddressFailedState(e.toString()));
     }
   }
 }
