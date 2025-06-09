@@ -8,6 +8,7 @@ import 'package:store/core/widgets/custom_textformfield_widget.dart';
 import 'package:store/features/account/data/models/address_model.dart';
 import 'package:store/features/account/presentation/address/manager/manual_new_address_cubit/manual_new_address_cubit.dart';
 import 'package:store/features/account/presentation/address/manager/manual_new_address_cubit/manual_new_address_state.dart';
+import 'package:store/generated/l10n.dart';
 
 class ManualNewAddressViewBody extends StatefulWidget {
   const ManualNewAddressViewBody({super.key});
@@ -49,28 +50,28 @@ class _ManualNewAddressViewBodyState extends State<ManualNewAddressViewBody> {
               child: Column(
                 children: [
                   CustomTextFormFieldWidget(
-                    hintText: "Governorate / City",
+                    hintText: S.of(context).GovernorateCity,
                     controller: cityController,
                   ),
                   SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
-                    hintText: "Street Name",
+                    hintText: S.of(context).StreetName,
                     controller: streetNameController,
                   ),
                   SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
-                    hintText: "Building Number / Floor / Apartment",
+                    hintText: S.of(context).BuildingFloorApartment,
                     controller: buildingNumberController,
                   ),
                   SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
-                    hintText: "Nearest Landmark",
+                    hintText: S.of(context).NearestLandmark,
                     controller: nearestLandmarkController,
                   ),
                   SizedBox(height: 20.h),
                   CustomTextFormFieldWidget(
                     keyboardType: TextInputType.phone,
-                    hintText: "Phone Number",
+                    hintText: S.of(context).PhoneNumber,
                     controller: phoneNumberController,
                   ),
                 ],
@@ -85,7 +86,7 @@ class _ManualNewAddressViewBodyState extends State<ManualNewAddressViewBody> {
               listener: (context, state) {
                 ScaffoldMessenger.of(
                   context,
-                ).showSnackBar(SnackBar(content: Text("Successfuly")));
+                ).showSnackBar(SnackBar(content: Text(S.of(context).Successfuly)));
                 Navigator.of(context).pop();
               },
               buildWhen:
@@ -106,7 +107,7 @@ class _ManualNewAddressViewBodyState extends State<ManualNewAddressViewBody> {
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: CustomButon(
-                        text: "Add new address",
+                        text: S.of(context).AddNewAddress,
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
                             await newaddressCubit.addNewAddress(

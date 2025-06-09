@@ -6,6 +6,7 @@ import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/favorite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:store/features/favorite/presentation/manager/favorite_cubit/favorite_state.dart';
 import 'package:store/features/favorite/presentation/view/widget/list_of_favorite_items_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class FavoriteViweBody extends StatelessWidget {
   const FavoriteViweBody({super.key});
@@ -33,8 +34,8 @@ class FavoriteViweBody extends StatelessWidget {
               ? ListOfFavoriteItemsWidget(items: items)
               : CustomEmptyPage(
                 image: AppImages.favoriteEmptyImg,
-                title: 'Your heart is empty',
-                subTitle: 'Start fall in love with some good goods ',
+                title: S.of(context).EmptyHeart,
+                subTitle: S.of(context).StartLoveGoods,
               );
         } else {
           return Text("error");

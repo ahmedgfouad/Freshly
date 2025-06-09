@@ -7,6 +7,7 @@ import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
+import 'package:store/generated/l10n.dart';
 
 class LoninBotonSectionWidget extends StatelessWidget {
   const LoninBotonSectionWidget({
@@ -51,7 +52,7 @@ class LoninBotonSectionWidget extends StatelessWidget {
         }
         if (state is AuthInitial) {
           return CustomButon(
-            text: "Sign In",
+            text: S.of(context).Signin,
             onPressed: () async {
               if (formKey.currentState!.validate()) {
                 await authCubit.login(

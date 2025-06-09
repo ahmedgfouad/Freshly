@@ -6,25 +6,27 @@ import 'package:store/core/widgets/custom_tab_bar_view_widget.dart';
 import 'package:store/core/widgets/custom_tab_bar_widget.dart';
 import 'package:store/features/account/presentation/order/widgets/list_of_item_order_history_widget.dart';
 import 'package:store/features/account/presentation/order/widgets/order_status_time_line_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class OrderViewBodey extends StatelessWidget {
-  OrderViewBodey({super.key});
+  const OrderViewBodey({super.key});
 
-  final List<Widget> tabs = [
+  
+  final isOrderNotEmpty = true;
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> tabs = [
     Container(
       width: 100.w,
       alignment: Alignment.centerLeft,
-      child: const Tab(text: "Ongoing"),
+      child: Tab(text: S.of(context).Ongoing),
     ),
     Container(
       width: 100.w,
       alignment: Alignment.centerRight,
-      child: const Tab(text: "History"),
+      child:  Tab(text: S.of(context).History),
     ),
   ];
-  final isOrderNotEmpty = true;
-  @override
-  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: DefaultTabController(

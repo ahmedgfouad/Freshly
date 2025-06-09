@@ -7,6 +7,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/firebase_options.dart';
+import 'package:store/generated/l10n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +35,14 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         child: MaterialApp.router(
+          locale: const Locale('ar'),
+          localizationsDelegates: [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
           theme: ThemeData(scaffoldBackgroundColor: Colors.white),
           debugShowCheckedModeBanner: false,
           title: 'Stroe App',

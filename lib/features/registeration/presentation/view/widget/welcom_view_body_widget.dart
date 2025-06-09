@@ -6,6 +6,7 @@ import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_buton.dart';
+import 'package:store/generated/l10n.dart';
 
 class WelcomViewBodyWidget extends StatelessWidget {
   const WelcomViewBodyWidget({super.key});
@@ -24,12 +25,12 @@ class WelcomViewBodyWidget extends StatelessWidget {
             ),
             SizedBox(height: 33),
             Text(
-              "Welcome to our app",
+              S.of(context).Welcome,
               style: AppStyles.textStyle24.copyWith(color: AppColors().browen),
             ),
             SizedBox(height: 16),
             Text(
-              "Shop online and get groceries delivered from stores to your home in as fast as 1 hour .",
+              S.of(context).WelcomeDescription,
               textAlign: TextAlign.center,
               style: AppStyles.textStyle16.copyWith(color: AppColors().browen),
             ),
@@ -38,14 +39,14 @@ class WelcomViewBodyWidget extends StatelessWidget {
               onPressed: () => navigateTo(AppRouter.kSignUpView, context),
               bacgrouncColor: AppColors().orange,
               textColor: AppColors().white,
-              text: "Sign up",
+              text: S.of(context).Signup,
             ),
             SizedBox(height: 16),
             CustomButon(
               onPressed: () => navigateTo(AppRouter.kLogInView, context),
               bacgrouncColor: AppColors().white,
               textColor: AppColors().browen,
-              text: "Sign in",
+              text: S.of(context).Signin,
             ),
             Expanded(child: SizedBox()),
           ],

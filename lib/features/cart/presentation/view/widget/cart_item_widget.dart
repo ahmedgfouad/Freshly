@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/features/home/data/models/save_product_model.dart';
+import 'package:store/generated/l10n.dart';
 
 class CartItemWidget extends StatelessWidget {
   const CartItemWidget({super.key, required this.product});
@@ -29,14 +30,14 @@ class CartItemWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "EGP ${product.price}",
+                      "${S.of(context).EGP} ${product.price}",
                       style: AppStyles.textStyle18.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(width: 5),
                     Text(
-                      "kg",
+                       S.of(context).kg,
                       style: AppStyles.textStyle12.copyWith(
                         fontWeight: FontWeight.bold,
                         color: AppColors().browen,
@@ -50,14 +51,14 @@ class CartItemWidget extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  "Quantity : \$${product.quantity} kg",
+                  "${S.of(context).Quantity} : \$${product.quantity} ${S.of(context).kg}",
                   style: AppStyles.textStyle14.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "Total Price : \$${product.totalPrice}",
+                  "${S.of(context).Price} : \$${product.totalPrice}",
                   style: AppStyles.textStyle14.copyWith(
                     fontWeight: FontWeight.bold,
                     color: AppColors().orange,

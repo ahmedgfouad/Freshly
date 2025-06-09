@@ -7,6 +7,7 @@ import 'package:store/features/account/presentation/profile/view/widgets/logout_
 import 'package:store/features/account/presentation/profile/view/widgets/notification_option_widget.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
+import 'package:store/generated/l10n.dart';
 
 class AppSettingsOptionsSectonWidget extends StatelessWidget {
   const AppSettingsOptionsSectonWidget({super.key});
@@ -17,17 +18,17 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("App Settings", style: AppStyles.textStyle22),
+        Text( S.of(context).AppSettings, style: AppStyles.textStyle22),
         const SizedBox(height: 20),
         NotificationOptionWidget(
           icon: Icons.notifications,
-          title: 'Notifications',
+          title: S.of(context).Notifications,
           onPressed: () {},
         ),
         const SizedBox(height: 20),
         LanguageOptionWidget(
           icon: Icons.g_translate_sharp,
-          title: "Language",
+          title: S.of(context).Language,
           onPressed: () {},
         ),
         const SizedBox(height: 20),
@@ -42,7 +43,7 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
             if (state is LoginSuccessState || state is SignupSuccessState) {
               return LogoutOptionWidget(
                 icon: Icons.logout,
-                title: "Log Out",
+                title: S.of(context).Logout,
                 onPressed: () async {
                   await authCubit.logout();
                 },

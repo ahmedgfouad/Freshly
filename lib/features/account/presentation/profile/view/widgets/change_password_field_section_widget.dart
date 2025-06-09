@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/change_password_textform_field_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class ChangePasswordFieldsSection extends StatelessWidget {
   const ChangePasswordFieldsSection({
@@ -18,17 +19,17 @@ class ChangePasswordFieldsSection extends StatelessWidget {
     return Column(
       children: [
         ChangePasswordTextformFieldWidget(
-          hintName: "Old Password",
+          hintName: S.of(context).OldPassword,
           controller: oldPasswordController,
         ),
         const SizedBox(height: 50),
         ChangePasswordTextformFieldWidget(
-          hintName: "New Password",
+          hintName: S.of(context).NewPassword,
           controller: newPasswordController,
         ),
         const SizedBox(height: 50),
         ChangePasswordTextformFieldWidget(
-          hintName: "Confirm Password",
+          hintName: S.of(context).ConfirmPassword,
           controller: confirmPasswordController,
         ),
       ],

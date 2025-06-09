@@ -5,9 +5,10 @@ import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/account/data/models/address_model.dart';
 import 'package:store/features/account/presentation/address/manager/edit_address_cubit/edit_address_cubit.dart';
 import 'package:store/features/account/presentation/address/manager/edit_address_cubit/edit_address_state.dart';
+import 'package:store/generated/l10n.dart';
 
 class UpdateAddressButonSectionWiget extends StatelessWidget {
-const UpdateAddressButonSectionWiget({
+  const UpdateAddressButonSectionWiget({
     super.key,
     required this.formKey,
     required this.id,
@@ -49,17 +50,17 @@ const UpdateAddressButonSectionWiget({
         } else if (state is EditAddressInitial ||
             state is EditAddressSuccessState) {
           return CustomButon(
-            text: "Update Address",
+            text: S.of(context).UpdateAddress,
             onPressed: () async {
               if (formKey.currentState!.validate()) {
                 await editaddressCubit.editAddress(
                   AddressModel(
                     id: id,
-                     city: cityController.text,
-                  streetName: streetNameController.text,
-                  buildinNumber: buildingNumberController.text,
-                  nearestLandmark: nearestLandmarkController.text,
-                  phoneNumber: phoneNumberController.text,
+                    city: cityController.text,
+                    streetName: streetNameController.text,
+                    buildinNumber: buildingNumberController.text,
+                    nearestLandmark: nearestLandmarkController.text,
+                    phoneNumber: phoneNumberController.text,
                   ),
                 );
               }

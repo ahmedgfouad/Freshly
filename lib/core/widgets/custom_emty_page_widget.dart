@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
+import 'package:store/generated/l10n.dart';
 
 class CustomEmptyPage extends StatelessWidget {
   const CustomEmptyPage({
@@ -31,7 +32,7 @@ class CustomEmptyPage extends StatelessWidget {
         Text(subTitle, style: AppStyles.textStyle16),
         Spacer(),
         CustomButon(
-          text: "Start shoping",
+          text: S.of(context).StartShoping,
           onPressed: () {
             
             BlocProvider.of<HomeCubit>(context).changeIndex(0);

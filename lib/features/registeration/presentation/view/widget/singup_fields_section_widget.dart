@@ -1,10 +1,10 @@
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_textformfield_widget.dart';
 import 'package:store/features/registeration/presentation/view/widget/pas_textformfield_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class SignupFieldsSectionWidget extends StatelessWidget {
   const SignupFieldsSectionWidget({
@@ -29,26 +29,26 @@ class SignupFieldsSectionWidget extends StatelessWidget {
           width: MediaQuery.of(context).size.height / 4,
         ),
         SizedBox(height: 13),
-        Text(
-          "Please enter your information to create an account.",
-          style: AppStyles.textStyle18,
-        ),
+        Text(S.of(context).SignupHint, style: AppStyles.textStyle18),
         SizedBox(height: 17),
-        CustomTextFormFieldWidget(hintText: 'Name', controller: nameController),
+        CustomTextFormFieldWidget(
+          hintText: S.of(context).Name,
+          controller: nameController,
+        ),
         SizedBox(height: 17),
         CustomTextFormFieldWidget(
           keyboardType: TextInputType.emailAddress,
-          hintText: 'Email',
+          hintText: S.of(context).Email,
           controller: emailController,
         ),
         SizedBox(height: 17),
         PasswordTextFormFieldWidget(
-          hintName: "Password",
+          hintName: S.of(context).Password,
           controller: passwordController,
         ),
         SizedBox(height: 17),
         PasswordTextFormFieldWidget(
-          hintName: "Confirm Password",
+          hintName: S.of(context).ConfirmPassword,
           controller: confirmPasswordController,
         ),
         SizedBox(height: 8),

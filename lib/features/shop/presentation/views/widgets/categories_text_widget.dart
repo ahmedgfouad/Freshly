@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
+import 'package:store/generated/l10n.dart';
 
 class CategoriesTextWidget extends StatelessWidget {
   const CategoriesTextWidget({super.key});
@@ -14,14 +15,14 @@ class CategoriesTextWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("Categories", style: AppStyles.textStyle24),
+          Text( S.of(context).Categories, style: AppStyles.textStyle24),
           TextButton(
             onPressed: () {
               final homeCubit = BlocProvider.of<HomeCubit>(context);
               homeCubit.changeIndex(1);
             },
             child: Text(
-              "see all",
+              S.of(context).seeAll,
               style: AppStyles.textStyle18.copyWith(color: AppColors().orange),
             ),
           ),

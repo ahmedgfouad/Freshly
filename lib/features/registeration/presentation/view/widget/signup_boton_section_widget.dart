@@ -8,6 +8,7 @@ import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
+import 'package:store/generated/l10n.dart';
 
 class SignupBotonSectionWidget extends StatelessWidget {
   const SignupBotonSectionWidget({
@@ -58,7 +59,7 @@ class SignupBotonSectionWidget extends StatelessWidget {
           return CustomButon(
             bacgrouncColor: AppColors().orange,
             textColor: AppColors().white,
-            text: "Sign Up",
+            text: S.of(context).Signup,
             onPressed: () async {
               if (formKey.currentState!.validate()) {
                 await authCubit.signup(

@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/account/presentation/profile/manager/change_password_cubit/change_password_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/change_password_cubit/change_password_state.dart';
+import 'package:store/generated/l10n.dart';
 
 class ChangePasswordButtonSection extends StatelessWidget {
   const ChangePasswordButtonSection({
@@ -54,7 +54,7 @@ class ChangePasswordButtonSection extends StatelessWidget {
             state is ChangePasswordInitial ||
             state is ChangePasswordFailesState) {
           return CustomButon(
-            text: "Confirm",
+            text: S.of(context).Confirm,
             onPressed: () {
               if (formKey.currentState!.validate() &&
                   newPasswordController.text ==
@@ -67,9 +67,7 @@ class ChangePasswordButtonSection extends StatelessWidget {
                   confirmPasswordController.text) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(
-                      "Confirm Password must be the same as the New Password",
-                    ),
+                    content: Text(S.of(context).ConfirmPasswordMismatch),
                   ),
                 );
               }

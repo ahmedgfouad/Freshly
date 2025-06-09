@@ -1,12 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/generated/l10n.dart';
 
 class PopularDealsTextWidget extends StatelessWidget {
-  const PopularDealsTextWidget({
-    super.key,
-  });
+  const PopularDealsTextWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +13,12 @@ class PopularDealsTextWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("Popular deals", style: AppStyles.textStyle24),
+          Text(S.of(context).PopularDeals, style: AppStyles.textStyle24),
           TextButton(
             onPressed: () {},
             child: Text(
-              "see all",
-              style: AppStyles.textStyle18.copyWith(
-                color: AppColors().orange,
-              ),
+              S.of(context).seeAll,
+              style: AppStyles.textStyle18.copyWith(color: AppColors().orange),
             ),
           ),
         ],
@@ -30,4 +26,3 @@ class PopularDealsTextWidget extends StatelessWidget {
     );
   }
 }
-

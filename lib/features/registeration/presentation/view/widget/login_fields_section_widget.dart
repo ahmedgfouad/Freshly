@@ -6,6 +6,7 @@ import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_textformfield_widget.dart';
 import 'package:store/features/registeration/presentation/view/widget/pas_textformfield_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class LoginFieldsSectionWidget extends StatelessWidget {
   const LoginFieldsSectionWidget({
@@ -25,32 +26,32 @@ class LoginFieldsSectionWidget extends StatelessWidget {
           AppImages.logInImg,
           width: MediaQuery.of(context).size.height / 4,
         ),
-        SizedBox(height: 8),
+      const  SizedBox(height: 8),
         Text(
-          "Enter your Email and password to access your account",
+          S.of(context).LoginHint,
           style: AppStyles.textStyle18,
         ),
-        SizedBox(height: 16),
+       const SizedBox(height: 16),
         CustomTextFormFieldWidget(
-          hintText: "Email",
+          hintText: S.of(context).Email,
           controller: emailController,
         ),
-        SizedBox(height: 16),
+      const  SizedBox(height: 16),
         PasswordTextFormFieldWidget(
-          hintName: "Password",
+          hintName: S.of(context).Password,
           controller: passwordController,
         ),
-        SizedBox(height: 9),
+       const SizedBox(height: 9),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              "Forgote Password",
+              S.of(context).ForgotePassword,
               style: AppStyles.textStyle18.copyWith(color: AppColors().orange),
             ),
           ],
         ),
-        SizedBox(height: 32),
+       const SizedBox(height: 32),
       ],
     );
   }

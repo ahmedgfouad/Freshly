@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_textformfield_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class EditProfileBody extends StatelessWidget {
   const EditProfileBody({super.key});
@@ -16,7 +17,7 @@ class EditProfileBody extends StatelessWidget {
           const SizedBox(height: 30),
           CustomTextFormFieldWidget(hintText: "ahmedgfouad2020@gmail.com"),
           Spacer(),
-          CustomButon(text: "Update Profile", onPressed: () {}),
+          CustomButon(text: S.of(context).UpdateProfile, onPressed: () {}),
         ],
       ),
     );

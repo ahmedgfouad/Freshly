@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/profile_option_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class ProfileOptionsSectionWidget extends StatelessWidget {
   const ProfileOptionsSectionWidget({super.key});
@@ -12,7 +13,7 @@ class ProfileOptionsSectionWidget extends StatelessWidget {
       children: [
         ProfileOptionWidget(
           icon: Icons.person,
-          title: "Edit Profile",
+          title: S.of(context).EditProfile,
           onPressed: () {
             navigateTo(AppRouter.kEditProfileView, context);
           },
@@ -20,7 +21,7 @@ class ProfileOptionsSectionWidget extends StatelessWidget {
         const SizedBox(height: 10),
         ProfileOptionWidget(
           icon: Icons.key_outlined,
-          title: "Change Password",
+          title: S.of(context).ChangePassword,
           onPressed: () {
             navigateTo(AppRouter.kChangePasswordView, context);
           },
@@ -28,7 +29,7 @@ class ProfileOptionsSectionWidget extends StatelessWidget {
        const SizedBox(height: 10),
         ProfileOptionWidget(
           icon: Icons.payment,
-          title: "My Cards",
+          title: S.of(context).MyCards,
           onPressed: () {},
         ),
       ],

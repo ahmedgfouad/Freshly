@@ -9,6 +9,7 @@ import 'package:store/features/favorite/presentation/view/favorite_view.dart';
 import 'package:store/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:store/features/home/presentation/manager/home_cubit/home_state.dart';
 import 'package:store/features/shop/presentation/views/shop_view.dart';
+import 'package:store/generated/l10n.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -53,23 +54,23 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.home_filled, size: 30),
-                  label: 'Shop',
+                  label: S.of(context).Shop,
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.search, size: 30),
-                  label: 'Explore',
+                  label: S.of(context).Explore,
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.shopping_cart, size: 30),
-                  label: 'Cart',
+                  label: S.of(context).Cart,
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.favorite, size: 30),
-                  label: 'Favorite',
+                  label: S.of(context).Favorite,
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.person, size: 30),
-                  label: 'Account',
+                  label: S.of(context).Account,
                 ),
               ],
             ),

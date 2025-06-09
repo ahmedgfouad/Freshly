@@ -8,6 +8,7 @@ import 'package:store/features/account/presentation/address/manager/location_vie
 import 'package:store/features/account/presentation/address/views/widgets/addresses_section_widget.dart';
 import 'package:store/features/account/presentation/address/views/widgets/map_location_widget.dart';
 import 'package:store/features/account/presentation/address/views/widgets/show_Address_options_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class AddressesViewBody extends StatelessWidget {
   const AddressesViewBody({super.key});
@@ -40,7 +41,7 @@ class AddressesViewBody extends StatelessWidget {
             ),
           ),
           CustomButon(
-            text: "Add New Address",
+            text: S.of(context).AddNewAddress,
             onPressed: () {
               showAddressOptionsWidget(context);
             },

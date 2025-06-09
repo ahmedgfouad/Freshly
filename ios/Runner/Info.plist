@@ -47,5 +47,11 @@
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This app needs access to location when open.</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+    <string>en</string>
+    <string>array</string>
+    
+</array>
 </dict>
 </plist>

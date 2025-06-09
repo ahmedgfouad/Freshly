@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/generated/l10n.dart';
 
 class CustomSearchTextFormFieldWidget extends StatelessWidget {
   const CustomSearchTextFormFieldWidget({super.key});
@@ -12,7 +13,7 @@ class CustomSearchTextFormFieldWidget extends StatelessWidget {
 
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.search, color: Color(0xffAC8E71)),
-        hintText: "search",
+        hintText:  S.of(context).Search,
         hintStyle: AppStyles.textStyle16.copyWith(color: Color(0xffAC8E71)),
         fillColor: AppColors().ofWhite,
         filled: true,
