@@ -60,5 +60,6 @@
   "ConfirmPasswordMismatch": "تأكيد كلمة المرور لازم يكون نفس الكلمة الجديدة",
   "EditAddress": "تعديل العنوان",
   "UpdateAddress": "تحديث العنوان",
+  "Mode":"الوضع",
   "Logout": "تسجيل الخروج"
 }

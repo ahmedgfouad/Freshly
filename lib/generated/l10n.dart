@@ -660,6 +660,16 @@ class S {
     );
   }
 
+  /// `Mode`
+  String get Mode {
+    return Intl.message(
+      'Mode',
+      name: 'Mode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Logout`
   String get Logout {
     return Intl.message(

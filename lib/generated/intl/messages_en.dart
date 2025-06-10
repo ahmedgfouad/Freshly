@@ -60,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "LoginHint": MessageLookupByLibrary.simpleMessage(
             "Enter your Email and password to access your account"),
         "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "Mode": MessageLookupByLibrary.simpleMessage("Mode"),
         "MyCards": MessageLookupByLibrary.simpleMessage("My Cards"),
         "Name": MessageLookupByLibrary.simpleMessage("Name"),
         "NearestLandmark":

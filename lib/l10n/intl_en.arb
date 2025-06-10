@@ -60,5 +60,6 @@
       "ConfirmPasswordMismatch": "Confirm Password must be the same as the New Password",
       "EditAddress": "Edit Address",
       "UpdateAddress": "Update Address",
+      "Mode":"Mode",
       "Logout": "Logout"
 }

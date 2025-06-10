@@ -22,7 +22,6 @@ AppBar customAppBar({
       title,
       style: AppStyles.textStyle24.copyWith(color: AppColors().orange),
     ),
-    centerTitle: true,
-    backgroundColor: AppColors().white,
+    centerTitle: true, 
   );
 }

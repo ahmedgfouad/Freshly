@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:store/core/utils/app_router.dart';
+import 'package:store/core/utils/colors.dart';
+import 'package:store/features/account/presentation/profile/manager/them_cubit/them_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/firebase_options.dart';
 import 'package:store/generated/l10n.dart';
@@ -24,30 +26,46 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        final cubit = AuthCubit();
-        cubit.authStatus();
-        return cubit;
-      },
-      child: ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        child: MaterialApp.router(
-          locale: const Locale('ar'),
-          localizationsDelegates: [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-          debugShowCheckedModeBanner: false,
-          title: 'Stroe App',
-          routerConfig: AppRouter.router,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) {
+            final cubit = AuthCubit();
+            cubit.authStatus();
+            return cubit;
+          },
         ),
+
+        BlocProvider(create: (context) => ThemeCubit()),
+      ],
+
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, themeMode) {
+          return ScreenUtilInit(
+            designSize: const Size(360, 690),
+            minTextAdapt: true,
+            splitScreenMode: true,
+            child: MaterialApp.router(
+              locale: const Locale('en'),
+              localizationsDelegates: [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+              theme: ThemeData(
+                scaffoldBackgroundColor: Colors.white,
+                appBarTheme: AppBarTheme(backgroundColor: AppColors().white),
+              ),
+              darkTheme: ThemeData.dark(),
+              themeMode: themeMode,
+              debugShowCheckedModeBanner: false,
+              title: 'Stroe App',
+              routerConfig: AppRouter.router,
+            ),
+          );
+        },
       ),
     );
   }

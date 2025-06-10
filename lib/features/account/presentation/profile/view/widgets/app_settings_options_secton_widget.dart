@@ -4,6 +4,7 @@ import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/language_option_widget.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/logout_option_widget.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/mode_option_widget.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/notification_option_widget.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
@@ -18,13 +19,13 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text( S.of(context).AppSettings, style: AppStyles.textStyle22),
+        Text(S.of(context).AppSettings, style: AppStyles.textStyle22),
         const SizedBox(height: 20),
         NotificationOptionWidget(
           icon: Icons.notifications,
           title: S.of(context).Notifications,
-          onPressed: () {},
         ),
+        ModeOptionWidget(icon: Icons.dark_mode, title: S.of(context).Mode),
         const SizedBox(height: 20),
         LanguageOptionWidget(
           icon: Icons.g_translate_sharp,
