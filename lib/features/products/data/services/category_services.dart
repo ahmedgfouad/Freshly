@@ -2,11 +2,11 @@ import 'package:store/core/services/firestore_services.dart';
 import 'package:store/core/utils/api_path.dart';
 import 'package:store/features/home/data/models/product_model.dart';
 
-abstract class ProductServices {
+abstract class CategoryServices {
   Future<List<ProductModel>> getproducts(String categoryName);
 }
 
-class CategoryServicesImpl implements ProductServices {
+class CategoryServicesImpl implements CategoryServices {
   final firestor = FirestoreServices.instance;
 
   @override

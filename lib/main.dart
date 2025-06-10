@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/features/account/presentation/profile/manager/them_cubit/them_cubit.dart';
+import 'package:store/features/registeration/data/services/auth_services.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/firebase_options.dart';
 import 'package:store/generated/l10n.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) {
-            final cubit = AuthCubit();
+            final cubit = AuthCubit(AuthServicesImpl());
             cubit.authStatus();
             return cubit;
           },

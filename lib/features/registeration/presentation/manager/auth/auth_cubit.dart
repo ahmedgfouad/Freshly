@@ -4,9 +4,9 @@ import 'package:store/features/registeration/data/services/auth_services.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitial());
+  AuthCubit(this.authServices) : super(AuthInitial());
 
-  final authServices = AuthServicesImpl();
+  final AuthServices authServices ;
 
   Future<void> login(String email, String password) async {
     emit(LoginLoadingState());

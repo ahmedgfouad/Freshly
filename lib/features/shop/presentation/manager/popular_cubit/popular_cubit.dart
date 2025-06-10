@@ -6,8 +6,8 @@ import 'package:store/features/home/data/services/home_services.dart';
 import 'package:store/features/shop/presentation/manager/popular_cubit/popular_state.dart';
 
 class PopularCubit extends Cubit<PopularState> {
-  PopularCubit() : super(PopularInitial());
-  final shopServices = HomeServicesImpl();
+  PopularCubit(this.shopServices) : super(PopularInitial());
+  final HomeServices shopServices ;
     final box = Hive.box('shopBox');
 
 

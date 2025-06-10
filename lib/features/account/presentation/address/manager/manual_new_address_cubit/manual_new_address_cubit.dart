@@ -4,9 +4,9 @@ import 'package:store/features/account/data/services/address_services.dart';
 import 'package:store/features/account/presentation/address/manager/manual_new_address_cubit/manual_new_address_state.dart';
 
 class ManualNewAddressCubit extends Cubit<ManualNewAddressState> {
-  ManualNewAddressCubit() : super(ManualNewAddressInitial());
+  ManualNewAddressCubit(this.newAddressServices) : super(ManualNewAddressInitial());
 
-  final newAddressServices = AddressServicesImpl();
+  final AddressServices newAddressServices;
 
   Future<void> addNewAddress(AddressModel address) async {
     emit(ManualNewAddressLoadingState());

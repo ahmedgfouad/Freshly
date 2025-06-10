@@ -4,9 +4,9 @@ import 'package:store/features/account/data/services/address_services.dart';
 import 'package:store/features/account/presentation/address/manager/edit_address_cubit/edit_address_state.dart';
 
 class EditAddressCubit extends Cubit<EditAddressState> {
-  EditAddressCubit() : super(EditAddressInitial());
+  EditAddressCubit(this.addressServices) : super(EditAddressInitial());
 
-  final addressServices = AddressServicesImpl();
+  final AddressServices addressServices ;
 
   Future<void> editAddress(AddressModel address) async {
     emit(EditAddressLoadingState());

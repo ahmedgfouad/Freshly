@@ -7,6 +7,7 @@ import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/home/data/models/product_model.dart';
 import 'package:store/features/home/data/models/save_product_model.dart';
+import 'package:store/features/product_details/data/services/add_to_favorite_services.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_state.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_favorite_cubit/add_to_favorite_cubit.dart';
@@ -83,7 +84,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                       width: MediaQuery.of(context).size.width / 1.3,
                     ),
                     BlocProvider(
-                      create: (context) => AddToFavoriteCubit(),
+                      create: (context) => AddToFavoriteCubit(AddToFavoriteServicesImpl()),
                       child: FavouriteIconWidet(
                         product: SaveProductModel(
                           id: documentIdFromLocalData(),

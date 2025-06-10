@@ -4,11 +4,11 @@ import 'package:store/features/product_details/data/services/add_to_favorite_ser
 import 'package:store/features/product_details/presentation/manager/add_to_favorite_cubit/add_to_favorite_state.dart';
 
 class AddToFavoriteCubit extends Cubit<AddToFavoriteState> {
-  AddToFavoriteCubit() : super(AddToFavoriteInitial());
+  AddToFavoriteCubit(this.addtofavoriteServices) : super(AddToFavoriteInitial());
 
   bool isFavorite = false;
 
-  final addtofavoriteServices = AddToFavoriteServicesImpl();
+  final AddToFavoriteServices addtofavoriteServices ;
 
   Future<void> addToFavorite(SaveProductModel product) async {
     emit(AddToFavoriteLoadingState());

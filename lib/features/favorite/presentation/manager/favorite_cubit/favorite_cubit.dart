@@ -6,11 +6,11 @@ import 'package:store/features/favorite/presentation/manager/favorite_cubit/favo
 import 'package:store/features/home/data/models/save_product_model.dart';
 
 class FavoriteCubit extends Cubit<FavoriteState> {
-  FavoriteCubit() : super(FavoriteInitial()) {
+  FavoriteCubit(this.favoriteServices) : super(FavoriteInitial()) {
     getFavoriteItems();
   }
 
-  final favoriteServices = FavoriteServicesImpl(); 
+  final FavoriteServices favoriteServices;
   StreamSubscription? streamSubscription;
 
   void getFavoriteItems() {
@@ -23,6 +23,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
       },
     );
   }
+
   @override
   Future<void> close() {
     streamSubscription?.cancel();
@@ -32,7 +33,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   Future<void> deleteFromFavorite(SaveProductModel product) async {
     emit(DeleteFromFavoriteLoadingState());
     try {
-      favoriteServices.deleteProductFromFavorite(product);
+      await favoriteServices.deleteProductFromFavorite(product);
       emit(DeleteFromFavoriteSuccessState());
     } catch (e) {
       emit(DeleteFromFavoriteFailedState(e.toString()));

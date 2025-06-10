@@ -5,11 +5,12 @@ import 'package:store/features/cart/presentation/manager/cart_cubit/cart_state.d
 import 'package:store/features/home/data/models/save_product_model.dart';
 
 class CartCubit extends Cubit<CartState> {
-  CartCubit() : super(CartInitial()) {
+
+  CartCubit(this.cartService) : super(CartInitial()) {
     getAllProductInMyCart();
   }
 
-  final cartService = CartServicesImpl();
+  final CartServices cartService ;
   StreamSubscription? _cartSubscription;
 
   void getAllProductInMyCart() {
@@ -34,7 +35,7 @@ class CartCubit extends Cubit<CartState> {
   Future<void> deleteCart(SaveProductModel product) async {
     emit(DeleteCartLoadingState());
     try {
-      cartService.deleteMyProductCart(product);
+     await cartService.deleteMyProductCart(product);
       emit(DeleteCartSuccessState());
     } catch (e) {
       emit(DeleteCartFailedState(e.toString()));

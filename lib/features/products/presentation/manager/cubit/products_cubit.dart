@@ -3,8 +3,8 @@ import 'package:store/features/products/data/services/category_services.dart';
 import 'package:store/features/products/presentation/manager/cubit/products_state.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
-  ProductsCubit() : super(CategoryInitial());
-  final categoryService = CategoryServicesImpl();
+  ProductsCubit(this.categoryService) : super(CategoryInitial());
+  final CategoryServices categoryService ;
   Future<void> getCategoryProducts({required String categoryName}) async {
     emit(CategoryLoading());
     try {

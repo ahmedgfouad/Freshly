@@ -5,10 +5,10 @@ import 'package:store/features/account/data/services/address_services.dart';
 import 'package:store/features/account/presentation/address/manager/addresses_cubit/addresses_state.dart';
 
 class AddressesCubit extends Cubit<AddressesState> {
-  AddressesCubit() : super(AddressesInitial()) {
+  AddressesCubit(this.addressServices) : super(AddressesInitial()) {
     getAddresses();
   }
-  final addressServices = AddressServicesImpl();
+  final AddressServices addressServices ;
   StreamSubscription? addressesSubscription;
 
   void getAddresses() {

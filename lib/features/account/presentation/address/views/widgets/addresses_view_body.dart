@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
+import 'package:store/features/account/data/services/address_services.dart';
 import 'package:store/features/account/presentation/address/manager/addresses_cubit/addresses_cubit.dart';
 import 'package:store/features/account/presentation/address/manager/location_view_cubit/location_view_cubit.dart';
 import 'package:store/features/account/presentation/address/manager/location_view_cubit/location_view_state.dart';
@@ -19,7 +20,7 @@ class AddressesViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(18.0),
       child: Column(
         children: [
-          BlocBuilder<LocationViewCubit, LocationViewState>( 
+          BlocBuilder<LocationViewCubit, LocationViewState>(
             bloc: BlocProvider.of<LocationViewCubit>(context),
             builder: (context, state) {
               if (state is LocationViewLoading) {
@@ -34,9 +35,9 @@ class AddressesViewBody extends StatelessWidget {
               return const SizedBox();
             },
           ),
-           Expanded(
+          Expanded(
             child: BlocProvider(
-              create: (context) => AddressesCubit(),
+              create: (context) => AddressesCubit(AddressServicesImpl()),
               child: AddressesSectionWidget(),
             ),
           ),
