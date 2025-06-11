@@ -22,6 +22,7 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
         Text(S.of(context).AppSettings, style: AppStyles.textStyle22),
         const SizedBox(height: 20),
         NotificationOptionWidget(),
+        const SizedBox(height: 20), 
         ModeOptionWidget(),
         const SizedBox(height: 20),
         LanguageOptionWidget(),

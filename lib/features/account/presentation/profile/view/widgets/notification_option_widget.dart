@@ -18,17 +18,19 @@ class NotificationOptionWidget extends StatelessWidget {
           style: AppStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
         ),
         Spacer(),
+        Icon(Icons.notifications, size: 20, color: AppColors().orange),
         Transform.scale(
           scale: .8,
           child: Switch(
-            value: true,
+            value: false,
             onChanged: (value) {},
             activeColor: AppColors().white,
-            activeTrackColor: AppColors().orange,
+            activeTrackColor: AppColors().browen,
             inactiveThumbColor: AppColors().white,
-            inactiveTrackColor: AppColors().grey,
+            inactiveTrackColor: AppColors().orange,
           ),
         ),
+        Icon(Icons.notifications_off, size: 20, color: AppColors().browen),
       ],
     );
   }

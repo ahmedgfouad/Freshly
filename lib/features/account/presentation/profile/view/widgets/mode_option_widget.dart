@@ -14,11 +14,7 @@ class ModeOptionWidget extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(
-          isDark ? Icons.dark_mode : Icons.light_mode,
-          color: AppColors().browen,
-          size: 30,
-        ),
+        Icon(Icons.brightness_6_outlined, color: AppColors().browen, size: 30),
         SizedBox(width: 15),
         Text(
           S.of(context).Mode,
@@ -26,6 +22,7 @@ class ModeOptionWidget extends StatelessWidget {
         ),
 
         Spacer(),
+        Icon(Icons.light_mode, size: 20, color: AppColors().orange),
         Transform.scale(
           scale: .8,
           child: Switch(
@@ -34,11 +31,12 @@ class ModeOptionWidget extends StatelessWidget {
               context.read<ThemeCubit>().toggleTheme(value);
             },
             activeColor: AppColors().white,
-            activeTrackColor: AppColors().orange,
+            activeTrackColor: AppColors().browen,
             inactiveThumbColor: AppColors().white,
-            inactiveTrackColor: AppColors().grey,
+            inactiveTrackColor: AppColors().orange,
           ),
         ),
+        Icon(Icons.dark_mode, size: 20, color: AppColors().browen),
       ],
     );
   }

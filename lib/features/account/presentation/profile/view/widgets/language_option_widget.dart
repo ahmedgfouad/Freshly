@@ -22,34 +22,29 @@ class LanguageOptionWidget extends StatelessWidget {
           style: AppStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
         ),
         const Spacer(),
-        Row(
-          children: [
-            Text(
-              "En",
-              style: AppStyles.textStyle18.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Transform.scale(
-              scale: 0.8,
-              child: Switch(
-                value: currentLang == 'ar',
-                onChanged: (value) {
-                  context.read<LanguageCubit>().toggleLanguage();
-                },
-                activeColor: AppColors().white,
-                activeTrackColor: AppColors().orange,
-                inactiveThumbColor: AppColors().white,
-                inactiveTrackColor: AppColors().browen,
-              ),
-            ),
-            Text(
-              "ع",
-              style: AppStyles.textStyle20.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+        Text(
+          "En",
+          style: AppStyles.textStyle16.copyWith(
+            fontWeight: FontWeight.bold,
+            color: AppColors().orange,
+          ),
+        ),
+        Transform.scale(
+          scale: 0.8,
+          child: Switch(
+            value: currentLang == 'ar',
+            onChanged: (value) {
+              context.read<LanguageCubit>().toggleLanguage();
+            },
+            activeColor: AppColors().white,
+            activeTrackColor: AppColors().browen,
+            inactiveThumbColor: AppColors().white,
+            inactiveTrackColor: AppColors().orange,
+          ),
+        ),
+        Text(
+          "ع",
+          style: AppStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),
         ),
       ],
     );

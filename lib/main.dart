@@ -38,8 +38,7 @@ class MyApp extends StatelessWidget {
             cubit.authStatus();
             return cubit;
           },
-        ),
-
+        ), 
         BlocProvider(create: (context) => ThemeCubit()),
         BlocProvider(create: (context) => LanguageCubit()),
          BlocProvider(
@@ -69,7 +68,7 @@ class MyApp extends StatelessWidget {
               darkTheme: ThemeData.dark(),
               themeMode: themeMode,
               debugShowCheckedModeBanner: false,
-              title: 'Stroe App',
+              title: 'Frishly',
               routerConfig: AppRouter.router,
             ),
           );
