@@ -21,17 +21,10 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
       children: [
         Text(S.of(context).AppSettings, style: AppStyles.textStyle22),
         const SizedBox(height: 20),
-        NotificationOptionWidget(
-          icon: Icons.notifications,
-          title: S.of(context).Notifications,
-        ),
-        ModeOptionWidget(icon: Icons.dark_mode, title: S.of(context).Mode),
+        NotificationOptionWidget(),
+        ModeOptionWidget(),
         const SizedBox(height: 20),
-        LanguageOptionWidget(
-          icon: Icons.g_translate_sharp,
-          title: S.of(context).Language,
-          onPressed: () {},
-        ),
+        LanguageOptionWidget(),
         const SizedBox(height: 20),
         BlocBuilder<AuthCubit, AuthState>(
           bloc: authCubit,

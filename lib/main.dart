@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/constants.dart';
+import 'package:store/features/account/presentation/profile/manager/language_cubit/language_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/profile_image_cubit/profile_image_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/them_cubit/them_cubit.dart';
 import 'package:store/features/registeration/data/services/auth_services.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         ),
 
         BlocProvider(create: (context) => ThemeCubit()),
+        BlocProvider(create: (context) => LanguageCubit()),
          BlocProvider(
           create: (_) => ProfileImageCubit(),
         ),
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
             minTextAdapt: true,
             splitScreenMode: true,
             child: MaterialApp.router(
-              locale: const Locale('en'),
+              locale: context.watch<LanguageCubit>().state, 
               localizationsDelegates: [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
