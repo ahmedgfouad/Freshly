@@ -6,6 +6,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
+import 'package:store/core/utils/constants.dart';
+import 'package:store/features/account/presentation/profile/manager/profile_image_cubit/profile_image_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/them_cubit/them_cubit.dart';
 import 'package:store/features/registeration/data/services/auth_services.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
@@ -18,7 +20,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final appDocumentDir = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
-  await Hive.openBox('shopBox');
+  await Hive.openBox(hiveName);
   runApp(const MyApp());
 }
 
@@ -38,6 +40,9 @@ class MyApp extends StatelessWidget {
         ),
 
         BlocProvider(create: (context) => ThemeCubit()),
+         BlocProvider(
+          create: (_) => ProfileImageCubit(),
+        ),
       ],
 
       child: BlocBuilder<ThemeCubit, ThemeMode>(

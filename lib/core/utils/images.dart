@@ -1,4 +1,5 @@
 class AppImages {
+  static const splashImg = 'assets/splash.png';
   static const welcomImg = 'assets/welcom.svg';
   static const signUpImg = 'assets/signup.svg';
   static const logInImg = 'assets/login.svg';
@@ -8,5 +9,5 @@ class AppImages {
   static const order3Img = 'assets/order3.svg';
   static const orderEmptyImg = 'assets/order_empty.svg';
   static const addressImg = 'assets/address.svg';
-  static const favImg = 'assets/school.png';
+  static const personImg = 'assets/person.png';
 }

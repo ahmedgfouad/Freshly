@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/navigator.dart';
@@ -30,7 +29,7 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: SvgPicture.asset(AppImages.welcomImg));
+    return Center(child: Image.asset(AppImages.splashImg));
   }
 
   void initSlideAnimation() {

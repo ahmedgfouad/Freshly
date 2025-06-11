@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/account/presentation/profile/manager/profile_image_cubit/profile_image_cubit.dart';
 
 AppBar customAppBar({
   required String title,
@@ -9,6 +13,25 @@ AppBar customAppBar({
 }) {
   return AppBar(
     automaticallyImplyLeading: false,
+    actions: [
+      BlocBuilder<ProfileImageCubit, ProfileImageState>(
+        builder: (context, state) {
+          if (state is ProfileImageUpdated) {
+            return CircleAvatar(
+              radius: 20,
+               backgroundImage: FileImage(File(state.imagePath)),
+            );
+          } else {
+            return CircleAvatar(
+              radius: 20,
+              backgroundColor: AppColors().ofWhite,
+              child: Icon(Icons.person, color: AppColors().orange, size: 30),
+            );
+          }
+        },
+      ),
+      const SizedBox(width: 10),
+    ],
     leading:
         arrowBack
             ? IconButton(
@@ -22,6 +45,6 @@ AppBar customAppBar({
       title,
       style: AppStyles.textStyle24.copyWith(color: AppColors().orange),
     ),
-    centerTitle: true, 
+    centerTitle: true,
   );
 }
