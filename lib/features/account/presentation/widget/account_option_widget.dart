@@ -17,19 +17,24 @@ class AccountOptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(icon, color: AppColors().orange, size: 30),
-        SizedBox(width: 10.w),
-        TextButton(
-          onPressed: onPressed,
-          child: Text(
-            title,
-            style: AppStyles.textStyle22.copyWith(color: AppColors().browen),
-          ),
+    return InkWell(
+      onTap: onPressed,
+      splashColor: AppColors().orange,
+      child: Card(
+        color: AppColors().white,
+        elevation: 0,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(icon, color: AppColors().orange, size: 30),
+            SizedBox(width: 10.w),
+            Text(
+              title,
+              style: AppStyles.textStyle22.copyWith(color: AppColors().browen),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

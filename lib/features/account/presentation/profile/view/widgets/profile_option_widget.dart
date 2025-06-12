@@ -15,27 +15,32 @@ class ProfileOptionWidget extends StatelessWidget {
   final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(icon, color: AppColors().browen, size: 30),
-        const SizedBox(width: 15),
-        TextButton(
-          onPressed: onPressed,
-          child: Text(
-            title,
-            style: AppStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
-          ),
+    return InkWell(
+      onTap: onPressed,
+      splashColor: AppColors().orange,
+      child: Card(
+        elevation: 0,
+        color: AppColors().white,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(icon, color: AppColors().browen, size: 30),
+            const SizedBox(width: 15),
+            Text(
+              title,
+              style: AppStyles.textStyle18.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            Spacer(),
+            Icon(
+              Icons.keyboard_arrow_right_outlined,
+              color: AppColors().browen,
+            ),
+          ],
         ),
-        Spacer(),
-        IconButton(
-          onPressed: onPressed,
-          icon: Icon(
-            Icons.keyboard_arrow_right_outlined,
-            color: AppColors().browen,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
