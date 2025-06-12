@@ -15,18 +15,20 @@ class LanguageOptionWidget extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(Icons.public, color: AppColors().browen, size: 30),
+        Icon(Icons.public, color: context.appColors.browen, size: 30),
         const SizedBox(width: 15),
         Text(
           S.of(context).Language,
-          style: AppStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+          style: AppStyles.textStyle18(
+            context,
+          ).copyWith(fontWeight: FontWeight.bold),
         ),
         const Spacer(),
         Text(
           "En",
-          style: AppStyles.textStyle16.copyWith(
+          style: AppStyles.textStyle16(context).copyWith(
             fontWeight: FontWeight.bold,
-            color: AppColors().orange,
+            color: context.appColors.orange,
           ),
         ),
         Transform.scale(
@@ -36,15 +38,17 @@ class LanguageOptionWidget extends StatelessWidget {
             onChanged: (value) {
               context.read<LanguageCubit>().toggleLanguage();
             },
-            activeColor: AppColors().white,
-            activeTrackColor: AppColors().browen,
-            inactiveThumbColor: AppColors().white,
-            inactiveTrackColor: AppColors().orange,
+            activeColor: context.appColors.white,
+            activeTrackColor: context.appColors.browen,
+            inactiveThumbColor: context.appColors.white,
+            inactiveTrackColor: context.appColors.orange,
           ),
         ),
         Text(
           "ع",
-          style: AppStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),
+          style: AppStyles.textStyle20(
+            context,
+          ).copyWith(fontWeight: FontWeight.bold),
         ),
       ],
     );

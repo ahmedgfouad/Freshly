@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:store/core/utils/app_router.dart';
-import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/constants.dart';
+import 'package:store/core/utils/thems.dart';
 import 'package:store/features/account/presentation/profile/manager/language_cubit/language_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/profile_image_cubit/profile_image_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/them_cubit/them_cubit.dart';
@@ -38,12 +38,10 @@ class MyApp extends StatelessWidget {
             cubit.authStatus();
             return cubit;
           },
-        ), 
+        ),
         BlocProvider(create: (context) => ThemeCubit()),
         BlocProvider(create: (context) => LanguageCubit()),
-         BlocProvider(
-          create: (_) => ProfileImageCubit(),
-        ),
+        BlocProvider(create: (_) => ProfileImageCubit()),
       ],
 
       child: BlocBuilder<ThemeCubit, ThemeMode>(
@@ -53,7 +51,7 @@ class MyApp extends StatelessWidget {
             minTextAdapt: true,
             splitScreenMode: true,
             child: MaterialApp.router(
-              locale: context.watch<LanguageCubit>().state, 
+              locale: context.watch<LanguageCubit>().state,
               localizationsDelegates: [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -61,11 +59,8 @@ class MyApp extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: S.delegate.supportedLocales,
-              theme: ThemeData(
-                scaffoldBackgroundColor: Colors.white,
-                appBarTheme: AppBarTheme(backgroundColor: AppColors().white),
-              ),
-              darkTheme: ThemeData.dark(),
+              theme: lightTheme,
+              darkTheme: darkTheme,
               themeMode: themeMode,
               debugShowCheckedModeBanner: false,
               title: 'Frishly',

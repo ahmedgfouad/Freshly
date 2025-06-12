@@ -26,7 +26,7 @@ class CountOfProdutWidget extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20),
             height: 50,
             decoration: BoxDecoration(
-              color: AppColors().ofWhite,
+              color: context.appColors.offWhite,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
@@ -34,23 +34,23 @@ class CountOfProdutWidget extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 20,
-                  backgroundColor: AppColors().orange,
+                  backgroundColor: context.appColors.orange,
                   child: IconButton(
                     onPressed: () {
                       addToCardCubit.changeQuantity(
                         addToCardCubit.quantity + 1,
                       );
                     },
-                    icon: Icon(Icons.add, color: AppColors().white),
+                    icon: Icon(Icons.add, color: context.appColors.white),
                   ),
                 ),
                 Text(
                   "${addToCardCubit.quantity}",
-                  style: AppStyles.textStyle18,
+                  style: AppStyles.textStyle18(context),
                 ),
                 CircleAvatar(
                   radius: 20,
-                  backgroundColor: AppColors().orange,
+                  backgroundColor: context.appColors.orange,
                   child: IconButton(
                     onPressed: () {
                       if (addToCardCubit.quantity > 1) {
@@ -59,7 +59,7 @@ class CountOfProdutWidget extends StatelessWidget {
                         );
                       }
                     },
-                    icon: Icon(Icons.remove, color: AppColors().white),
+                    icon: Icon(Icons.remove, color: context.appColors.white),
                   ),
                 ),
               ],

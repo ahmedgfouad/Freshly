@@ -29,7 +29,7 @@ class SignupFieldsSectionWidget extends StatelessWidget {
           width: MediaQuery.of(context).size.height / 4,
         ),
         SizedBox(height: 13),
-        Text(S.of(context).SignupHint, style: AppStyles.textStyle18),
+        Text(S.of(context).SignupHint, style: AppStyles.textStyle18(context)),
         SizedBox(height: 17),
         CustomTextFormFieldWidget(
           hintText: S.of(context).Name,

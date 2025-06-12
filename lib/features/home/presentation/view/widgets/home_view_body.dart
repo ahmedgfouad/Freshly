@@ -45,8 +45,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               showUnselectedLabels: true,
               currentIndex: homeCubit.currentIndex,
               backgroundColor: Colors.white,
-              unselectedItemColor: AppColors().browen,
-              selectedItemColor: AppColors().orange,
+              unselectedItemColor: context.appColors.browen,
+              selectedItemColor: context.appColors.orange,
               unselectedLabelStyle: TextStyle(
                 fontSize: 15.sp,
                 fontWeight: FontWeight.w400,

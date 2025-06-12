@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:store/core/utils/colors.dart';
@@ -18,8 +15,8 @@ class CustomCategoriesLoadingWidget extends StatelessWidget {
         itemCount: 5,
         itemBuilder:
             (context, index) => Shimmer.fromColors(
-              baseColor: AppColors().orange,
-              highlightColor: AppColors().browen,
+              baseColor: context.appColors.orange,
+              highlightColor: context.appColors.browen,
               child: CircleAvatar(radius: 40),
             ),
       ),

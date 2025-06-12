@@ -19,13 +19,15 @@ class LogoutOptionWidget extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(icon, color: AppColors().browen, size: 30),
+        Icon(icon, color: context.appColors.browen, size: 30),
         SizedBox(width: 15),
         TextButton(
           onPressed: onPressed,
           child: Text(
             title,
-            style: AppStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+            style: AppStyles.textStyle18(
+              context,
+            ).copyWith(fontWeight: FontWeight.bold),
           ),
         ),
       ],

@@ -23,7 +23,7 @@ class AddressesSectionWidget extends StatelessWidget {
               current is AddressesLoadingState ||
               current is AddressesSuccessState ||
               current is AddressesFailedState,
-      builder: (context, state) { 
+      builder: (context, state) {
         if (state is AddressesLoadingState) {
           return CustomLoadingIndecator();
         } else if (state is AddressesFailedState) {
@@ -38,7 +38,10 @@ class AddressesSectionWidget extends StatelessWidget {
                   children: [
                     SvgPicture.asset(AppImages.addressImg),
                     SizedBox(height: 20),
-                    Text("No Addressed Added ", style: AppStyles.textStyle24),
+                    Text(
+                      "No Addressed Added ",
+                      style: AppStyles.textStyle24(context),
+                    ),
                   ],
                 ),
               );

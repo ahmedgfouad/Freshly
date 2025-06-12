@@ -31,11 +31,11 @@ class _PasswordTextFormFieldWidgetState
         return null;
       },
       controller: widget.controller,
-      cursorColor: AppColors().orange,
+      cursorColor: context.appColors.orange,
       obscureText: widget.isObscureText,
       decoration: InputDecoration(
-        suffixIconColor: AppColors().orange,
-        prefixIcon: Icon(Icons.lock, color: AppColors().orange),
+        suffixIconColor: context.appColors.orange,
+        prefixIcon: Icon(Icons.lock, color: context.appColors.orange),
         suffixIcon: IconButton(
           onPressed: () {
             widget.isObscureText = !widget.isObscureText;
@@ -47,8 +47,10 @@ class _PasswordTextFormFieldWidgetState
                   : Icon(Icons.visibility_off_outlined),
         ),
         hintText: widget.hintName,
-        hintStyle: AppStyles.textStyle16.copyWith(color: Color(0xffAC8E71)),
-        fillColor: AppColors().ofWhite,
+        hintStyle: AppStyles.textStyle16(
+          context,
+        ).copyWith(color: Color(0xffAC8E71)),
+        fillColor: context.appColors.offWhite,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),

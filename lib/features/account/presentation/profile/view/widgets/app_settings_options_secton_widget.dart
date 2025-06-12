@@ -19,10 +19,10 @@ class AppSettingsOptionsSectonWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(S.of(context).AppSettings, style: AppStyles.textStyle22),
+        Text(S.of(context).AppSettings, style: AppStyles.textStyle22(context)),
         const SizedBox(height: 20),
         NotificationOptionWidget(),
-        const SizedBox(height: 20), 
+        const SizedBox(height: 20),
         ModeOptionWidget(),
         const SizedBox(height: 20),
         LanguageOptionWidget(),

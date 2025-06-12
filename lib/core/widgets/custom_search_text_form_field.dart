@@ -9,13 +9,15 @@ class CustomSearchTextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: AppColors().orange,
+      cursorColor: context.appColors.orange,
 
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.search, color: Color(0xffAC8E71)),
-        hintText:  S.of(context).Search,
-        hintStyle: AppStyles.textStyle16.copyWith(color: Color(0xffAC8E71)),
-        fillColor: AppColors().ofWhite,
+        hintText: S.of(context).Search,
+        hintStyle: AppStyles.textStyle16(
+          context,
+        ).copyWith(color: Color(0xffAC8E71)),
+        fillColor: context.appColors.offWhite,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),

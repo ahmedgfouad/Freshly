@@ -38,14 +38,14 @@ class ListOfCartItemsWidget extends StatelessWidget {
                     key: ValueKey(listOfCartProducts[index]),
                     background: Container(
                       decoration: BoxDecoration(
-                        color: AppColors().browen,
+                        color: context.appColors.browen,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: Alignment.centerRight,
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Icon(
                         Icons.delete_outline,
-                        color: AppColors().white,
+                        color: context.appColors.white,
                       ),
                     ),
                     child: CartItemWidget(product: listOfCartProducts[index]),

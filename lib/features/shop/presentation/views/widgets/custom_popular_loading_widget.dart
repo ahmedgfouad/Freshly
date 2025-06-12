@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:store/core/utils/colors.dart';
@@ -16,8 +15,8 @@ class CustomPopularLoadingWidget extends StatelessWidget {
         itemCount: 3,
         itemBuilder:
             (context, index) => Shimmer.fromColors(
-              baseColor: AppColors().orange,
-              highlightColor: AppColors().browen,
+              baseColor: context.appColors.orange,
+              highlightColor: context.appColors.browen,
               child: Container(
                 width: MediaQuery.of(context).size.width / 2.3,
                 padding: EdgeInsets.symmetric(horizontal: 11),

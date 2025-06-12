@@ -59,23 +59,23 @@ class ProductDetailsViewBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(product.name, style: AppStyles.textStyle24),
+                Text(product.name, style: AppStyles.textStyle24(context)),
                 SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "\$ ${product.price} /st",
-                      style: AppStyles.textStyle18,
+                      style: AppStyles.textStyle18(context),
                     ),
                     Text(
                       " Total Price : ${product.price * addToCardCubit.quantity} /EGP",
-                      style: AppStyles.textStyle14,
+                      style: AppStyles.textStyle14(context),
                     ),
                   ],
                 ),
                 SizedBox(height: 8),
-                Text(product.aboute, style: AppStyles.textStyle14),
+                Text(product.aboute, style: AppStyles.textStyle14(context)),
                 Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +84,9 @@ class ProductDetailsViewBody extends StatelessWidget {
                       width: MediaQuery.of(context).size.width / 1.3,
                     ),
                     BlocProvider(
-                      create: (context) => AddToFavoriteCubit(AddToFavoriteServicesImpl()),
+                      create:
+                          (context) =>
+                              AddToFavoriteCubit(AddToFavoriteServicesImpl()),
                       child: FavouriteIconWidet(
                         product: SaveProductModel(
                           id: documentIdFromLocalData(),
@@ -113,8 +115,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                         imageUrl: product.imageUrl,
                         price: product.price,
                         quantity: addToCardCubit.quantity,
-                        totalPrice:
-                            product.price * addToCardCubit.quantity,
+                        totalPrice: product.price * addToCardCubit.quantity,
                       ),
                     );
                     // navigateTo(AppRouter.kCartView, context);

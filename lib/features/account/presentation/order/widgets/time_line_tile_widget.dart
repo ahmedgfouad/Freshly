@@ -26,14 +26,17 @@ class TimelineTileWidget extends StatelessWidget {
       lineXY: 0.01,
       indicatorStyle: IndicatorStyle(
         width: 20,
-        color: isCheck ? AppColors().green : AppColors().grey,
+        color: isCheck ? context.appColors.green : context.appColors.grey,
         iconStyle:
             isCheck
-                ? IconStyle(iconData: Icons.check, color: AppColors().white)
+                ? IconStyle(
+                  iconData: Icons.check,
+                  color: context.appColors.white,
+                )
                 : null,
       ),
-      beforeLineStyle: LineStyle(color: AppColors().grey, thickness: 1),
-      afterLineStyle: LineStyle(color: AppColors().grey, thickness: 1),
+      beforeLineStyle: LineStyle(color: context.appColors.grey, thickness: 1),
+      afterLineStyle: LineStyle(color: context.appColors.grey, thickness: 1),
       endChild: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30.0),
         child: Row(
@@ -41,7 +44,7 @@ class TimelineTileWidget extends StatelessWidget {
           children: [
             SvgPicture.asset(image),
             SizedBox(width: 10),
-            Expanded(child: Text(title, style: AppStyles.textStyle16)),
+            Expanded(child: Text(title, style: AppStyles.textStyle16(context))),
           ],
         ),
       ),

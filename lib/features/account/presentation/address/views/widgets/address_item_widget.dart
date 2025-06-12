@@ -11,7 +11,7 @@ class AddressItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors().ofWhite,
+      color: context.appColors.offWhite,
       child: InkWell(
         onTap: () {
           GoRouter.of(
@@ -22,7 +22,11 @@ class AddressItemWidget extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Icon(Icons.location_on, color: AppColors().browen, size: 30),
+              Icon(
+                Icons.location_on,
+                color: context.appColors.browen,
+                size: 30,
+              ),
               SizedBox(width: 20),
               Expanded(
                 child: Column(
@@ -30,19 +34,19 @@ class AddressItemWidget extends StatelessWidget {
                   children: [
                     Text(
                       address.city,
-                      style: AppStyles.textStyle18.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: AppStyles.textStyle18(
+                        context,
+                      ).copyWith(fontWeight: FontWeight.bold),
                     ),
                     Text(
                       address.streetName,
-                      style: AppStyles.textStyle14,
+                      style: AppStyles.textStyle14(context),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
                     Text(
                       "${address.phoneNumber}   ${address.nearestLandmark} ",
-                      style: AppStyles.textStyle14,
+                      style: AppStyles.textStyle14(context),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
@@ -50,7 +54,7 @@ class AddressItemWidget extends StatelessWidget {
                 ),
               ),
 
-              Icon(Icons.edit_location_alt, color: AppColors().browen),
+              Icon(Icons.edit_location_alt, color: context.appColors.browen),
             ],
           ),
         ),

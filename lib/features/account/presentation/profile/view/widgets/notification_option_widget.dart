@@ -11,26 +11,32 @@ class NotificationOptionWidget extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(Icons.notifications, color: AppColors().browen, size: 30),
+        Icon(Icons.notifications, color: context.appColors.browen, size: 30),
         SizedBox(width: 15),
         Text(
           S.of(context).Notifications,
-          style: AppStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+          style: AppStyles.textStyle18(
+            context,
+          ).copyWith(fontWeight: FontWeight.bold),
         ),
         Spacer(),
-        Icon(Icons.notifications, size: 20, color: AppColors().orange),
+        Icon(Icons.notifications, size: 20, color: context.appColors.orange),
         Transform.scale(
           scale: .8,
           child: Switch(
             value: false,
             onChanged: (value) {},
-            activeColor: AppColors().white,
-            activeTrackColor: AppColors().browen,
-            inactiveThumbColor: AppColors().white,
-            inactiveTrackColor: AppColors().orange,
+            activeColor: context.appColors.white,
+            activeTrackColor: context.appColors.browen,
+            inactiveThumbColor: context.appColors.white,
+            inactiveTrackColor: context.appColors.orange,
           ),
         ),
-        Icon(Icons.notifications_off, size: 20, color: AppColors().browen),
+        Icon(
+          Icons.notifications_off,
+          size: 20,
+          color: context.appColors.browen,
+        ),
       ],
     );
   }

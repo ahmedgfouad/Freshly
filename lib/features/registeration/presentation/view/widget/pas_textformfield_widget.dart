@@ -7,7 +7,7 @@ class PasswordTextFormFieldWidget extends StatefulWidget {
     super.key,
     required this.hintName,
     this.isObscureText = true,
-    this.controller
+    this.controller,
   });
 
   final String hintName;
@@ -31,10 +31,10 @@ class _PasswordTextFormFieldWidgetState
         }
         return null;
       },
-      cursorColor: AppColors().orange,
+      cursorColor: context.appColors.orange,
       obscureText: widget.isObscureText,
       decoration: InputDecoration(
-        suffixIconColor: AppColors().orange,
+        suffixIconColor: context.appColors.orange,
         suffixIcon: IconButton(
           onPressed: () {
             widget.isObscureText = !widget.isObscureText;
@@ -46,8 +46,10 @@ class _PasswordTextFormFieldWidgetState
                   : Icon(Icons.visibility_off_outlined),
         ),
         hintText: widget.hintName,
-        hintStyle: AppStyles.textStyle16.copyWith(color: Color(0xffAC8E71)),
-        fillColor: AppColors().ofWhite,
+        hintStyle: AppStyles.textStyle16(
+          context,
+        ).copyWith(color: Color(0xffAC8E71)),
+        fillColor: context.appColors.offWhite,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),

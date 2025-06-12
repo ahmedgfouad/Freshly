@@ -17,26 +17,26 @@ class ProfileOptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      splashColor: AppColors().orange,
+      splashColor: context.appColors.orange,
       child: Card(
         elevation: 0,
-        color: AppColors().white,
+        color: context.appColors.white,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(icon, color: AppColors().browen, size: 30),
+            Icon(icon, color: context.appColors.browen, size: 30),
             const SizedBox(width: 15),
             Text(
               title,
-              style: AppStyles.textStyle18.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: AppStyles.textStyle18(
+                context,
+              ).copyWith(fontWeight: FontWeight.bold),
             ),
 
             Spacer(),
             Icon(
               Icons.keyboard_arrow_right_outlined,
-              color: AppColors().browen,
+              color: context.appColors.browen,
             ),
           ],
         ),

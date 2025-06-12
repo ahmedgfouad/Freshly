@@ -12,7 +12,7 @@ class FavoriteItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors().white,
+      color: context.appColors.white,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -23,21 +23,24 @@ class FavoriteItemWidget extends StatelessWidget {
             children: [
               Text(
                 product.name,
-                style: AppStyles.textStyle18.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.textStyle18(
+                  context,
+                ).copyWith(fontWeight: FontWeight.bold),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(Icons.shopping_cart_outlined, color: AppColors().orange),
+                  Icon(
+                    Icons.shopping_cart_outlined,
+                    color: context.appColors.orange,
+                  ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
                       "Add to cart",
-                      style: AppStyles.textStyle14.copyWith(
-                        color: AppColors().orange,
-                      ),
+                      style: AppStyles.textStyle14(
+                        context,
+                      ).copyWith(color: context.appColors.orange),
                     ),
                   ),
                 ],
@@ -49,16 +52,16 @@ class FavoriteItemWidget extends StatelessWidget {
             children: [
               Text(
                 "\$${product.price}",
-                style: AppStyles.textStyle18.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.textStyle18(
+                  context,
+                ).copyWith(fontWeight: FontWeight.bold),
               ),
               SizedBox(width: 5),
               Text(
                 "kg",
-                style: AppStyles.textStyle12.copyWith(
+                style: AppStyles.textStyle12(context).copyWith(
                   fontWeight: FontWeight.bold,
-                  color: AppColors().browen,
+                  color: context.appColors.browen,
                 ),
               ),
             ],

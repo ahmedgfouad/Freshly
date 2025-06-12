@@ -11,7 +11,7 @@ class CartItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors().white,
+      color: context.appColors.white,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
         child: Row(
@@ -23,24 +23,24 @@ class CartItemWidget extends StatelessWidget {
               children: [
                 Text(
                   product.name,
-                  style: AppStyles.textStyle18.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppStyles.textStyle18(
+                    context,
+                  ).copyWith(fontWeight: FontWeight.bold),
                 ),
                 Row(
                   children: [
                     Text(
                       "${S.of(context).EGP} ${product.price}",
-                      style: AppStyles.textStyle18.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: AppStyles.textStyle18(
+                        context,
+                      ).copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(width: 5),
                     Text(
-                       S.of(context).kg,
-                      style: AppStyles.textStyle12.copyWith(
+                      S.of(context).kg,
+                      style: AppStyles.textStyle12(context).copyWith(
                         fontWeight: FontWeight.bold,
-                        color: AppColors().browen,
+                        color: context.appColors.browen,
                       ),
                     ),
                   ],
@@ -52,16 +52,16 @@ class CartItemWidget extends StatelessWidget {
               children: [
                 Text(
                   "${S.of(context).Quantity} : \$${product.quantity} ${S.of(context).kg}",
-                  style: AppStyles.textStyle14.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppStyles.textStyle14(
+                    context,
+                  ).copyWith(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 5),
                 Text(
                   "${S.of(context).Price} : \$${product.totalPrice}",
-                  style: AppStyles.textStyle14.copyWith(
+                  style: AppStyles.textStyle14(context).copyWith(
                     fontWeight: FontWeight.bold,
-                    color: AppColors().orange,
+                    color: context.appColors.orange,
                   ),
                 ),
               ],

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
@@ -9,32 +8,35 @@ class ItemOrderHistoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors().white,
+      color: context.appColors.white,
 
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           children: [
-            Icon(Icons.shopping_basket_outlined, color: AppColors().orange),
+            Icon(
+              Icons.shopping_basket_outlined,
+              color: context.appColors.orange,
+            ),
             SizedBox(width: 15),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Order #345", style: AppStyles.textStyle18),
+                Text("Order #345", style: AppStyles.textStyle18(context)),
                 Text(
                   "Delivered",
-                  style: AppStyles.textStyle14.copyWith(
-                    color: AppColors().green,
-                  ),
+                  style: AppStyles.textStyle14(
+                    context,
+                  ).copyWith(color: context.appColors.green),
                 ),
-                Text("October 26, 2014", style: AppStyles.textStyle14),
+                Text("October 26, 2014", style: AppStyles.textStyle14(context)),
               ],
             ),
             Spacer(),
             Text(
               r"$700",
-              style: AppStyles.textStyle18.copyWith(
-                color: AppColors().orange,
+              style: AppStyles.textStyle18(context).copyWith(
+                color: context.appColors.orange,
                 fontWeight: FontWeight.bold,
               ),
             ),

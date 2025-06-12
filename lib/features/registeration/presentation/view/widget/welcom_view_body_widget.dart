@@ -26,26 +26,30 @@ class WelcomViewBodyWidget extends StatelessWidget {
             SizedBox(height: 33),
             Text(
               S.of(context).Welcome,
-              style: AppStyles.textStyle24.copyWith(color: AppColors().browen),
+              style: AppStyles.textStyle24(
+                context,
+              ).copyWith(color: context.appColors.browen),
             ),
             SizedBox(height: 16),
             Text(
               S.of(context).WelcomeDescription,
               textAlign: TextAlign.center,
-              style: AppStyles.textStyle16.copyWith(color: AppColors().browen),
+              style: AppStyles.textStyle16(
+                context,
+              ).copyWith(color: context.appColors.browen),
             ),
             SizedBox(height: 50),
             CustomButon(
               onPressed: () => navigateTo(AppRouter.kSignUpView, context),
-              bacgrouncColor: AppColors().orange,
-              textColor: AppColors().white,
+              bacgrouncColor: context.appColors.orange,
+              textColor: context.appColors.white,
               text: S.of(context).Signup,
             ),
             SizedBox(height: 16),
             CustomButon(
               onPressed: () => navigateTo(AppRouter.kLogInView, context),
-              bacgrouncColor: AppColors().white,
-              textColor: AppColors().browen,
+              bacgrouncColor: context.appColors.white,
+              textColor: context.appColors.browen,
               text: S.of(context).Signin,
             ),
             Expanded(child: SizedBox()),

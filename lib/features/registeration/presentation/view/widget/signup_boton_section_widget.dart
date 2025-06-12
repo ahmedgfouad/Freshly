@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/app_router.dart';
@@ -12,14 +11,13 @@ import 'package:store/generated/l10n.dart';
 
 class SignupBotonSectionWidget extends StatelessWidget {
   const SignupBotonSectionWidget({
-    super.key, 
+    super.key,
     required this.formKey,
     required this.emailController,
     required this.passwordController,
     required this.nameController,
   });
 
-  
   final GlobalKey<FormState> formKey;
   final TextEditingController emailController;
   final TextEditingController passwordController;
@@ -27,13 +25,12 @@ class SignupBotonSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final authCubit = BlocProvider.of<AuthCubit>(context); 
+    final authCubit = BlocProvider.of<AuthCubit>(context);
     return BlocConsumer<AuthCubit, AuthState>(
       bloc: authCubit,
       listenWhen:
           (previous, current) =>
-              current is SignupSuccessState ||
-              current is SignupFailedState,
+              current is SignupSuccessState || current is SignupFailedState,
       listener: (context, state) {
         if (state is SignupSuccessState) {
           navigateAndReplacement(AppRouter.kHomeView, context);
@@ -57,8 +54,8 @@ class SignupBotonSectionWidget extends StatelessWidget {
         }
         if (state is AuthInitial) {
           return CustomButon(
-            bacgrouncColor: AppColors().orange,
-            textColor: AppColors().white,
+            bacgrouncColor: context.appColors.orange,
+            textColor: context.appColors.white,
             text: S.of(context).Signup,
             onPressed: () async {
               if (formKey.currentState!.validate()) {

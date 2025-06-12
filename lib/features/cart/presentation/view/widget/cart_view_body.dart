@@ -50,21 +50,24 @@ class CartViewBody extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                           S.of(context).TotalPrice ,
-                            style: AppStyles.textStyle20.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            S.of(context).TotalPrice,
+                            style: AppStyles.textStyle20(
+                              context,
+                            ).copyWith(fontWeight: FontWeight.bold),
                           ),
                           Text(
                             "$totalP ${S.of(context).EGP}",
-                            style: AppStyles.textStyle20.copyWith(
+                            style: AppStyles.textStyle20(context).copyWith(
                               fontWeight: FontWeight.bold,
-                              color: AppColors().orange,
+                              color: context.appColors.orange,
                             ),
                           ),
                         ],
                       ),
-                      CustomButon(text: S.of(context).CheckOut, onPressed: () {}),
+                      CustomButon(
+                        text: S.of(context).CheckOut,
+                        onPressed: () {},
+                      ),
                     ],
                   ),
                 ],

@@ -34,11 +34,15 @@ class FavouriteIconWidet extends StatelessWidget {
             },
             icon:
                 addToFavoriteCubit.isFavorite
-                    ? Icon(Icons.favorite, size: 35, color: AppColors().orange)
+                    ? Icon(
+                      Icons.favorite,
+                      size: 35,
+                      color: context.appColors.orange,
+                    )
                     : Icon(
                       Icons.favorite_border,
                       size: 35,
-                      color: AppColors().orange,
+                      color: context.appColors.orange,
                     ),
           );
         } else {

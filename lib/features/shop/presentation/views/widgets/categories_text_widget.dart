@@ -15,7 +15,7 @@ class CategoriesTextWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text( S.of(context).Categories, style: AppStyles.textStyle24),
+          Text(S.of(context).Categories, style: AppStyles.textStyle24(context)),
           TextButton(
             onPressed: () {
               final homeCubit = BlocProvider.of<HomeCubit>(context);
@@ -23,7 +23,9 @@ class CategoriesTextWidget extends StatelessWidget {
             },
             child: Text(
               S.of(context).seeAll,
-              style: AppStyles.textStyle18.copyWith(color: AppColors().orange),
+              style: AppStyles.textStyle18(
+                context,
+              ).copyWith(color: context.appColors.orange),
             ),
           ),
         ],

@@ -24,17 +24,17 @@ class CustomButon extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: bacgrouncColor ?? AppColors().orange,
-          side: BorderSide(color: AppColors().orange),
+          backgroundColor: bacgrouncColor ?? context.appColors.orange,
+          side: BorderSide(color: context.appColors.orange),
           shape: RoundedRectangleBorder(
             borderRadius: borderRadius ?? BorderRadius.circular(30),
           ),
         ),
         child: Text(
           text,
-          style: AppStyles.textStyle18.copyWith(
+          style: AppStyles.textStyle18(context).copyWith(
             fontWeight: FontWeight.w700,
-            color: textColor ?? AppColors().white,
+            color: textColor ?? context.appColors.white,
           ),
         ),
       ),

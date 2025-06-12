@@ -19,18 +19,20 @@ class AccountOptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      splashColor: AppColors().orange,
+      splashColor: context.appColors.orange,
       child: Card(
-        color: AppColors().white,
+        color: context.appColors.white,
         elevation: 0,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(icon, color: AppColors().orange, size: 30),
+            Icon(icon, color: context.appColors.orange, size: 30),
             SizedBox(width: 10.w),
             Text(
               title,
-              style: AppStyles.textStyle22.copyWith(color: AppColors().browen),
+              style: AppStyles.textStyle22(
+                context,
+              ).copyWith(color: context.appColors.browen),
             ),
           ],
         ),

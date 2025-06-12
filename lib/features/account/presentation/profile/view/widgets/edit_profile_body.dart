@@ -37,7 +37,7 @@ class EditProfileBody extends StatelessWidget {
                             )
                             : Icon(
                               Icons.person,
-                              color: AppColors().browen,
+                              color: context.appColors.browen,
                               size: MediaQuery.of(context).size.height / 3,
                             ),
                   ),
@@ -47,14 +47,17 @@ class EditProfileBody extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () => profileImageCubit.deleteImage(),
-                        child: Icon(Icons.delete, color: AppColors().orange),
+                        child: Icon(
+                          Icons.delete,
+                          color: context.appColors.orange,
+                        ),
                       ),
                       const SizedBox(width: 20),
                       GestureDetector(
                         onTap: () => profileImageCubit.pickImageFromGallery(),
                         child: Icon(
                           Icons.camera_alt_outlined,
-                          color: AppColors().orange,
+                          color: context.appColors.orange,
                         ),
                       ),
                     ],

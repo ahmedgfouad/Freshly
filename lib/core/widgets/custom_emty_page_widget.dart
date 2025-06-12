@@ -26,15 +26,16 @@ class CustomEmptyPage extends StatelessWidget {
         SizedBox(height: 15),
         Text(
           title,
-          style: AppStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),
+          style: AppStyles.textStyle20(
+            context,
+          ).copyWith(fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 5),
-        Text(subTitle, style: AppStyles.textStyle16),
+        Text(subTitle, style: AppStyles.textStyle16(context)),
         Spacer(),
         CustomButon(
           text: S.of(context).StartShoping,
           onPressed: () {
-            
             BlocProvider.of<HomeCubit>(context).changeIndex(0);
           },
         ),

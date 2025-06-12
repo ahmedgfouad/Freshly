@@ -18,12 +18,15 @@ void showAddressOptionsWidget(BuildContext context) {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              leading: Icon(Icons.edit_location_alt, color: AppColors().orange),
+              leading: Icon(
+                Icons.edit_location_alt,
+                color: context.appColors.orange,
+              ),
               title: Text(
                 "Manual Address",
-                style: AppStyles.textStyle18.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.textStyle18(
+                  context,
+                ).copyWith(fontWeight: FontWeight.bold),
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -31,12 +34,12 @@ void showAddressOptionsWidget(BuildContext context) {
               },
             ),
             ListTile(
-              leading: Icon(Icons.map, color: AppColors().orange),
+              leading: Icon(Icons.map, color: context.appColors.orange),
               title: Text(
                 'Select Address from Map',
-                style: AppStyles.textStyle18.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppStyles.textStyle18(
+                  context,
+                ).copyWith(fontWeight: FontWeight.bold),
               ),
               onTap: () {
                 Navigator.pop(context);

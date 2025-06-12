@@ -24,7 +24,7 @@ class ProductInfoCartWidget extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 11),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
-          color: Colors.white,
+          color: context.appColors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.shade300,
@@ -48,25 +48,28 @@ class ProductInfoCartWidget extends StatelessWidget {
             Spacer(),
             Text(
               product.name,
-              style: AppStyles.textStyle18.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: AppStyles.textStyle18(
+                context,
+              ).copyWith(fontWeight: FontWeight.bold),
             ),
             Text(
               "1kg,priceg",
-              style: AppStyles.textStyle12.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: AppStyles.textStyle12(
+                context,
+              ).copyWith(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("\$ ${product.price}", style: AppStyles.textStyle22),
+                Text(
+                  "\$ ${product.price}",
+                  style: AppStyles.textStyle22(context),
+                ),
                 CircleAvatar(
                   radius: 15.r,
-                  backgroundColor: AppColors().green,
-                  child: Icon(Icons.add, color: AppColors().white),
+                  backgroundColor: context.appColors.green,
+                  child: Icon(Icons.add, color: context.appColors.white),
                 ),
               ],
             ),
