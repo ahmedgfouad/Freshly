@@ -29,7 +29,12 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Image.asset(AppImages.splashImg));
+    return Center(
+      child: SlideTransition(
+        position: slidingAnimation,
+        child: Image.asset(AppImages.splashImg),
+      ),
+    );
   }
 
   void initSlideAnimation() {
@@ -46,8 +51,7 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
-      // ignore: use_build_context_synchronously
-      navigateTo(AppRouter.kWelcomView, context);
+      navigateAndReplacement(AppRouter.kWelcomView, context);
     });
   }
 }

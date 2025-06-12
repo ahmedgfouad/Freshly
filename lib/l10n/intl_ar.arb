@@ -60,8 +60,10 @@
   "ConfirmPasswordMismatch": "تأكيد كلمة المرور لازم يكون نفس الكلمة الجديدة",
   "EditAddress": "تعديل العنوان",
   "UpdateAddress": "تحديث العنوان",
-  "Mode":"الوضع",
+  "Mode": "الوضع",
   "Loggingn": "....جاري تسجيل الدخول",
   "SignupLoading": "....جاري إنشاء الحساب",
+  "KgPriceg": "1كجم,سعر الكيلو",
+  "ProductDetails" :"تفاصيل المنتج",
   "Logout": "تسجيل الخروج"
 }

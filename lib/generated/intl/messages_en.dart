@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Governorate / City"),
         "History": MessageLookupByLibrary.simpleMessage("History"),
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
+        "KgPriceg": MessageLookupByLibrary.simpleMessage("1kg,priceg"),
         "Language": MessageLookupByLibrary.simpleMessage("Language"),
         "Loggingn": MessageLookupByLibrary.simpleMessage("Logging in...."),
         "LoginHint": MessageLookupByLibrary.simpleMessage(
@@ -77,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PhoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "PopularDeals": MessageLookupByLibrary.simpleMessage("Popular Deals"),
         "Price": MessageLookupByLibrary.simpleMessage("Price"),
+        "ProductDetails":
+            MessageLookupByLibrary.simpleMessage("Product Details"),
         "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "Quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "Search": MessageLookupByLibrary.simpleMessage("Search"),

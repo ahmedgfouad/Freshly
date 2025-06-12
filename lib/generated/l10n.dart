@@ -690,6 +690,26 @@ class S {
     );
   }
 
+  /// `1kg,priceg`
+  String get KgPriceg {
+    return Intl.message(
+      '1kg,priceg',
+      name: 'KgPriceg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product Details`
+  String get ProductDetails {
+    return Intl.message(
+      'Product Details',
+      name: 'ProductDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Logout`
   String get Logout {
     return Intl.message(

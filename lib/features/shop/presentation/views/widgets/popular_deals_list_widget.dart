@@ -11,7 +11,7 @@ class PopularDealsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final shopCubit = BlocProvider.of<PopularCubit>(context);
-    return BlocBuilder<PopularCubit,PopularState>(
+    return BlocBuilder<PopularCubit, PopularState>(
       bloc: shopCubit,
       buildWhen:
           (previous, current) =>
@@ -21,7 +21,7 @@ class PopularDealsListWidget extends StatelessWidget {
       builder: (context, state) {
         if (state is PopularLoadingState) {
           return CustomPopularLoadingWidget();
-        } else if (state is PopularFailedState) {
+        } else if (state is PopularFailedState) { 
           return Center(child: Text(state.error));
         } else if (state is PopularSuccessState) {
           final products = state.products;
@@ -43,5 +43,3 @@ class PopularDealsListWidget extends StatelessWidget {
     );
   }
 }
-
-

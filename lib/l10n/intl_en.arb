@@ -62,7 +62,8 @@
       "UpdateAddress": "Update Address",
       "Mode": "Mode",
       "Loggingn": "Logging in....",
-      "SignupLoading": "Signing up....",
-
+      "SignupLoading": "Signing up....", 
+      "KgPriceg": "1kg,priceg",
+      "ProductDetails" :"Product Details",
       "Logout": "Logout"
 }

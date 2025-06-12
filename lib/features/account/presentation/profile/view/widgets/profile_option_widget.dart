@@ -20,7 +20,7 @@ class ProfileOptionWidget extends StatelessWidget {
       splashColor: context.appColors.orange,
       child: Card(
         elevation: 0,
-        color: context.appColors.white,
+        color: Colors.transparent,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

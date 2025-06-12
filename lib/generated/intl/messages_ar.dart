@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("المحافظة / المدينة"),
         "History": MessageLookupByLibrary.simpleMessage("السجل"),
         "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "KgPriceg": MessageLookupByLibrary.simpleMessage("1كجم,سعر الكيلو"),
         "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "Loggingn":
             MessageLookupByLibrary.simpleMessage("....جاري تسجيل الدخول"),
@@ -78,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "PhoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "PopularDeals": MessageLookupByLibrary.simpleMessage("العروض المميزه"),
         "Price": MessageLookupByLibrary.simpleMessage("السعر"),
+        "ProductDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
         "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "Quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "Search": MessageLookupByLibrary.simpleMessage("بحث"),

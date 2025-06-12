@@ -21,7 +21,7 @@ class AccountOptionWidget extends StatelessWidget {
       onTap: onPressed,
       splashColor: context.appColors.orange,
       child: Card(
-        color: context.appColors.white,
+        color: Colors.transparent,
         elevation: 0,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,

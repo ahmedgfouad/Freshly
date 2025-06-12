@@ -6,6 +6,7 @@ import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/features/home/data/models/product_model.dart';
+import 'package:store/generated/l10n.dart';
 
 class ProductInfoCartWidget extends StatelessWidget {
   const ProductInfoCartWidget({super.key, required this.product});
@@ -53,7 +54,7 @@ class ProductInfoCartWidget extends StatelessWidget {
               ).copyWith(fontWeight: FontWeight.bold),
             ),
             Text(
-              "1kg,priceg",
+              S.of(context).KgPriceg,
               style: AppStyles.textStyle12(
                 context,
               ).copyWith(fontWeight: FontWeight.bold),
@@ -63,7 +64,7 @@ class ProductInfoCartWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "\$ ${product.price}",
+                  "${S.of(context).EGP} ${product.price}",
                   style: AppStyles.textStyle22(context),
                 ),
                 CircleAvatar(

@@ -25,7 +25,7 @@ class PopularCubit extends Cubit<PopularState> {
       }
 
       final products = await shopServices.getProducts();
-      await box.put(products, products.map((e) => e.toMap()).toList());
+      await box.put(hiveProductsName, products.map((e) => e.toMap()).toList());
       emit(PopularSuccessState(products));
     } catch (e) {
       final cachedData = box.get(hiveProductsName);

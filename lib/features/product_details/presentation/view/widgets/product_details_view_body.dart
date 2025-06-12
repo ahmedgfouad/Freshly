@@ -13,6 +13,7 @@ import 'package:store/features/product_details/presentation/manager/add_to_cart_
 import 'package:store/features/product_details/presentation/manager/add_to_favorite_cubit/add_to_favorite_cubit.dart';
 import 'package:store/features/product_details/presentation/view/widgets/count_of_product_widget.dart';
 import 'package:store/features/product_details/presentation/view/widgets/favourite_icon_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
   const ProductDetailsViewBody({super.key, required this.product});
@@ -31,7 +32,7 @@ class ProductDetailsViewBody extends StatelessWidget {
           if (state is AddToCartSuccessState) {
             ScaffoldMessenger.of(
               context,
-            ).showSnackBar(SnackBar(content: Text("Added to cart")));
+            ).showSnackBar(SnackBar(content: Text(S.of(context).AddToCart)));
           }
         },
         buildWhen:
@@ -65,11 +66,11 @@ class ProductDetailsViewBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "\$ ${product.price} /st",
+                      "${S.of(context).KgPriceg} ${product.price} ${S.of(context).EGP}",
                       style: AppStyles.textStyle18(context),
                     ),
                     Text(
-                      " Total Price : ${product.price * addToCardCubit.quantity} /EGP",
+                      " ${S.of(context).TotalPrice} : ${product.price * addToCardCubit.quantity} /EGP",
                       style: AppStyles.textStyle14(context),
                     ),
                   ],
@@ -104,7 +105,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                 ),
                 Spacer(),
                 CustomButon(
-                  text: "Add To Cart",
+                  text: S.of(context).AddToCart,
                   onPressed: () {
                     addToCardCubit.addCartToFirestore(
                       SaveProductModel(

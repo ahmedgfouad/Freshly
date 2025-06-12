@@ -23,9 +23,9 @@ final darkTheme = ThemeData(
   useMaterial3: true,
   extensions: const [
     AppColors(
-      browen: Color(0xffB8860B),
+      browen: Color.fromARGB(255, 234, 175, 27),
       orange: Color(0xffFF7A33),
-      white: Color(0xffE0E0E0),
+      white: Color.fromARGB(255, 36, 36, 36),
       offWhite: Color(0xff1E1E1E),
       grey: Color(0xff666666),
       green: Color(0xff4CAF50),
