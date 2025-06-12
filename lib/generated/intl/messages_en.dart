@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "History": MessageLookupByLibrary.simpleMessage("History"),
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "Language": MessageLookupByLibrary.simpleMessage("Language"),
+        "Loggingn": MessageLookupByLibrary.simpleMessage("Logging in...."),
         "LoginHint": MessageLookupByLibrary.simpleMessage(
             "Enter your Email and password to access your account"),
         "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -84,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Signup": MessageLookupByLibrary.simpleMessage("Sign up"),
         "SignupHint": MessageLookupByLibrary.simpleMessage(
             "Please enter your information to create an account."),
+        "SignupLoading": MessageLookupByLibrary.simpleMessage("Signing up...."),
         "StartFillingCart": MessageLookupByLibrary.simpleMessage(
             "Start filling your shopping cart"),
         "StartLoveGoods": MessageLookupByLibrary.simpleMessage(

@@ -670,6 +670,26 @@ class S {
     );
   }
 
+  /// `Logging in....`
+  String get Loggingn {
+    return Intl.message(
+      'Logging in....',
+      name: 'Loggingn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signing up....`
+  String get SignupLoading {
+    return Intl.message(
+      'Signing up....',
+      name: 'SignupLoading',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Logout`
   String get Logout {
     return Intl.message(

@@ -57,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "History": MessageLookupByLibrary.simpleMessage("السجل"),
         "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "Loggingn":
+            MessageLookupByLibrary.simpleMessage("....جاري تسجيل الدخول"),
         "LoginHint": MessageLookupByLibrary.simpleMessage(
             "ادخل بريدك الإلكتروني وكلمة المرور للوصول إلى حسابك"),
         "Logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
@@ -84,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "SignupHint": MessageLookupByLibrary.simpleMessage(
             "من فضلك أدخل بياناتك لإنشاء حساب"),
+        "SignupLoading":
+            MessageLookupByLibrary.simpleMessage("....جاري إنشاء الحساب"),
         "StartFillingCart":
             MessageLookupByLibrary.simpleMessage("ابدأ التسوق وأضف منتجاتك"),
         "StartLoveGoods": MessageLookupByLibrary.simpleMessage(

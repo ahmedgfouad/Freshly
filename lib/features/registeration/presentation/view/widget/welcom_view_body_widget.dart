@@ -23,7 +23,7 @@ class WelcomViewBodyWidget extends StatelessWidget {
               AppImages.welcomImg,
               height: MediaQuery.of(context).size.height * .4,
             ),
-            SizedBox(height: 33),
+           const SizedBox(height: 33),
             Text(
               S.of(context).Welcome,
               style: AppStyles.textStyle24(
@@ -38,21 +38,21 @@ class WelcomViewBodyWidget extends StatelessWidget {
                 context,
               ).copyWith(color: context.appColors.browen),
             ),
-            SizedBox(height: 50),
+           const Spacer(),
             CustomButon(
               onPressed: () => navigateTo(AppRouter.kSignUpView, context),
               bacgrouncColor: context.appColors.orange,
               textColor: context.appColors.white,
               text: S.of(context).Signup,
             ),
-            SizedBox(height: 16),
+           const SizedBox(height: 16),
             CustomButon(
               onPressed: () => navigateTo(AppRouter.kLogInView, context),
               bacgrouncColor: context.appColors.white,
               textColor: context.appColors.browen,
               text: S.of(context).Signin,
             ),
-            Expanded(child: SizedBox()),
+            Expanded(child:const SizedBox()),
           ],
         ),
       ),

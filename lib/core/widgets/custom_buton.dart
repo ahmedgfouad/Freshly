@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
 
@@ -19,8 +20,8 @@ class CustomButon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
-      width: MediaQuery.of(context).size.width,
+      height: 50.h,
+      width: MediaQuery.of(context).size.width.w,
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(

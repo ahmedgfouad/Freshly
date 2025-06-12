@@ -4,9 +4,9 @@ import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/widgets/custom_buton.dart';
-import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
+import 'package:store/features/registeration/presentation/view/widget/custom_shimmer_button_widget.dart';
 import 'package:store/generated/l10n.dart';
 
 class SignupBotonSectionWidget extends StatelessWidget {
@@ -68,7 +68,7 @@ class SignupBotonSectionWidget extends StatelessWidget {
             },
           );
         } else {
-          return CustomLoadingIndecator();
+          return CustomShimmerButton(text: S.of(context).SignupLoading);
         }
       },
     );

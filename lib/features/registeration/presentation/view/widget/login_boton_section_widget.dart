@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/widgets/custom_buton.dart';
-import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
+import 'package:store/features/registeration/presentation/view/widget/custom_shimmer_button_widget.dart';
 import 'package:store/generated/l10n.dart';
 
 class LoninBotonSectionWidget extends StatelessWidget {
@@ -45,11 +44,6 @@ class LoninBotonSectionWidget extends StatelessWidget {
               current is LoginSuccessState ||
               current is LoginFailedState,
       builder: (context, state) {
-        if (state is LoginFailedState) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text("error in auth")));
-        }
         if (state is AuthInitial) {
           return CustomButon(
             text: S.of(context).Signin,
@@ -63,7 +57,7 @@ class LoninBotonSectionWidget extends StatelessWidget {
             },
           );
         } else {
-          return CustomLoadingIndecator();
+          return CustomShimmerButton(text: S.of(context).Loggingn);
         }
       },
     );
