@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
-import 'package:store/core/widgets/custom_loading_indecator.dart';
+import 'package:store/features/account/presentation/profile/view/widgets/custom_logout_shimmer.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_state.dart';
 import 'package:store/generated/l10n.dart';
@@ -26,29 +26,29 @@ class LogoutOptionWidget extends StatelessWidget {
           return InkWell(
             splashColor: context.appColors.orange,
             onTap: () async {
-                      await authCubit.logout();
-                    } ,
+              await authCubit.logout();
+            },
             child: Card(
               elevation: 0,
-        color: Colors.transparent,
+              color: Colors.transparent,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Icon(Icons.logout, color: context.appColors.browen, size: 30),
                   SizedBox(width: 15),
-                   Text(
-                      S.of(context).Logout,
-                      style: AppStyles.textStyle18(
-                        context,
-                      ).copyWith(fontWeight: FontWeight.bold),
-                    ),
-                  
+                  Text(
+                    S.of(context).Logout,
+                    style: AppStyles.textStyle18(
+                      context,
+                    ).copyWith(fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
             ),
           );
         } else if (state is AuthInitial) {
-          return CustomLoadingIndecator();
+          return   LogoutShimmer(
+          );
         } else {
           return const Text("error");
         }

@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "AddToCart": MessageLookupByLibrary.simpleMessage("Add To cart"),
         "Address": MessageLookupByLibrary.simpleMessage("Address"),
         "Addresses": MessageLookupByLibrary.simpleMessage("Addresses"),
+        "AlreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account ?"),
         "AppSettings": MessageLookupByLibrary.simpleMessage("App Settings"),
         "BuildingFloorApartment": MessageLookupByLibrary.simpleMessage(
             "Building Number / Floor / Apartment"),
@@ -41,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "ConfirmPasswordMismatch": MessageLookupByLibrary.simpleMessage(
             "Confirm Password must be the same as the New Password"),
+        "DontHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "EGP": MessageLookupByLibrary.simpleMessage("EGP"),
         "EditAddress": MessageLookupByLibrary.simpleMessage("Edit Address"),
         "EditProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
@@ -95,10 +99,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Start fall in love with some good goods "),
         "StartShoping": MessageLookupByLibrary.simpleMessage("Start shoping"),
         "StreetName": MessageLookupByLibrary.simpleMessage("Street Name"),
+        "SuccessfullyUpdated":
+            MessageLookupByLibrary.simpleMessage("Successfully updated 🎉"),
         "Successfuly": MessageLookupByLibrary.simpleMessage("Successfuly"),
         "TotalPrice": MessageLookupByLibrary.simpleMessage("Total Price"),
         "UpdateAddress": MessageLookupByLibrary.simpleMessage("Update Address"),
         "UpdateProfile": MessageLookupByLibrary.simpleMessage("Update Profile"),
+        "UpdatingYourPassword": MessageLookupByLibrary.simpleMessage(
+            "Updating your password... 🔄🔒"),
         "Welcome": MessageLookupByLibrary.simpleMessage("Welcome to our app"),
         "WelcomeDescription": MessageLookupByLibrary.simpleMessage(
             "Shop online and get groceries delivered from stores to your home in as fast as 1 hour 🛒🚀"),

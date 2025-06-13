@@ -1,7 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
@@ -15,7 +15,7 @@ class ExploreViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final explorecubit = BlocProvider.of<CategoriesCubit>(context);
-    return BlocBuilder<CategoriesCubit,CategoriesState>(
+    return BlocBuilder<CategoriesCubit, CategoriesState>(
       bloc: explorecubit,
       buildWhen:
           (previous, current) =>
@@ -50,7 +50,14 @@ class ExploreViewBody extends StatelessWidget {
                             extra: explores[index].name,
                           );
                         },
-                        child: SvgPicture.network(explores[index].imageUrl),
+                        child: CachedNetworkImage(
+                          imageUrl: explores[index].imageUrl,
+                          placeholder:
+                              (context, url) => CircularProgressIndicator(),
+                          errorWidget:
+                              (context, url, error) => Icon(Icons.error),
+                          
+                        ),
                       );
                     }),
                   ),

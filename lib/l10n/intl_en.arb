@@ -65,5 +65,9 @@
       "SignupLoading": "Signing up....", 
       "KgPriceg": "1kg,priceg",
       "ProductDetails" :"Product Details",
+      "UpdatingYourPassword":"Updating your password... 🔄🔒",
+      "SuccessfullyUpdated":"Successfully updated 🎉",
+      "DontHaveAnAccount": "Don't have an account?", 
+      "AlreadyHaveAnAccount": "Already have an account ?", 
       "Logout": "Logout"
 }

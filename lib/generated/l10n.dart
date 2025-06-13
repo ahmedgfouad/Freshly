@@ -710,6 +710,46 @@ class S {
     );
   }
 
+  /// `Updating your password... 🔄🔒`
+  String get UpdatingYourPassword {
+    return Intl.message(
+      'Updating your password... 🔄🔒',
+      name: 'UpdatingYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successfully updated 🎉`
+  String get SuccessfullyUpdated {
+    return Intl.message(
+      'Successfully updated 🎉',
+      name: 'SuccessfullyUpdated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get DontHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'DontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account ?`
+  String get AlreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account ?',
+      name: 'AlreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Logout`
   String get Logout {
     return Intl.message(

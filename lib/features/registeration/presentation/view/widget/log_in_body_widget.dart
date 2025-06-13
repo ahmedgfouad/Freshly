@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:store/features/registeration/presentation/view/widget/haveign_account_widgetd.dart';
 import 'package:store/features/registeration/presentation/view/widget/login_boton_section_widget.dart';
 import 'package:store/features/registeration/presentation/view/widget/login_fields_section_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class LogInBodyWidget extends StatefulWidget {
   const LogInBodyWidget({super.key});
@@ -38,6 +40,11 @@ class _LogInBodyWidgetState extends State<LogInBodyWidget> {
                 formKey: formKey,
                 emailController: emailController,
                 passwordController: passwordController,
+              ),
+              const SizedBox(height: 8),
+              HaveingAccountWidget(
+                question: S.of(context).DontHaveAnAccount,
+                nextPage: S.of(context).Signup,
               ),
             ],
           ),

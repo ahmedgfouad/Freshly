@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "AddToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
         "Address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "Addresses": MessageLookupByLibrary.simpleMessage("العناوين"),
+        "AlreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "AppSettings": MessageLookupByLibrary.simpleMessage("إعدادات التطبيق"),
         "BuildingFloorApartment":
             MessageLookupByLibrary.simpleMessage("رقم المبنى / الطابق / الشقة"),
@@ -40,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "ConfirmPasswordMismatch": MessageLookupByLibrary.simpleMessage(
             "تأكيد كلمة المرور لازم يكون نفس الكلمة الجديدة"),
+        "DontHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "EGP": MessageLookupByLibrary.simpleMessage("ج.م"),
         "EditAddress": MessageLookupByLibrary.simpleMessage("تعديل العنوان"),
         "EditProfile":
@@ -96,11 +100,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "استكشف المنتجات وابدأ الإضافة"),
         "StartShoping": MessageLookupByLibrary.simpleMessage("ابدأ التسوق"),
         "StreetName": MessageLookupByLibrary.simpleMessage("اسم الشارع"),
+        "SuccessfullyUpdated":
+            MessageLookupByLibrary.simpleMessage("تم تحديث كلمة المرور بنجاح"),
         "Successfuly": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "TotalPrice": MessageLookupByLibrary.simpleMessage("الإجمالي"),
         "UpdateAddress": MessageLookupByLibrary.simpleMessage("تحديث العنوان"),
         "UpdateProfile":
             MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
+        "UpdatingYourPassword": MessageLookupByLibrary.simpleMessage(
+            "🔄🔒....جاري تحديث كلمة المرور"),
         "Welcome":
             MessageLookupByLibrary.simpleMessage("أهلاً بيك في تطبيقنا!"),
         "WelcomeDescription": MessageLookupByLibrary.simpleMessage(

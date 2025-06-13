@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/constants.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_buton.dart';
@@ -30,9 +31,17 @@ class ProductDetailsViewBody extends StatelessWidget {
         listenWhen: (previous, current) => current is AddToCartSuccessState,
         listener: (context, state) {
           if (state is AddToCartSuccessState) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(S.of(context).AddToCart)));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(S.of(context).AddToCart),
+                duration: Duration(milliseconds: 500),
+                backgroundColor: context.appColors.browen, 
+                behavior: SnackBarBehavior.floating,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            );
           }
         },
         buildWhen:

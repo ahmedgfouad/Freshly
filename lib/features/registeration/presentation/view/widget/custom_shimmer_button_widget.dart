@@ -42,11 +42,8 @@ class _CustomShimmerButtonState extends State<CustomShimmerButton>
             gradient: LinearGradient(
               colors: [
                 Color(0xFFFFE0C0),
-                // context.appColors.orange,
                 Color(0xFFFF5E00),
-                // context.appColors.browen,
                 Color(0xFFFFE0C0),
-                // context.appColors.white,
               ],
               stops: const [0.0, 0.5, 1.0],
               begin: Alignment(-1 + 2 * _controller.value, 0),

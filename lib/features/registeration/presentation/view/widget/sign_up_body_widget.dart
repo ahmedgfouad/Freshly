@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:store/features/registeration/presentation/view/widget/haveign_account_widgetd.dart';
 import 'package:store/features/registeration/presentation/view/widget/signup_boton_section_widget.dart';
 import 'package:store/features/registeration/presentation/view/widget/singup_fields_section_widget.dart';
+import 'package:store/generated/l10n.dart';
 
 class SignUpBodyWidget extends StatefulWidget {
   const SignUpBodyWidget({super.key});
@@ -48,7 +50,12 @@ class _SignUpBodyWidgetState extends State<SignUpBodyWidget> {
                 passwordController: passwordController,
                 nameController: nameController,
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
+              HaveingAccountWidget(
+                question: S.of(context).AlreadyHaveAnAccount,
+                nextPage: S.of(context).Signin,
+              ),
+              const SizedBox(width: 15),
             ],
           ),
         ),

@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
+import 'package:store/core/utils/colors.dart';
 import 'package:store/features/shop/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:store/features/shop/presentation/manager/categories_cubit/categories_state.dart';
 import 'package:store/features/shop/presentation/views/widgets/custom_categories_loding_widget.dart';
@@ -39,7 +41,16 @@ class CategoriesListWidget extends StatelessWidget {
                         extra: categories[index].name,
                       );
                     },
-                    child: SvgPicture.network(categories[index].imageUrl),
+                    child: CachedNetworkImage(
+                      imageUrl: categories[index].imageUrl,
+                      placeholder:
+                          (context, url) => CircleAvatar(
+                            radius: 50.r,
+                            backgroundColor: context.appColors.offWhite,
+                          ),
+                      errorWidget:
+                          (context, url, error) => const Icon(Icons.error),
+                    ),
                   ),
               separatorBuilder: (context, index) => SizedBox(width: 5),
               itemCount: categories.length,

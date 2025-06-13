@@ -51,6 +51,7 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
+      // ignore: use_build_context_synchronously
       navigateAndReplacement(AppRouter.kWelcomView, context);
     });
   }

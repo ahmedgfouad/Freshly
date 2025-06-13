@@ -43,6 +43,12 @@ class ProductInfoCartWidget extends StatelessWidget {
                 imageUrl: product.imageUrl,
                 width: MediaQuery.of(context).size.width / 3,
                 height: MediaQuery.of(context).size.height / 6,
+                placeholder:
+                    (context, url) => CircleAvatar(
+                      radius: 40.r,
+                      backgroundColor: context.appColors.offWhite,
+                    ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.contain,
               ),
             ),
