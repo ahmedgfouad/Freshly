@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/generated/l10n.dart';
 
@@ -16,16 +15,7 @@ class PopularDealsTextWidget extends StatelessWidget {
           Text(
             S.of(context).PopularDeals,
             style: AppStyles.textStyle24(context),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              S.of(context).seeAll,
-              style: AppStyles.textStyle18(
-                context,
-              ).copyWith(color: context.appColors.orange),
-            ),
-          ),
+          ), 
         ],
       ),
     );

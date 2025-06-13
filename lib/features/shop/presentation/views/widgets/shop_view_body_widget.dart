@@ -30,7 +30,7 @@ class ShopViewBodyWidget extends StatelessWidget {
                 },
                 child: CategoriesListWidget(),
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 15), 
               PopularDealsTextWidget(),
               SizedBox(height: 15),
             ],
