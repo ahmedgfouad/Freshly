@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
+import 'package:store/core/utils/constants.dart';
 import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_emty_page_widget.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
+import 'package:store/features/cart/data/models/amoun_model/amount_model.dart';
+import 'package:store/features/cart/data/models/amoun_model/details.model.dart';
+import 'package:store/features/cart/data/models/item_list_model/item.dart';
+import 'package:store/features/cart/data/models/item_list_model/item_list_model.dart';
 import 'package:store/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:store/features/cart/presentation/manager/cart_cubit/cart_state.dart';
 import 'package:store/features/cart/presentation/view/widget/list_of_cart_items_widget.dart';
@@ -68,42 +73,42 @@ class CartViewBody extends StatelessWidget {
                       CustomButon(
                         text: S.of(context).CheckOut,
                         onPressed: () {
+                          var amount = AmountModel(
+                            total: "$totalP",
+                            currency: "USD",
+                            details: DetailsAmountModel(
+                              shipping: "0",
+                              shippingDiscount: 0,
+                              subtotal: "$totalP",
+                            ),
+                          );
+                          List<OrderItemModel> orders = [];
+                          for (var element in productsCart) {
+                            orders.add(
+                              OrderItemModel(
+                                name: element.name,
+                                quantity: (element.quantity).toInt(),
+                                price: "${element.price}",
+                                currency: "USD",
+                              ),
+                            );
+                          }
+
+                          var itemList = ItemListModel(orders: orders);
+
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder:
                                   (BuildContext context) => PaypalCheckoutView(
                                     sandboxMode: true,
-                                    clientId: "YOUR CLIENT ID",
-                                    secretKey: "YOUR SECRET KEY",
-                                    transactions: const [
+                                    clientId: paypalClientId,
+                                    secretKey: paypalSecretKey,
+                                    transactions: [
                                       {
-                                        "amount": {
-                                          "total": '100',
-                                          "currency": "USD",
-                                          "details": {
-                                            "subtotal": '100',
-                                            "shipping": '0',
-                                            "shipping_discount": 0,
-                                          },
-                                        },
+                                        "amount": amount.toJson(),
                                         "description":
-                                            "The payment transaction description.", 
-                                        "item_list": {
-                                          "items": [
-                                            {
-                                              "name": "Apple",
-                                              "quantity": 4,
-                                              "price": '10',
-                                              "currency": "USD",
-                                            },
-                                            {
-                                              "name": "Pineapple",
-                                              "quantity": 5,
-                                              "price": '12',
-                                              "currency": "USD",
-                                            },
-                                          ], 
-                                        },
+                                            "The payment transaction description.",
+                                        "item_list": itemList.toJson(),
                                       },
                                     ],
                                     note:

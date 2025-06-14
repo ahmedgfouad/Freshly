@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:store/core/utils/colors.dart';
 
 class CarouselSliderWidget extends StatelessWidget {
   CarouselSliderWidget({super.key});
@@ -18,9 +20,9 @@ class CarouselSliderWidget extends StatelessWidget {
         options: CarouselOptions(
           height: MediaQuery.of(context).size.height / 5,
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 4),
+          autoPlayInterval:const Duration(seconds: 4),
           enlargeCenterPage: false,
-          viewportFraction: 0.9, // دي اللي بتخلي 3 صور يبانوا في نفس الوقت
+          viewportFraction: 0.9,
           enableInfiniteScroll: true,
           pauseAutoPlayOnTouch: true,
         ),
@@ -28,10 +30,19 @@ class CarouselSliderWidget extends StatelessWidget {
             imageList
                 .map(
                   (item) => Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
+                    margin:const EdgeInsets.symmetric(horizontal: 5),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.network(item),
+                      child: CachedNetworkImage(
+                        imageUrl: item,
+                        placeholder:
+                            (context, url) => Container(
+                              width: MediaQuery.of(context).size.width / 1.5,
+                              color: context.appColors.offWhite,
+                            ),
+                        errorWidget:
+                            (context, url, error) => const Icon(Icons.error),
+                      ),
                     ),
                   ),
                 )

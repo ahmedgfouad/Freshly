@@ -1,15 +1,16 @@
-class Details {
+class DetailsAmountModel {
   String? subtotal;
   String? shipping;
   int? shippingDiscount;
 
-  Details({this.subtotal, this.shipping, this.shippingDiscount});
+  DetailsAmountModel({this.subtotal, this.shipping, this.shippingDiscount});
 
-  factory Details.fromJson(Map<String, dynamic> json) => Details(
-    subtotal: json['subtotal'] as String?,
-    shipping: json['shipping'] as String?,
-    shippingDiscount: json['shipping_discount'] as int?,
-  );
+  factory DetailsAmountModel.fromJson(Map<String, dynamic> json) =>
+      DetailsAmountModel(
+        subtotal: json['subtotal'] as String?,
+        shipping: json['shipping'] as String?,
+        shippingDiscount: json['shipping_discount'] as int?,
+      );
 
   Map<String, dynamic> toJson() => {
     'subtotal': subtotal,
