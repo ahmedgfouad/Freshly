@@ -11,10 +11,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: BlocProvider(
-          create: (context) {
-            final cubit = HomeCubit();  
-            return cubit;
-          },
+          create: (context) => HomeCubit(),
           child: HomeViewBody(),
         ),
       ),

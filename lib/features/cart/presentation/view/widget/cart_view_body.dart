@@ -114,15 +114,14 @@ class CartViewBody extends StatelessWidget {
                                     note:
                                         "Contact us for any questions on your order.",
                                     onSuccess: (Map params) async {
-                                      print("onSuccess: $params");
                                       Navigator.pop(context);
                                     },
                                     onError: (error) {
-                                      print("onError: $error");
+
                                       Navigator.pop(context);
                                     },
                                     onCancel: () {
-                                      print('cancelled:');
+
                                       Navigator.pop(context);
                                     },
                                   ),
