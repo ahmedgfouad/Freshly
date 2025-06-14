@@ -1,19 +1,15 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/constants.dart';
 import 'package:store/core/utils/styles.dart';
-import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/home/data/models/product_model.dart';
-import 'package:store/features/home/data/models/save_product_model.dart';
-import 'package:store/features/product_details/data/services/add_to_favorite_services.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_cubit.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_state.dart';
-import 'package:store/features/product_details/presentation/manager/add_to_favorite_cubit/add_to_favorite_cubit.dart';
-import 'package:store/features/product_details/presentation/view/widgets/count_of_product_widget.dart';
-import 'package:store/features/product_details/presentation/view/widgets/favourite_icon_widget.dart';
+import 'package:store/features/product_details/presentation/view/widgets/add_to_cart_buton_widget.dart';
+import 'package:store/features/product_details/presentation/view/widgets/product_details_counter_and_favorite_icon_widget.dart';
+import 'package:store/features/product_details/presentation/view/widgets/product_details_image_widget.dart';
+import 'package:store/features/product_details/presentation/view/widgets/product_details_price_widget.dart';
 import 'package:store/generated/l10n.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
@@ -35,7 +31,7 @@ class ProductDetailsViewBody extends StatelessWidget {
               SnackBar(
                 content: Text(S.of(context).AddToCart),
                 duration: Duration(milliseconds: 500),
-                backgroundColor: context.appColors.browen, 
+                backgroundColor: context.appColors.browen,
                 behavior: SnackBarBehavior.floating,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -60,76 +56,24 @@ class ProductDetailsViewBody extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 3,
-                  child: Center(
-                    child: CachedNetworkImage(
-                      imageUrl: product.imageUrl,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                ProductDetailsImageWidget(product: product),
                 Text(product.name, style: AppStyles.textStyle24(context)),
-                SizedBox(height: 6),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "${S.of(context).KgPriceg} ${product.price} ${S.of(context).EGP}",
-                      style: AppStyles.textStyle18(context),
-                    ),
-                    Text(
-                      " ${S.of(context).TotalPrice} : ${product.price * addToCardCubit.quantity} /EGP",
-                      style: AppStyles.textStyle14(context),
-                    ),
-                  ],
+                const SizedBox(height: 6),
+                ProductDetailsPriceWidget(
+                  product: product,
+                  addToCardCubit: addToCardCubit,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(product.aboute, style: AppStyles.textStyle14(context)),
                 Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CountOfProdutWidget(
-                      width: MediaQuery.of(context).size.width / 1.3,
-                    ),
-                    BlocProvider(
-                      create:
-                          (context) =>
-                              AddToFavoriteCubit(AddToFavoriteServicesImpl()),
-                      child: FavouriteIconWidet(
-                        product: SaveProductModel(
-                          id: documentIdFromLocalData(),
-                          productId: product.id,
-                          name: product.name,
-                          category: product.category,
-                          imageUrl: product.imageUrl,
-                          price: product.price,
-                          quantity: addToCardCubit.quantity,
-                          totalPrice: product.price * addToCardCubit.quantity,
-                        ),
-                      ),
-                    ),
-                  ],
+                ProductDetailsCounterAndFavoriteIconWidget(
+                  product: product,
+                  addToCardCubit: addToCardCubit,
                 ),
                 Spacer(),
-                CustomButon(
-                  text: S.of(context).AddToCart,
-                  onPressed: () {
-                    addToCardCubit.addCartToFirestore(
-                      SaveProductModel(
-                        id: documentIdFromLocalData(),
-                        productId: product.id,
-                        name: product.name,
-                        category: product.category,
-                        imageUrl: product.imageUrl,
-                        price: product.price,
-                        quantity: addToCardCubit.quantity,
-                        totalPrice: product.price * addToCardCubit.quantity,
-                      ),
-                    );
-                    // navigateTo(AppRouter.kCartView, context);
-                  },
+                AddToCartButonWidget(
+                  addToCardCubit: addToCardCubit,
+                  product: product,
                 ),
               ],
             );
