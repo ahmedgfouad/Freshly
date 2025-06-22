@@ -16,7 +16,7 @@
 ### 🧭 Navigation Flow
 - Splash Screen → Welcome Screen → (Sign In / Sign Up) → Main App
 
-![Authentication](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/auth.png)
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/auth.png" width="400"/>
 
 - Bottom Navigation Bar للتنقل بين:
   - 🛒 Shop
@@ -37,7 +37,7 @@
 - استعراض كل الفئات (خضروات، فواكه، أسماك، كيك، ألبان...)
 - التنقل السريع إلى المنتجات المرتبطة بكل فئة
 
-- ![Shop & Explore](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/shop_explore.png)
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/shop_explore.png" width="400"/>
 
 
 
@@ -51,7 +51,7 @@
   - إضافة للسلة (Add to Cart)
   - إضافة للمفضلة (Add to Favorites)
  
-  - ![Product Details](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/product_details.png)
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/product_details.png" width="400"/>
 
 
 ---
@@ -62,9 +62,9 @@
 - عرض السعر الكلي
 - زر "Check Out"
 - يمكن الدفع من خلال "Paypal"
-- شاشة فارغة جميلة إذا لم تتم إضافة منتجات
+- تصميم مخصص لحالة السلة الفارغة لجعل التجربة تفاعلية
 
-- ![Cart](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/cart.png)
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/cart.png" width="400"/>
 
 
 ---
@@ -74,7 +74,7 @@
 - إمكانية الحذف منها
 - شاشة فارغة بتصميم جذاب
 
-- ![Favorites](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/fav.png)
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/fav.png" width="400"/>
 
 
 ---
@@ -84,8 +84,8 @@
 - تحديد العنوان يدويًا من خلال فورم
 - أو تلقائيًا باستخدام Google Maps
 
-![Addresses](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/addresses.png)
 
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/addresses.png" width="400"/>
 
 
 #### 👤 Profile
@@ -94,7 +94,9 @@
 - تغيير اللغة (عربي / إنجليزي)
 - تغيير كلمة المرور
 
-- ![Account](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/account.png)
+- <img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/account.png" width="400"/>
+
+
 
 
 ---
