@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/styles.dart';
 import 'package:store/generated/l10n.dart';
 
 class PopularDealsTextWidget extends StatelessWidget {

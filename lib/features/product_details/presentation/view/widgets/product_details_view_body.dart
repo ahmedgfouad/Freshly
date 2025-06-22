@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/colors.dart';
+import 'package:store/core/thems/styles.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/home/data/models/product_model.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_cubit.dart';

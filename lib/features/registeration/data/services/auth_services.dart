@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:store/core/services/firestore_services.dart';
-import 'package:store/core/utils/api_path.dart';
+import 'package:store/core/services/firebase_path.dart';
 import 'package:store/features/registeration/data/models/user_model.dart';
 
 abstract class AuthServices {
@@ -46,9 +46,8 @@ class AuthServicesImpl implements AuthServices {
   }
 
   @override
-  Future<void> setUserData(UserModel userData) async => 
-  await firestor.setData(
-    path: ApiPath.user(userData.uid),
+  Future<void> setUserData(UserModel userData) async => await firestor.setData(
+    path: FirestorePath.user(userData.uid),
     data: userData.toMap(),
   );
 }

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/colors.dart';
+import 'package:store/core/thems/styles.dart';
 
 class HaveingAccountWidget extends StatelessWidget {
   const HaveingAccountWidget({

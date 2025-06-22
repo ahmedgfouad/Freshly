@@ -1,5 +1,5 @@
 import 'package:store/core/services/firestore_services.dart';
-import 'package:store/core/utils/api_path.dart';
+import 'package:store/core/services/firebase_path.dart';
 import 'package:store/features/home/data/models/save_product_model.dart';
 import 'package:store/features/registeration/data/services/auth_services.dart';
 
@@ -15,7 +15,7 @@ class FavoriteServicesImpl implements FavoriteServices {
   @override
   Stream<List<SaveProductModel>> getFavoriteItem() =>
       firestoreServices.collectionsStram(
-        path: ApiPath.myProductsFavorite(uid),
+        path: FirestorePath.myProductsFavorite(uid),
         builder:
             (data, documentId) => SaveProductModel.fromMap(data!, documentId),
       );
@@ -23,6 +23,6 @@ class FavoriteServicesImpl implements FavoriteServices {
   @override
   Future<void> deleteProductFromFavorite(SaveProductModel product) async =>
       await firestoreServices.deleteData(
-        path: ApiPath.favorites(uid, product.id),
+        path: FirestorePath.favorites(uid, product.id),
       );
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/utils/colors.dart';
+import 'package:store/core/thems/colors.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/features/account/presentation/profile/manager/change_password_cubit/change_password_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/change_password_cubit/change_password_state.dart';

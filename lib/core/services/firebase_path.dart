@@ -1,4 +1,4 @@
-class ApiPath {
+class FirestorePath {
   static String products() => "products/";
   static String categories() => "categories/";
   static String user(String uid) => "users/$uid";

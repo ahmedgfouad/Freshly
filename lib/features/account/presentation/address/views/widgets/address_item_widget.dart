@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store/core/utils/app_router.dart';
-import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/router/app_router.dart';
+import 'package:store/core/thems/colors.dart';
+import 'package:store/core/thems/styles.dart';
 import 'package:store/features/account/data/models/address_model.dart';
 
 class AddressItemWidget extends StatelessWidget {

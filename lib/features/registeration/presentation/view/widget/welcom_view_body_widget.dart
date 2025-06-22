@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:store/core/utils/app_router.dart';
-import 'package:store/core/utils/colors.dart';
+import 'package:store/core/router/app_router.dart';
+import 'package:store/core/thems/colors.dart';
 import 'package:store/core/utils/images.dart';
 import 'package:store/core/utils/navigator.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/styles.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/generated/l10n.dart';
 

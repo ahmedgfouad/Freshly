@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/images.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/styles.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/account/presentation/address/manager/addresses_cubit/addresses_cubit.dart';
 import 'package:store/features/account/presentation/address/manager/addresses_cubit/addresses_state.dart';

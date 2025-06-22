@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store/core/utils/colors.dart';
+import 'package:store/core/thems/colors.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/cart/presentation/view/widget/cart_item_widget.dart';
 import 'package:store/features/favorite/presentation/manager/favorite_cubit/favorite_cubit.dart';

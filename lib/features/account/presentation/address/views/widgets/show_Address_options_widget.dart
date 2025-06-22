@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:store/core/utils/app_router.dart';
-import 'package:store/core/utils/colors.dart';
+import 'package:store/core/router/app_router.dart';
+import 'package:store/core/thems/colors.dart';
 import 'package:store/core/utils/navigator.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/styles.dart';
 
 void showAddressOptionsWidget(BuildContext context) {
   showModalBottomSheet(

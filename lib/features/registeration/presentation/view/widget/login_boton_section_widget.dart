@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/utils/app_router.dart';
+import 'package:store/core/router/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';

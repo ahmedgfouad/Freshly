@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/colors.dart';
+import 'package:store/core/thems/styles.dart';
 import 'package:store/features/account/presentation/profile/manager/profile_image_cubit/profile_image_cubit.dart';
 
 AppBar customAppBar({

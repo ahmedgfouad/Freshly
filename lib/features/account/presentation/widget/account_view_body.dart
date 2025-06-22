@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/utils/app_router.dart';
+import 'package:store/core/router/app_router.dart';
 import 'package:store/core/utils/navigator.dart';
 import 'package:store/features/account/presentation/widget/account_option_widget.dart';
 import 'package:store/generated/l10n.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:store/core/utils/colors.dart';
-import 'package:store/core/utils/styles.dart';
+import 'package:store/core/thems/colors.dart';
+import 'package:store/core/thems/styles.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class TimelineTileWidget extends StatelessWidget {
