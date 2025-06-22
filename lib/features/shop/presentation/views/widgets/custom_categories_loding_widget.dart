@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:store/core/utils/colors.dart';
 
 class CustomCategoriesLoadingWidget extends StatelessWidget {
   const CustomCategoriesLoadingWidget({super.key});
@@ -11,13 +10,16 @@ class CustomCategoriesLoadingWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 5,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) => SizedBox(width: 5),
+        separatorBuilder: (context, index) => const SizedBox(width: 5),
         itemCount: 5,
         itemBuilder:
             (context, index) => Shimmer.fromColors(
-              baseColor: context.appColors.orange,
-              highlightColor: context.appColors.browen,
-              child: CircleAvatar(radius: 40),
+              baseColor: const Color.fromARGB(255, 247, 184, 106),
+              highlightColor: const Color(0xFFFFE0C0),
+              child: const CircleAvatar(
+                radius: 40,
+                backgroundColor: Color(0xFFFFF0E0),
+              ),
             ),
       ),
     );

@@ -37,7 +37,7 @@ class AddressesSectionWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     SvgPicture.asset(AppImages.addressImg),
-                    SizedBox(height: 20),
+                   const SizedBox(height: 20),
                     Text(
                       "No Addressed Added ",
                       style: AppStyles.textStyle24(context),

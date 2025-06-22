@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/features/account/data/models/address_model.dart';
+import 'package:store/features/account/presentation/account_view.dart';
 import 'package:store/features/account/presentation/address/views/addresses_veiwe.dart';
 import 'package:store/features/account/presentation/address/views/edit_addresses_view.dart';
 import 'package:store/features/account/presentation/address/views/manual_new_addresses_view.dart';
@@ -70,7 +71,7 @@ abstract class AppRouter {
       GoRoute(path: kExploreView, builder: (context, state) => ExploreView()),
       GoRoute(path: kCartView, builder: (context, state) => CartView()),
       GoRoute(path: kFavoriteView, builder: (context, state) => FavoriteView()),
-      GoRoute(path: kAccountView, builder: (context, state) => OrderView()),
+      GoRoute(path: kAccountView, builder: (context, state) => AccountView()),
       GoRoute(
         path: kCategoriesView,
         builder: (context, state) {

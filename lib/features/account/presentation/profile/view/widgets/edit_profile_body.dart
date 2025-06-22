@@ -69,7 +69,7 @@ class EditProfileBody extends StatelessWidget {
           const SizedBox(height: 30),
           CustomTextFormFieldWidget(hintText: "Ahmed Gamal"),
           const SizedBox(height: 30),
-          CustomTextFormFieldWidget(hintText: "ahmedgfouad2020@gmail.com"),
+          CustomTextFormFieldWidget(hintText: "ahmedgamal@gmail.com"),
           Spacer(),
           CustomButon(text: S.of(context).UpdateProfile, onPressed: () {}),
         ],

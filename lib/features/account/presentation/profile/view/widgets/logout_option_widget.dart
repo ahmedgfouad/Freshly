@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/core/utils/app_router.dart';
 import 'package:store/core/utils/colors.dart';
+import 'package:store/core/utils/navigator.dart';
 import 'package:store/core/utils/styles.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/custom_logout_shimmer.dart';
 import 'package:store/features/registeration/presentation/manager/auth/auth_cubit.dart';
@@ -27,6 +29,8 @@ class LogoutOptionWidget extends StatelessWidget {
             splashColor: context.appColors.orange,
             onTap: () async {
               await authCubit.logout();
+              // ignore: use_build_context_synchronously
+              navigateAndReplacement(AppRouter.kWelcomView, context);
             },
             child: Card(
               elevation: 0,
@@ -47,8 +51,7 @@ class LogoutOptionWidget extends StatelessWidget {
             ),
           );
         } else if (state is AuthInitial) {
-          return   LogoutShimmer(
-          );
+          return LogoutShimmer();
         } else {
           return const Text("error");
         }

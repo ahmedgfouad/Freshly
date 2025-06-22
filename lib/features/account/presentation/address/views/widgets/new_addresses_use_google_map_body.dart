@@ -4,18 +4,15 @@ import 'package:google_maps_drawing_tools/google_maps_drawing_tools.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/features/account/presentation/address/manager/location_cubit/location_cubit.dart';
 import 'package:store/features/account/presentation/address/manager/location_cubit/location_state.dart';
-
 class NewAddressesUseGoogleMapBody extends StatelessWidget {
   const NewAddressesUseGoogleMapBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     final locationCubit = BlocProvider.of<LocationCubit>(context);
     return BlocBuilder<LocationCubit, LocationState>(
       bloc: locationCubit,
       builder: (context, state) {
-        
         if (state is LocationLoading || state is LocationInitial) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is LocationLoaded || state is LocationUpdated) {
@@ -34,8 +31,9 @@ class NewAddressesUseGoogleMapBody extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomButon(
                     text: "Save location",
-                    onPressed: () {
-                      locationCubit.saveLocationToHive();
+                    onPressed: () async {
+                      await locationCubit.saveLocationToHive();
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                     },
                   ),

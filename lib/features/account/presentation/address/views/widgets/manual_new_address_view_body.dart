@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store/core/utils/colors.dart';
 import 'package:store/core/utils/constants.dart';
 import 'package:store/core/widgets/custom_buton.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
@@ -84,9 +85,17 @@ class _ManualNewAddressViewBodyState extends State<ManualNewAddressViewBody> {
                   (previous, current) =>
                       current is ManualNewAddressSuccessState,
               listener: (context, state) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(S.of(context).Successfuly)));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(S.of(context).Successfuly),
+                    duration: Duration(milliseconds: 700),
+                    backgroundColor: context.appColors.browen,
+                    behavior: SnackBarBehavior.floating,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                );
                 Navigator.of(context).pop();
               },
               buildWhen:

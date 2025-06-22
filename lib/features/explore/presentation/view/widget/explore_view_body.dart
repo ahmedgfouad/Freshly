@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/app_router.dart';
+import 'package:store/core/utils/colors.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/custom_search_text_form_field.dart';
 import 'package:store/features/shop/presentation/manager/categories_cubit/categories_cubit.dart';
@@ -37,7 +38,7 @@ class ExploreViewBody extends StatelessWidget {
                   CustomSearchTextFormFieldWidget(),
                   SizedBox(height: 10),
                   GridView.count(
-                    crossAxisCount: 2, // 3 صور في الصف
+                    crossAxisCount: 2,
                     mainAxisSpacing: 20.h,
                     crossAxisSpacing: 5.w,
                     shrinkWrap: true,
@@ -53,10 +54,12 @@ class ExploreViewBody extends StatelessWidget {
                         child: CachedNetworkImage(
                           imageUrl: explores[index].imageUrl,
                           placeholder:
-                              (context, url) => CircularProgressIndicator(),
+                              (context, url) => CircleAvatar(
+                                radius: 50.r,
+                                backgroundColor: context.appColors.offWhite,
+                              ),
                           errorWidget:
                               (context, url, error) => Icon(Icons.error),
-                          
                         ),
                       );
                     }),

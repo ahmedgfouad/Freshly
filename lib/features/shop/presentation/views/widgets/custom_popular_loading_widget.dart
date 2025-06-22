@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:store/core/utils/colors.dart';
 
 class CustomPopularLoadingWidget extends StatelessWidget {
   const CustomPopularLoadingWidget({super.key});
@@ -11,29 +10,49 @@ class CustomPopularLoadingWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 3.3,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) => SizedBox(width: 5),
+        separatorBuilder: (context, index) => const SizedBox(width: 5),
         itemCount: 3,
         itemBuilder:
             (context, index) => Shimmer.fromColors(
-              baseColor: context.appColors.orange,
-              highlightColor: context.appColors.browen,
+              baseColor: const Color.fromARGB(255, 247, 184, 106),
+              highlightColor: const Color(0xFFFFE0C0),
+              direction: ShimmerDirection.ltr,
+              period: const Duration(milliseconds: 1500),
               child: Container(
                 width: MediaQuery.of(context).size.width / 2.3,
-                padding: EdgeInsets.symmetric(horizontal: 11),
+                padding: const EdgeInsets.symmetric(horizontal: 11),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CircleAvatar(radius: 30),
-                    SizedBox(height: 20),
-                    Container(width: 100, height: 10, color: Colors.grey),
-                    SizedBox(height: 20),
-                    Container(width: 80, height: 10, color: Colors.grey),
-                    SizedBox(height: 10),
+                    const CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Color(0xFFFFE0C0),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      width: 100,
+                      height: 10,
+                      color: const Color(0xFFFFE0C0),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      width: 80,
+                      height: 10,
+                      color: const Color(0xFFFFE0C0),
+                    ),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(width: 50, height: 10, color: Colors.grey),
-                        CircleAvatar(radius: 15, backgroundColor: Colors.grey),
+                        Container(
+                          width: 50,
+                          height: 10,
+                          color: const Color(0xFFFFE0C0),
+                        ),
+                        const CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Color(0xFFFFE0C0),
+                        ),
                       ],
                     ),
                   ],
