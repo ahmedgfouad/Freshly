@@ -1,16 +1,154 @@
-# store
+# 🧺 Freshly - Grocery Shopping App
 
-A new Flutter project.
+**Freshly** هو تطبيق بقالة إلكترونية متكامل تم تطويره باستخدام Flutter. يوفّر تجربة تسوق بسيطة وسريعة للمستخدمين لشراء الخضروات، الفواكه، الأسماك، منتجات الألبان والمزيد، مع واجهة جذابة، ودعم اللغتين (العربية والإنجليزية) بالإضافة إلى الوضع الليلي.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📽️ Demo
 
-A few resources to get you started if this is your first Flutter project:
+📱 شاهد فيديو توضيحي لتجربة التطبيق:  
+[[▶️ Demo Video](https://drive.google.com/file/d/12wqM_1uyezEkcbHJ-fcp4O9cW2H-qwEn/view?usp=sharing)
+](https://drive.google.com/file/d/12wqM_1uyezEkcbHJ-fcp4O9cW2H-qwEn/view?usp=sharing)
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📱 Screens & Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🧭 Navigation Flow
+- Splash Screen → Welcome Screen → (Sign In / Sign Up) → Main App
+- Bottom Navigation Bar للتنقل بين:
+  - 🛒 Shop
+  - 🔍 Explore
+  - ❤️ Favorites
+  - 🛍️ Cart
+  - 👤 Account
+
+---
+
+### 🛒 Shop
+- عرض الإعلانات الترويجية
+- عرض الفئات (Categories)
+- عرض المنتجات الشائعة (Popular Products)
+
+---
+
+### 🔍 Explore
+- استعراض كل الفئات (خضروات، فواكه، أسماك، كيك، ألبان...)
+- التنقل السريع إلى المنتجات المرتبطة بكل فئة
+
+
+
+---
+
+### 📦 Product Details
+- تفاصيل المنتج (اسم، وصف، سعر)
+- اختيار عدد الكيلوهات المطلوبة
+- حساب السعر الإجمالي تلقائيًا
+- أزرار:
+  - إضافة للسلة (Add to Cart)
+  - إضافة للمفضلة (Add to Favorites)
+
+---
+
+### 🛍️ Cart
+- عرض المنتجات المضافة للسلة
+- حذف أي منتج باستخدام Dismissible Animation
+- عرض السعر الكلي
+- زر "Pay Now"
+- شاشة فارغة جميلة إذا لم تتم إضافة منتجات
+
+---
+
+### ❤️ Favorites
+- عرض المنتجات المفضلة
+- إمكانية الحذف منها
+- شاشة فارغة بتصميم جذاب
+
+---
+
+### 👤 Account
+#### 🗺️ Addresses
+- تحديد العنوان يدويًا من خلال فورم
+- أو تلقائيًا باستخدام Google Maps
+
+#### 👤 Profile
+- رفع صورة شخصية
+- تغيير الثيم (فاتح / داكن)
+- تغيير اللغة (عربي / إنجليزي)
+- تغيير كلمة المرور
+
+---
+
+## 🧠 Architecture & Stack
+
+- 🏗️ **Architecture**: 
+  - `presentation` (UI & Cubit)
+  - `data` (Models, DataSources, Hive, Firebase)
+- ⚙️ **State Management**: `flutter_bloc (Cubit)`
+- 🐝 **Local Storage**: `Hive`
+- 🔥 **Backend**: `Firebase`
+  - Firebase Authentication
+  - Firebase Firestore
+- 🌍 **Maps**: Google Maps API (لتحديد العنوان)
+
+---
+
+## 📦 Packages Used
+
+| Package                  | Purpose                                      |
+|--------------------------|----------------------------------------------|
+| `flutter_bloc`           | إدارة الحالة باستخدام Cubit                 |
+| `hive` + `hive_flutter`  | التخزين المحلي                              |
+| `firebase_auth`          | تسجيل الدخول/التسجيل                        |
+| `cloud_firestore`        | حفظ المنتجات والفئات                        |
+| `google_maps_flutter`    | تحديد الموقع                                |
+| `cached_network_image`   | تحميل الصور بكفاءة                          |
+
+
+---
+📂 Folder Structure
+
+lib/
+├── core/                            # الكود العام المشترك بين جميع الـ features
+│   ├── errors/                      # معالجة الأخطاء
+│   ├── services/                    # خدمات مثل التخزين المحلي أو الشبكات
+│   ├── utils/                       # أدوات مساعدة (extensions, formatters...)
+│   └── widgets/                     # Widgets عامة قابلة لإعادة الاستخدام
+
+├── features/                        # الموديولات الرئيسية في التطبيق
+│   ├── account/
+│   │   ├── data/                    # Data layer لحساب المستخدم
+│   │   │   ├── models/             # نماذج البيانات الخاصة بالحساب
+│   │   │   └── services/           # خدمات البيانات (API أو محلي)
+│   │   └── presentation/
+│   │       ├── address/
+│   │       │   ├── manager/        # Cubits للعناوين وتحديد الموقع
+│   │       │   │   ├── addresses_cubit.dart
+│   │       │   │   ├── edit_address_cubit.dart
+│   │       │   │   ├── location_cubit.dart
+│   │       │   │   ├── location_view_cubit.dart
+│   │       │   │   └── manual_new_address_cubit.dart
+│   │       │   └── views/
+│   │       │       ├── widgets/    # Widgets فرعية لواجهة العنوان
+│   │       │       ├── addresses_view.dart
+│   │       │       ├── edit_address_view.dart
+│   │       │       ├── manual_new_address_use_google.dart
+│   │       │       └── ...
+│   │       ├── order/              # الطلبات (في حال إضافتها لاحقًا)
+│   │       └── profile/
+│   │           └── widget/
+│   │               └── account_view.dart
+
+│   ├── cart/                        # شاشة الكارت والمشتريات
+│   │   └── ...
+
+│   ├── explore/
+│   │   └── presentation/
+│   │       └── view/               # واجهة الاستكشاف والفئات
+
+│   ├── favorite/                   # شاشة المفضلة
+│   │   └── ...
+
+│   └── home/                       # الشاشة الرئيسية (Shop)
+│       └── ...
+
+
