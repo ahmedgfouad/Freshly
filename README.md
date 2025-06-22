@@ -15,6 +15,9 @@
 
 ### 🧭 Navigation Flow
 - Splash Screen → Welcome Screen → (Sign In / Sign Up) → Main App
+
+![Authentication](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/auth.png)
+
 - Bottom Navigation Bar للتنقل بين:
   - 🛒 Shop
   - 🔍 Explore
@@ -29,11 +32,12 @@
 - عرض الفئات (Categories)
 - عرض المنتجات الشائعة (Popular Products)
 
----
 
 ### 🔍 Explore
 - استعراض كل الفئات (خضروات، فواكه، أسماك، كيك، ألبان...)
 - التنقل السريع إلى المنتجات المرتبطة بكل فئة
+
+- ![Shop & Explore](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/shop_explore.png)
 
 
 
@@ -46,6 +50,9 @@
 - أزرار:
   - إضافة للسلة (Add to Cart)
   - إضافة للمفضلة (Add to Favorites)
+ 
+  - ![Product Details](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/product_details.png)
+
 
 ---
 
@@ -56,12 +63,18 @@
 - زر "Pay Now"
 - شاشة فارغة جميلة إذا لم تتم إضافة منتجات
 
+- ![Cart](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/cart.png)
+
+
 ---
 
 ### ❤️ Favorites
 - عرض المنتجات المفضلة
 - إمكانية الحذف منها
 - شاشة فارغة بتصميم جذاب
+
+- ![Favorites](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/fav.png)
+
 
 ---
 
@@ -70,11 +83,18 @@
 - تحديد العنوان يدويًا من خلال فورم
 - أو تلقائيًا باستخدام Google Maps
 
+![Addresses](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/addresses.png)
+
+
+
 #### 👤 Profile
 - رفع صورة شخصية
 - تغيير الثيم (فاتح / داكن)
 - تغيير اللغة (عربي / إنجليزي)
 - تغيير كلمة المرور
+
+- ![Account](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/account.png)
+
 
 ---
 
