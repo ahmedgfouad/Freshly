@@ -129,19 +129,20 @@
 
 ```bash
 lib/
-├── core/                      # الكود العام المشترك بين جميع الـ features
-│   ├── errors/                # معالجة الأخطاء
-│   ├── services/              # خدمات مثل التخزين المحلي أو الشبكات
-│   ├── utils/                 # أدوات مساعدة (extensions, formatters...)
-│   └── widgets/               # Widgets عامة قابلة لإعادة الاستخدام
-├── features/                  # الموديولات الرئيسية في التطبيق
+├── core/
+│   ├── router/        
+│   ├── services/      
+│   ├── themes/        
+│   ├── utils/        
+│   └── widgets/      
+├── features/               
 │   ├── account/
-│   │   ├── data/              # Data layer لحساب المستخدم
-│   │   │   ├── models/        # نماذج البيانات
-│   │   │   └── services/      # API أو محلي
+│   │   ├── data/            
+│   │   │   ├── models/       
+│   │   │   └── services/      
 │   │   └── presentation/
 │   │       ├── address/
-│   │       │   ├── manager/   # Cubits لتحديد العنوان والموقع
+│   │       │   ├── manager/  
 │   │       │   └── views/
 │   │       │       ├── widgets/
 │   │       │       ├── addresses_view.dart
@@ -151,10 +152,10 @@ lib/
 │   │       └── profile/
 │   │           └── widget/
 │   │               └── account_view.dart
-│   ├── cart/                  # شاشة الكارت
+│   ├── cart/                 
 │   ├── explore/
 │   │   └── presentation/
 │   │       └── view/
 │   ├── favorite/
-│   └── home/                  # الشاشة الرئيسية
+│   └── home/                 
 
