@@ -60,7 +60,8 @@
 - عرض المنتجات المضافة للسلة
 - حذف أي منتج باستخدام Dismissible Animation
 - عرض السعر الكلي
-- زر "Pay Now"
+- زر "Check Out"
+- يمكن الدفع من خلال "Paypal"
 - شاشة فارغة جميلة إذا لم تتم إضافة منتجات
 
 - ![Cart](https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/cart.png)
