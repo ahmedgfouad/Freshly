@@ -1,14 +1,14 @@
 # 🧺 Freshly - Grocery Shopping App
 
-**Freshly** هو تطبيق بقالة إلكترونية متكامل تم تطويره باستخدام Flutter. يوفّر تجربة تسوق بسيطة وسريعة للمستخدمين لشراء الخضروات، الفواكه، الأسماك، منتجات الألبان والمزيد، مع واجهة جذابة، ودعم اللغتين (العربية والإنجليزية) بالإضافة إلى الوضع الليلي.
+**Freshly** is a fully-featured grocery shopping app built using Flutter. It offers a fast and user-friendly experience for purchasing vegetables, fruits, fish, dairy, and more. The app features a beautiful interface, bilingual support (Arabic & English), and dark mode compatibility.
 
 ---
 
 ## 📽️ Demo
 
-📱 شاهد فيديو توضيحي لتجربة التطبيق:  
-[[▶️ Demo Video](https://drive.google.com/file/d/12wqM_1uyezEkcbHJ-fcp4O9cW2H-qwEn/view?usp=sharing)
-](https://drive.google.com/file/d/12wqM_1uyezEkcbHJ-fcp4O9cW2H-qwEn/view?usp=sharing)
+### 📱 Mobile Version:
+[🔗 Click here to watch the demo video](https://drive.google.com/file/d/12wqM_1uyezEkcbHJ-fcp4O9cW2H-qwEn/view?usp=sharing)
+
 ---
 
 ## 📱 Screens & Features
@@ -16,9 +16,9 @@
 ### 🧭 Navigation Flow
 - Splash Screen → Welcome Screen → (Sign In / Sign Up) → Main App
 
-<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/auth.png" width="400"/>
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/auth.png" width="280"/>
 
-- Bottom Navigation Bar للتنقل بين:
+- Bottom Navigation Bar includes:
   - 🛒 Shop
   - 🔍 Explore
   - ❤️ Favorites
@@ -28,90 +28,82 @@
 ---
 
 ### 🛒 Shop
-- عرض الإعلانات الترويجية
-- عرض الفئات (Categories)
-- عرض المنتجات الشائعة (Popular Products)
+- Promotional banners
+- Category list
+- Popular product section
 
+---
 
 ### 🔍 Explore
-- استعراض كل الفئات (خضروات، فواكه، أسماك، كيك، ألبان...)
-- التنقل السريع إلى المنتجات المرتبطة بكل فئة
+- Browse all categories (vegetables, fruits, fish, cakes, dairy, etc.)
+- Navigate to related products by category
 
-<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/shop_explore.png" width="400"/>
-
-
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/shop_explore.png" width="280"/>
 
 ---
 
 ### 📦 Product Details
-- تفاصيل المنتج (اسم، وصف، سعر)
-- اختيار عدد الكيلوهات المطلوبة
-- حساب السعر الإجمالي تلقائيًا
-- أزرار:
-  - إضافة للسلة (Add to Cart)
-  - إضافة للمفضلة (Add to Favorites)
- 
-<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/product_details.png" width="400"/>
+- View name, description, and price
+- Select quantity (by KG)
+- Auto-calculate total price
+- Buttons:
+  - Add to Cart
+  - Add to Favorites
 
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/product_details.png" width="280"/>
 
 ---
 
 ### 🛍️ Cart
-- عرض المنتجات المضافة للسلة
-- حذف أي منتج باستخدام Dismissible Animation
-- عرض السعر الكلي
-- زر "Check Out"
-- يمكن الدفع من خلال "Paypal"
-- تصميم مخصص لحالة السلة الفارغة لجعل التجربة تفاعلية
+- List of added products
+- Swipe to delete with Dismissible animation
+- Total price calculation
+- Checkout button
+- Paypal payment support
+- Custom empty cart UI for better UX
 
-<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/cart.png" width="400"/>
-
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/cart.png" width="280"/>
 
 ---
 
 ### ❤️ Favorites
-- عرض المنتجات المفضلة
-- إمكانية الحذف منها
-- شاشة فارغة بتصميم جذاب
+- Display favorite items
+- Remove items from the list
+- Attractive empty state screen
 
-<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/fav.png" width="400"/>
-
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/fav.png" width="280"/>
 
 ---
 
 ### 👤 Account
+
 #### 🗺️ Addresses
-- تحديد العنوان يدويًا من خلال فورم
-- أو تلقائيًا باستخدام Google Maps
+- Add address manually via form
+- Or select location using Google Maps
 
-
-<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/addresses.png" width="400"/>
-
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/addresses.png" width="280"/>
 
 #### 👤 Profile
-- رفع صورة شخصية
-- تغيير الثيم (فاتح / داكن)
-- تغيير اللغة (عربي / إنجليزي)
-- تغيير كلمة المرور
+- Upload profile image
+- Switch between light/dark mode
+- Switch app language (English / Arabic)
+- Change password
 
-- <img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/account.png" width="400"/>
-
-
-
+<img src="https://raw.githubusercontent.com/ahmedgfouad/Freshly/main/screenshots/account.png" width="280"/>
 
 ---
 
 ## 🧠 Architecture & Stack
 
 - 🏗️ **Architecture**: 
-  - `presentation` (UI & Cubit)
+  - `presentation` (UI & Cubits)
   - `data` (Models, DataSources, Hive, Firebase)
 - ⚙️ **State Management**: `flutter_bloc (Cubit)`
 - 🐝 **Local Storage**: `Hive`
 - 🔥 **Backend**: `Firebase`
   - Firebase Authentication
   - Firebase Firestore
-- 🌍 **Maps**: Google Maps API (لتحديد العنوان)
+- 🌍 **Maps**: Google Maps API (for address selection)
 
 ---
 
@@ -119,13 +111,14 @@
 
 | Package                  | Purpose                                      |
 |--------------------------|----------------------------------------------|
-| `flutter_bloc`           | إدارة الحالة باستخدام Cubit                 |
-| `hive` + `hive_flutter`  | التخزين المحلي                              |
-| `firebase_auth`          | تسجيل الدخول/التسجيل                        |
-| `cloud_firestore`        | حفظ المنتجات والفئات                        |
-| `google_maps_flutter`    | تحديد الموقع                                |
-| `cached_network_image`   | تحميل الصور بكفاءة                          |
+| `flutter_bloc`           | State management using Cubit                 |
+| `hive` + `hive_flutter`  | Local data storage                           |
+| `firebase_auth`          | Authentication                              |
+| `cloud_firestore`        | Store products and categories                |
+| `google_maps_flutter`    | Address selection via map                    |
+| `cached_network_image`   | Efficient image loading                      |
 
+---
 
 ## 📂 Folder Structure
 
@@ -160,4 +153,3 @@ lib/
 │   │       └── view/
 │   ├── favorite/
 │   └── home/                 
-
