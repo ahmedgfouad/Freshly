@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store/core/thems/colors.dart';
+import 'package:store/core/theme/colors.dart';
 
 abstract class AppStyles {
   static TextStyle textStyle18(BuildContext context) => TextStyle(

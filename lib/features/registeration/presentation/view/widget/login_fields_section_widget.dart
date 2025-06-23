@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:store/core/thems/colors.dart';
+import 'package:store/core/theme/colors.dart';
 import 'package:store/core/utils/images.dart';
-import 'package:store/core/thems/styles.dart';
+import 'package:store/core/theme/styles.dart';
 import 'package:store/core/widgets/custom_textformfield_widget.dart';
 import 'package:store/features/registeration/presentation/view/widget/pas_textformfield_widget.dart';
 import 'package:store/generated/l10n.dart';

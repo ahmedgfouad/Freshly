@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:store/core/thems/colors.dart';
-import 'package:store/core/thems/styles.dart';
+import 'package:store/core/theme/colors.dart';
+import 'package:store/core/theme/styles.dart';
 import 'package:store/features/home/data/models/save_product_model.dart';
 import 'package:store/generated/l10n.dart';
 

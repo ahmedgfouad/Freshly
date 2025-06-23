@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/thems/colors.dart';
+import 'package:store/core/theme/colors.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/features/home/data/models/save_product_model.dart';
 import 'package:store/features/product_details/presentation/manager/add_to_cart_cubit/add_to_cart_state.dart';

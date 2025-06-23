@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/thems/styles.dart';
+import 'package:store/core/theme/styles.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/language_option_widget.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/logout_option_widget.dart';
 import 'package:store/features/account/presentation/profile/view/widgets/mode_option_widget.dart';

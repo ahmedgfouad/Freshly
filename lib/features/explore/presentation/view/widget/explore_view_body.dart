@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/router/app_router.dart';
-import 'package:store/core/thems/colors.dart';
+import 'package:store/core/theme/colors.dart';
 import 'package:store/core/widgets/custom_loading_indecator.dart';
 import 'package:store/core/widgets/custom_search_text_form_field.dart';
 import 'package:store/features/shop/presentation/manager/categories_cubit/categories_cubit.dart';

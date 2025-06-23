@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:store/core/thems/colors.dart';
+import 'package:store/core/theme/colors.dart';
 import 'package:store/features/home/data/models/product_model.dart';
 
 class ProductDetailsImageWidget extends StatelessWidget {

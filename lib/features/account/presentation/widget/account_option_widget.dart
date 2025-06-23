@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store/core/thems/colors.dart';
-import 'package:store/core/thems/styles.dart';
+import 'package:store/core/theme/colors.dart';
+import 'package:store/core/theme/styles.dart';
 
 class AccountOptionWidget extends StatelessWidget {
   const AccountOptionWidget({

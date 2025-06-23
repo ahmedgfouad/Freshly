@@ -6,7 +6,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:store/core/router/app_router.dart';
 import 'package:store/core/utils/constants.dart';
-import 'package:store/core/thems/thems.dart';
+import 'package:store/core/theme/thems.dart';
 import 'package:store/features/account/presentation/profile/manager/language_cubit/language_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/profile_image_cubit/profile_image_cubit.dart';
 import 'package:store/features/account/presentation/profile/manager/them_cubit/them_cubit.dart';

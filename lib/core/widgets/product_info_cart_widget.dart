@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/router/app_router.dart';
-import 'package:store/core/thems/colors.dart';
-import 'package:store/core/thems/styles.dart';
+import 'package:store/core/theme/colors.dart';
+import 'package:store/core/theme/styles.dart';
 import 'package:store/features/home/data/models/product_model.dart';
 import 'package:store/generated/l10n.dart';
 
